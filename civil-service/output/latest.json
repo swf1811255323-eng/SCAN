@@ -1,8 +1,9 @@
 {
-  "generatedAt": "2026-10-10T13:28:37.008Z",
+  "generatedAt": "2026-10-10T13:46:11.254Z",
   "years": [
     2026
   ],
+  "graduationYear": 2028,
   "coverage": {
     "expectedProvinceCount": 31,
     "queryProvinceCount": 31,
@@ -113,11 +114,269 @@
     },
     "excludedAreaCount": 0,
     "queryCount": 42,
-    "searchResultCount": 42,
+    "searchResultCount": 420,
     "seedSourceCount": 16,
     "searchConcurrency": 6,
     "errorCount": 0
   },
+  "concretePositions": [
+    {
+      "grade": "A+",
+      "score": 85,
+      "year": 2026,
+      "region": "湖北 荆州市直",
+      "agency": "荆州市审计局",
+      "position": "信息技术岗",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "2028届需等待对应年度职位表"
+      ],
+      "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A+",
+      "score": 84,
+      "year": 2026,
+      "region": "湖北 宜昌市直",
+      "agency": "宜昌市数据局",
+      "position": "综合管理岗",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "数据管理方向"
+      ],
+      "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A+",
+      "score": 82,
+      "year": 2026,
+      "region": "广东 广州",
+      "agency": "广东省审计厅",
+      "position": "一级主任科员以下",
+      "headcount": 2,
+      "notes": [
+        "历史职位模板",
+        "审计与计算机复合方向"
+      ],
+      "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A+",
+      "score": 81,
+      "year": 2026,
+      "region": "广东 广州",
+      "agency": "广州市荔湾区审计局",
+      "position": "重点项目审计科四级主任科员以下",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "需核对专业目录"
+      ],
+      "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A+",
+      "score": 81,
+      "year": 2026,
+      "region": "广东 广州",
+      "agency": "广州市白云区政务服务和数据管理局",
+      "position": "基础设施建设科一级科员",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "政务信息化方向"
+      ],
+      "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A+",
+      "score": 81,
+      "year": 2026,
+      "region": "广东 广州",
+      "agency": "广州市番禺区财政局",
+      "position": "财政国库支付管理办公室一级科员",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "财政信息系统方向"
+      ],
+      "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A+",
+      "score": 80,
+      "year": 2026,
+      "region": "湖北 武汉",
+      "agency": "武汉市人社局所属单位",
+      "position": "人社业务岗7",
+      "headcount": 3,
+      "notes": [
+        "历史职位模板",
+        "最低服务年限3年"
+      ],
+      "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A+",
+      "score": 80,
+      "year": 2026,
+      "region": "广东 佛山",
+      "agency": "佛山市公安局",
+      "position": "科技信息化支队二级警长以下",
+      "headcount": 2,
+      "notes": [
+        "历史职位模板",
+        "人民警察岗位",
+        "需核对体测体检和专业科目"
+      ],
+      "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A",
+      "score": 79,
+      "year": 2026,
+      "region": "湖北 襄阳市直",
+      "agency": "襄阳市发展和改革委员会",
+      "position": "价格调控岗",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "需核对专业目录"
+      ],
+      "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A",
+      "score": 79,
+      "year": 2026,
+      "region": "广东 广州",
+      "agency": "中共广州市越秀区委宣传部",
+      "position": "网络安全和信息化科一级科员",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "网络安全与信息化方向"
+      ],
+      "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A",
+      "score": 79,
+      "year": 2026,
+      "region": "广东 深圳",
+      "agency": "深圳市龙岗区政务服务和数据管理局",
+      "position": "数据管理科一级科员",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "数据管理方向"
+      ],
+      "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A",
+      "score": 78,
+      "year": 2026,
+      "region": "湖北 武汉硚口区",
+      "agency": "武汉市硚口区市场监管局",
+      "position": "信息技术岗",
+      "headcount": 2,
+      "notes": [
+        "历史职位模板",
+        "最低服务年限3年"
+      ],
+      "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A",
+      "score": 78,
+      "year": 2026,
+      "region": "湖北 鄂州市直",
+      "agency": "鄂州市财政局",
+      "position": "信息风控岗",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "信息风控方向"
+      ],
+      "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A",
+      "score": 78,
+      "year": 2026,
+      "region": "广东 湛江",
+      "agency": "吴川市政务服务和数据管理局",
+      "position": "数据管理股（安全应用股）一级科员",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "数据安全方向"
+      ],
+      "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A",
+      "score": 78,
+      "year": 2026,
+      "region": "广东 茂名",
+      "agency": "化州市审计局",
+      "position": "电子数据审计股一级科员",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "电子数据审计方向"
+      ],
+      "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    }
+  ],
   "excluded": [],
   "items": [
     {
