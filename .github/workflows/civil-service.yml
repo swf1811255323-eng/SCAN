@@ -1,0 +1,112 @@
+name: computer-major-civil-service-radar
+
+# GitHub Actions cron 使用 UTC；北京时间 = UTC + 8。
+# GitHub 官方说明整点附近容易出现调度高负载，因此四次运行均选在非整点分钟。
+on:
+  # 带 [civil-send-now] 的主分支提交可立即试跑；普通报告回写提交会被 job 条件跳过。
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/civil-service.yml'
+      - 'civil-service/**'
+  schedule:
+    - cron: '23 0 * * *'   # 北京 08:23
+    - cron: '37 3 * * *'   # 北京 11:37
+    - cron: '47 7 * * *'   # 北京 15:47
+    - cron: '53 12 * * *'  # 北京 20:53
+  workflow_dispatch:
+    inputs:
+      years:
+        description: '检索年份，英文逗号分隔'
+        required: false
+        default: '2026,2025,2024'
+      limit:
+        description: '报告最多保留多少条有效资料'
+        required: false
+        default: '80'
+      no_mail:
+        description: '只生成报告，不发邮件（true/false）'
+        required: false
+        default: 'false'
+      force_mail:
+        description: '忽略今日已发送记录，强制发送一封测试邮件（true/false）'
+        required: false
+        default: 'false'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: computer-major-civil-service-radar
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    if: github.event_name != 'push' || contains(github.event.head_commit.message, '[civil-send-now]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: 拉取仓库
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 准备 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 离线自检
+        run: node civil-service/test.mjs
+
+      - name: 搜索计算机专业公务员岗位资料
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          MAIL_TO: ${{ secrets.CIVIL_SERVICE_MAIL_TO }}
+          FORCE_MAIL: ${{ (github.event_name == 'push' && contains(github.event.head_commit.message, '[civil-send-now]')) || github.event.inputs.force_mail == 'true' }}
+        shell: bash
+        run: |
+          if [ -z "$MAIL_TO" ]; then
+            echo "::error::缺少独立收件地址 Secret：CIVIL_SERVICE_MAIL_TO"
+            exit 1
+          fi
+          ARGS="--years ${{ github.event.inputs.years || '2026,2025,2024' }} --limit ${{ github.event.inputs.limit || '80' }}"
+          if [ "${{ github.event.inputs.no_mail }}" = "true" ]; then ARGS="$ARGS --no-mail"; fi
+          if [ "$FORCE_MAIL" = "true" ]; then ARGS="$ARGS --force-mail"; fi
+          node civil-service/scan.mjs $ARGS
+
+      - name: 写入 Actions 摘要
+        if: always()
+        shell: bash
+        run: |
+          if [ -f civil-service/output/latest.md ]; then
+            cat civil-service/output/latest.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "本轮未生成报告。" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: 提交报告与去重台账
+        if: success()
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f civil-service/output/latest.md civil-service/output/latest.json civil-service/output/history civil-service/state/seen.json
+          if git diff --cached --quiet; then
+            echo "本次没有变化，跳过提交"
+          else
+            git commit -m "chore(civil-service): update radar report $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+            git pull --rebase
+            git push
+          fi
+
+      - name: 上传报告产物
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: computer-major-civil-service-radar
+          path: civil-service/output/
+          if-no-files-found: warn
+          retention-days: 30
+

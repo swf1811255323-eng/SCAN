@@ -1,0 +1,141 @@
+{
+  "years": [2026, 2025, 2024],
+  "maxResultsPerQuery": 20,
+  "reportLimit": 80,
+  "queries": [
+    "\"{year}年度\" \"考试录用公务员\" 计算机 site:gov.cn",
+    "\"{year}年度\" 公务员 \"计算机类\" 职位表 site:gov.cn",
+    "\"{year}年度\" 省考 \"计算机科学与技术\" site:gov.cn",
+    "\"{year}年度\" 公务员 信息化 网络安全 招考 site:gov.cn",
+    "\"{year}年度\" 公务员 数据管理 信息技术 招录 site:gov.cn",
+    "\"{year}年度\" 税务 海关 证监 公安 \"计算机类\" site:gov.cn",
+    "\"{year}年度\" 四川 成都 公务员 \"计算机类\" 职位表 site:scpta.com.cn",
+    "\"{year}年度\" 重庆 公务员 \"计算机类\" 信息技术 site:cq.gov.cn",
+    "\"{year}年度\" 重庆 公务员 计算机 网络安全 site:rlsbj.cq.gov.cn",
+    "\"{year}年度\" 湖北 武汉 公务员 计算机 信息技术 site:hubei.gov.cn"
+  ],
+  "roleCategories": {
+    "信息化/电子政务": ["信息化", "电子政务", "数字政府", "政务系统", "信息中心", "信息技术"],
+    "网络安全/网信": ["网络安全", "网信", "信息安全", "数据安全", "网络空间安全", "密码"],
+    "公安技术/网络警察": ["公安", "人民警察", "网安", "网络警察", "刑侦技术"],
+    "数据管理/统计分析": ["数据管理", "大数据", "统计", "数据分析", "数据库"],
+    "专业监管/技术监管": ["证监", "金融监管", "海关", "税务", "市场监管", "审计", "监管"],
+    "综合管理/行政执法": ["综合管理", "行政执法", "一级主任科员", "科员", "机关业务"]
+  },
+  "seedSources": [
+    {
+      "title": "四川省2026年度省级机关及其直属机构公开考试录用公务员",
+      "url": "https://www.scpta.com.cn/front/Special/Info/85887d50aadf43f491088f4a9106c647",
+      "summary": "四川省及成都等地区2026年度公务员招录专题，具体计算机类、信息化、网络安全和数据岗位以各机关职位表为准。",
+      "year": 2026,
+      "forceInclude": true
+    },
+    {
+      "title": "重庆市2025年度公开考试录用公务员公告及职位表",
+      "url": "https://cq.gov.cn/ywdt/tzgg/202502/t20250211_14293058.html",
+      "summary": "重庆市2025年度公务员招考公告，附件含职位情况一览表和专业参考目录，计算机类考生可按专业、学历和地区筛选职位。",
+      "year": 2025,
+      "forceInclude": true
+    },
+    {
+      "title": "重庆市2025年度公务员信息技术管理职位录用结果",
+      "url": "https://cgj.cq.gov.cn/zwgk_173/fdzdgknr/zzrs/202509/t20250905_14979015.html",
+      "summary": "重庆市城市供节水事务中心信息技术管理职位，录用成绩公示显示报考专业包含计算机技术，是川渝地区计算机专业公务员岗位实例。",
+      "year": 2025,
+      "forceInclude": true
+    },
+    {
+      "title": "湖北省公安机关2025年网络安全技术特殊职位公务员招录",
+      "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zytz/202509/t20250930_5783872.shtml",
+      "summary": "湖北省公安机关网络安全技术人民警察职位，专业技能测试地点设在武汉，面向具备信息安全、网络安全和计算机编程能力的报考人员。",
+      "year": 2025,
+      "forceInclude": true
+    },
+    {
+      "title": "武汉市2025年度公务员信息技术岗拟录用公示",
+      "url": "https://www.wuhan.gov.cn/zwgk/tzgg/202505/P020250524563596165268.pdf",
+      "summary": "武汉市2025年度公务员拟录用名单包含信息技术岗、数据审计岗等计算机专业相关职位，是湖北地区实际录用岗位实例。",
+      "year": 2025,
+      "forceInclude": true
+    },
+    {
+      "title": "2026年度中国证监会考试录用公务员公告",
+      "url": "https://www.csrc.gov.cn/csrc/c100083/c7588473/content.shtml",
+      "summary": "中国证监会及派出机构拟招录财金、法律、会计、计算机等专业监管人才，职位覆盖北京证监局等派出机构。",
+      "year": 2026,
+      "forceInclude": true
+    },
+    {
+      "title": "税务系统2026年度考试录用公务员相关事项通知",
+      "url": "https://www.chinatax.gov.cn/chinatax/n896543r/c5243601/content.html",
+      "summary": "税务系统专业目录中的计算机类包含计算机科学与技术、软件工程、网络工程、信息安全、数据科学与大数据技术、网络空间安全等。",
+      "year": 2026,
+      "forceInclude": true
+    },
+    {
+      "title": "欢迎广大考生报考工业和信息化部公务员",
+      "url": "https://www.miit.gov.cn/xwfb/gxdt/sjdt/art/2024/art_32724046a6ab4015a45c50f53b291418.html",
+      "summary": "工业和信息化部2025年度公务员招录信息，涉及部机关及直属机构，具体专业和工作地点以职位表为准。",
+      "year": 2025,
+      "forceInclude": true
+    },
+    {
+      "title": "湖北省2025年度省市县乡考试录用公务员公告",
+      "url": "https://zrzyt.hubei.gov.cn/fbjd/xxgkml/zkly/202510/t20251030_5801217.shtml",
+      "summary": "湖北省省市县乡公务员招录公告，职位资格条件和工作地点以湖北省人事考试网职位表为准。",
+      "year": 2025,
+      "forceInclude": true
+    },
+    {
+      "title": "福建省机关事业单位招考专业指导目录（2025年）",
+      "url": "https://gwykl.fujian.gov.cn/portal/policy/specialtylist2025.html",
+      "summary": "官方专业目录列出计算机网络、软件、信息安全、数据科学、人工智能等可报专业范围。",
+      "year": 2025,
+      "forceInclude": true
+    },
+    {
+      "title": "商务部2025年度补充录用公务员职位表",
+      "url": "https://rss.mofcom.gov.cn/api-gateway/jpaas-web-server/front/document/download?fileName=%E5%95%86%E5%8A%A1%E9%83%A82025%E5%B9%B4%E5%BA%A6%E8%A1%A5%E5%85%85%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E8%81%8C%E4%BD%8D%E8%A1%A8.pdf&fileUrl=YW5UzzlvCwcM%2FNHHX%2FtT6BcWYLharpwdJgwBRDMZZpwJDAtMw5Adlcka7ZaGBiCRBGaOoYnRP0NfsndJ%2FvNyhGd2Fxg2DfgLOa8WS6geSitaoAsQlV%2Br3bfx4UEV5dx%2F%2ByfkdOtoJ%2F5lcv%2Fnyve4f2V9YLf1xUcQYK5j9D5ESo0%3D",
+      "summary": "北京中央机关综合管理岗位，专业范围包含计算机科学与技术、网络空间安全、智能科学与技术等，部分岗位有英语条件。",
+      "year": 2025,
+      "forceInclude": true
+    },
+    {
+      "title": "外交部2025年度公务员录用计划表",
+      "url": "https://www.mfa.gov.cn/web/wjb_673085/gbclc_603848/tzgg_660725/202410/P020241014571145485714.pdf",
+      "summary": "北京中央机关职位面向计算机科学与技术、软件工程、大数据技术与工程等人工智能相关专业，部分职位设置英语条件和专业能力测试。",
+      "year": 2025,
+      "forceInclude": true
+    },
+    {
+      "title": "河南省2024年度统一考试录用公务员职位表",
+      "url": "https://www.beiguan.gov.cn/UploadFiles/file/20240122/6384151219711290496981301.pdf",
+      "summary": "河南省辖市以下职位表包含计算机科学与技术、信息安全等专业要求，具体用人单位和工作地点见职位表。",
+      "year": 2024,
+      "forceInclude": true
+    },
+    {
+      "title": "武汉市2024年度市直机关公开遴选公务员职位计划表",
+      "url": "https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202410/P020241008651489684198.pdf",
+      "summary": "武汉市公安局网络安全保卫支队警务技术职位，从事网络违法犯罪侦查，专业范围含计算机类、网络空间安全、软件工程等；该来源属于面向在职公务员的公开遴选。",
+      "year": 2024,
+      "forceInclude": true
+    },
+    {
+      "title": "税务系统2024年度考试录用公务员相关事项通知",
+      "url": "https://shanghai.chinatax.gov.cn/xxgk/rsxx/202311/t469406.html",
+      "summary": "税务系统招录专业目录中的计算机类包含计算机科学与技术、软件工程、网络工程、信息安全、数据科学与大数据技术等，职位分布覆盖上海等税务机关。",
+      "year": 2024,
+      "forceInclude": true
+    },
+    {
+      "title": "中华人民共和国公务员法：工资福利保险",
+      "url": "https://www.stats.gov.cn/gk/tjfg/xgfxfg/202503/t20250310_1958920.html",
+      "summary": "公务员工资包括基本工资、津贴、补贴和奖金，并依法享受住房、医疗等补贴补助及社会保险待遇。",
+      "year": 2025,
+      "treatmentBasis": true,
+      "forceInclude": true
+    }
+  ]
+}
+
