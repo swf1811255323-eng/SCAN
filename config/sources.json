@@ -39,7 +39,8 @@
         "id": "boss",
         "label": "BOSS直聘",
         "domain": "zhipin.com",
-        "siteQuery": "(site:zhipin.com/job_detail OR site:zhipin.com/zhaopin)",
+        "siteQuery": "site:zhipin.com/job_detail",
+        "requiredUrlParts": ["zhipin.com/job_detail/"],
         "queries": [
           { "keyword": "C++ Linux 实习", "city": "武汉" },
           { "keyword": "C++ 实习", "city": "全国" }
@@ -49,7 +50,8 @@
         "id": "job51",
         "label": "前程无忧",
         "domain": "51job.com",
-        "siteQuery": "(site:jobs.51job.com OR site:wenku.51job.com)",
+        "siteQuery": "site:jobs.51job.com",
+        "requiredUrlParts": ["jobs.51job.com/", ".html"],
         "landingPages": [
           {
             "url": "https://wenku.51job.com/wuhan_jobs/202512/CCyuyan/",
@@ -67,7 +69,8 @@
         "id": "liepin",
         "label": "猎聘",
         "domain": "liepin.com",
-        "siteQuery": "(site:liepin.com/job OR site:liepin.com/a/ OR site:liepin.com/city-wuhan)",
+        "siteQuery": "site:liepin.com/job",
+        "requiredUrlParts": ["liepin.com/job/", ".shtml"],
         "landingPages": [
           {
             "url": "https://www.liepin.com/city-wuhan/zpjsjkfsxs10u4x/",

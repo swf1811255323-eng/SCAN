@@ -147,12 +147,18 @@ test('受风控平台索引：RSS 只保留目标官网并清理追踪参数', (
 });
 
 test('受风控平台索引：搜狗结果提取官网规范链接和摘要', () => {
-  const platform = { id: 'boss', label: 'BOSS直聘', domain: 'zhipin.com' };
+  const platform = { id: 'boss', label: 'BOSS直聘', domain: 'zhipin.com', requiredUrlParts: ['/zhaopin/'] };
   const items = parseIndexedSearchHtml(INDEX_SEARCH_HTML, platform, { keyword: 'C++ 实习', city: '武汉' });
   assert.equal(items.length, 1);
   assert.equal(items[0].title, '武汉C++实习招聘信息');
   assert.equal(items[0].url, 'https://www.zhipin.com/zhaopin/demo/');
   assert.equal(items[0].salary, '200-250元/天');
+});
+
+test('受风控平台索引：URL 质量门槛排除聚合页', () => {
+  const platform = { id: 'boss', label: 'BOSS直聘', domain: 'zhipin.com', requiredUrlParts: ['zhipin.com/job_detail/'] };
+  const items = parseIndexedSearchHtml(INDEX_SEARCH_HTML, platform, { keyword: 'C++ 实习', city: '武汉' });
+  assert.equal(items.length, 0);
 });
 
 test('前程无忧公开列表：提取职位、公司、城市、学历和官网详情链接', () => {

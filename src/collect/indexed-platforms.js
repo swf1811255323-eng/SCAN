@@ -50,6 +50,11 @@ function hostAllowed(raw, domain) {
   }
 }
 
+function urlAllowed(raw, platform) {
+  if (!hostAllowed(raw, platform.domain)) return false;
+  return (platform.requiredUrlParts || []).every((part) => String(raw).includes(part));
+}
+
 function guessCity(text, fallback = '') {
   const match = String(text).match(/武汉|北京|上海|深圳|广州|杭州|南京|成都|重庆|西安|苏州|长沙|合肥|厦门|远程/);
   return match?.[0] || fallback;
@@ -85,7 +90,7 @@ export function parseIndexedRss(xml, platform, meta = {}) {
         indexedDiscovery: true,
       };
     })
-    .filter((item) => item.title && item.url && hostAllowed(item.url, platform.domain));
+    .filter((item) => item.title && item.url && urlAllowed(item.url, platform));
 }
 
 function decodeUrlComponent(value) {
@@ -100,7 +105,7 @@ export function parseIndexedSearchHtml(html, platform, meta = {}) {
   const pattern = /data-url=["'](https?:\/\/[^"']+)["'][^>]{0,1200}?data-title=["']([^"']*)["']/gi;
   for (const match of source.matchAll(pattern)) {
     const url = canonicalUrl(decodeEntities(match[1]));
-    if (!hostAllowed(url, platform.domain) || seen.has(url)) continue;
+    if (!urlAllowed(url, platform) || seen.has(url)) continue;
     seen.add(url);
     const before = source.slice(Math.max(0, match.index - 5000), match.index);
     const summaries = [...before.matchAll(/class=["'][^"']*(?:fz-mid|text-layout)[^"']*["'][^>]*>([\s\S]*?)<\/div>/gi)];
