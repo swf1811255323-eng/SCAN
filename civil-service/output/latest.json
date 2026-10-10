@@ -1,7 +1,9 @@
 {
-  "generatedAt": "2026-10-10T12:52:24.740Z",
+  "generatedAt": "2026-10-10T13:03:03.886Z",
   "years": [
-    2026
+    2026,
+    2025,
+    2024
   ],
   "coverage": {
     "expectedProvinceCount": 31,
@@ -112,8 +114,8 @@
       "新疆": 0
     },
     "excludedAreaCount": 0,
-    "queryCount": 42,
-    "searchResultCount": 420,
+    "queryCount": 126,
+    "searchResultCount": 381,
     "seedSourceCount": 16,
     "searchConcurrency": 6,
     "errorCount": 0
