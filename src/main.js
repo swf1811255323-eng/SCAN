@@ -7,6 +7,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { collectZhaopin, enrichZhaopinDetail } from './collect/zhaopin.js';
 import { collectShixiseng, enrichShixisengDetail } from './collect/shixiseng.js';
+import { collectIndexedPlatforms, enrichIndexedPlatformDetail } from './collect/indexed-platforms.js';
 import { scoreJob, dedupeJobs, rankJobs, selectForReport, hardExcluded, normText } from './filter/score.js';
 import { loadLedger, saveLedger, splitNewSeen, markSeen } from './dedupe/ledger.js';
 import { buildEmail } from './mail/compose.js';
@@ -100,6 +101,31 @@ export function preFilter(jobs, keywords) {
   });
 }
 
+/** Fairly share the detail-page budget across every enabled source. */
+export function chooseEnrichmentCandidates(jobs, limit, scoreFn = () => 0) {
+  const buckets = new Map();
+  for (const job of jobs) {
+    const key = job.source || 'unknown';
+    if (!buckets.has(key)) buckets.set(key, []);
+    buckets.get(key).push(job);
+  }
+  for (const bucket of buckets.values()) bucket.sort((a, b) => scoreFn(b) - scoreFn(a));
+  const selected = [];
+  while (selected.length < limit) {
+    let added = false;
+    for (const bucket of buckets.values()) {
+      if (selected.length >= limit) break;
+      const next = bucket.shift();
+      if (next) {
+        selected.push(next);
+        added = true;
+      }
+    }
+    if (!added) break;
+  }
+  return selected;
+}
+
 async function mapLimit(items, limit, fn) {
   const out = new Array(items.length);
   let cursor = 0;
@@ -132,6 +158,7 @@ export async function runScan(args, deps = {}) {
     const plan = [
       `智联招聘：${sources.zhaopin.queries.length} 组关键词/城市组合`,
       `实习僧：${sources.shixiseng.queries.length} 组关键词/城市组合`,
+      `受风控平台索引：${(sources.indexedPlatforms?.platforms || []).filter((x) => x.enabled !== false).map((x) => x.label).join('、') || '关闭'}`,
       `富化上限：${args.enrich} 个详情页｜结果目标：${args.min}-${args.limit} 个`,
       `去重台账：${path.join(args.root, 'state', 'sent-jobs.json')}`,
       `邮件：${args.mail ? '启用（GMAIL_USER/GMAIL_APP_PASSWORD）' : '关闭'}`,
@@ -156,6 +183,9 @@ export async function runScan(args, deps = {}) {
     if (sources.shixiseng.enabled) {
       // 实习僧 titles are font-obfuscated, so always enrich them before trusting text.
       raw = raw.concat(await collectShixiseng(sources.shixiseng.queries, { fetchImpl, log }));
+    }
+    if (sources.indexedPlatforms?.enabled) {
+      raw = raw.concat(await collectIndexedPlatforms(sources.indexedPlatforms, { fetchImpl, log }));
     }
   }
   log(`  采集原始条目：${raw.length}`);
@@ -185,22 +215,23 @@ export async function runScan(args, deps = {}) {
     return s;
   };
   const byQuick = (list) => [...list].sort((a, b) => quickScore(b) - quickScore(a));
-  const sxRanked = byQuick(plausible.filter((j) => j.source === 'shixiseng'));
-  const zpRanked = byQuick(plausible.filter((j) => j.source === 'zhaopin'));
   let enriched;
   if (args.curatedOnly) {
     log('  清单模式：跳过详情页富化（核实内容已随清单提供）');
     enriched = plausible;
   } else {
-    const sxQuota = Math.min(sxRanked.length, Math.ceil(args.enrich / 2));
-    const zpQuota = Math.max(0, Math.min(zpRanked.length, args.enrich - sxQuota));
-    const toEnrich = [...zpRanked.slice(0, zpQuota), ...sxRanked.slice(0, sxQuota)];
-    log(`  进入详情富化：${toEnrich.length}（智联 ${zpQuota}，实习僧 ${sxQuota}）`);
+    const toEnrich = chooseEnrichmentCandidates(plausible, args.enrich, quickScore);
+    const enrichCounts = toEnrich.reduce((acc, job) => {
+      acc[job.sourceLabel || job.source] = (acc[job.sourceLabel || job.source] || 0) + 1;
+      return acc;
+    }, {});
+    log(`  进入详情富化：${toEnrich.length}（${Object.entries(enrichCounts).map(([name, count]) => `${name} ${count}`).join('，')}）`);
 
     enriched = await mapLimit(toEnrich, deps.concurrency || 4, async (job) => {
       try {
         if (job.source === 'zhaopin') return normalizeJob(await enrichZhaopinDetail(job, { fetchImpl }));
-        return normalizeJob(await enrichShixisengDetail(job, { fetchImpl }));
+        if (job.source === 'shixiseng') return normalizeJob(await enrichShixisengDetail(job, { fetchImpl }));
+        return normalizeJob(await enrichIndexedPlatformDetail(job, { fetchImpl }));
       } catch (err) {
         errors.push(`富化失败 ${job.company}/${job.title}：${err.message}`);
         return job;
@@ -409,3 +440,4 @@ if (invokedDirectly) {
       process.exit(1);
     });
 }
+

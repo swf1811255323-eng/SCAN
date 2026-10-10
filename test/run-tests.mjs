@@ -10,11 +10,20 @@ import { decodeEntities, stripTags } from '../src/lib/http.js';
 import { beijingDateString, beijingStamp } from '../src/lib/time.js';
 import { parseSearchPage as parseZhaopin, parseDetailPage as parseZhaopinDetail, buildSearchUrl as zhaopinUrl } from '../src/collect/zhaopin.js';
 import { parseSearchPage as parseShixiseng, parseDetailPage as parseShixisengDetail } from '../src/collect/shixiseng.js';
+import {
+  buildIndexSearchUrl,
+  isChallengePage,
+  parseIndexedDetailPage,
+  parseIndexedRss,
+  parseIndexedSearchHtml,
+  parse51JobListPage,
+  parseLiepinListPage,
+} from '../src/collect/indexed-platforms.js';
 import { scoreJob, dedupeJobs, rankJobs, selectForReport, hardExcluded, jobIdentity } from '../src/filter/score.js';
 import { loadLedger, saveLedger, splitNewSeen, markSeen, isSeen } from '../src/dedupe/ledger.js';
 import { buildEmail, buildSubject } from '../src/mail/compose.js';
 import { buildRawMessage } from '../src/mail/smtp.js';
-import { normalizeJob, preFilter, parseArgs, runScan } from '../src/main.js';
+import { chooseEnrichmentCandidates, normalizeJob, preFilter, parseArgs, runScan } from '../src/main.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const profile = JSON.parse(fs.readFileSync(path.join(ROOT, 'config', 'profile.json'), 'utf8'));
@@ -48,6 +57,36 @@ const SHIXISENG_DETAIL = `<html><head><title>C++实习生实习招聘-挚信资�
 <div>2025-06-16 10:47:47 刷新 100-150/天 武汉 本科 5天／周 实习3个月</div>
 <div>职位描述： 岗位描述 1．实现搜索服务自动化评测；2．大规模数据挖掘。任职要求 1．在校大三学生，计算机相关专业；2．有参与 C ++ 编程技能大赛或 GIS 平台软件开发经历为佳；3．数据库基础知识扎实。</div>
 <div>投递要求： 简历要求： 中文 截止日期：2026-12-31 工作地点： 武汉市</div></body></html>`;
+
+const INDEX_RSS = `<?xml version="1.0"?><rss><channel>
+<item><title><![CDATA[武汉C++开发实习生招聘信息-BOSS直聘]]></title><link>https://www.zhipin.com/zhaopin/demo/?utm_source=bing</link><description><![CDATA[武汉 200-250元/天，本科，熟悉 C++、Linux 与网络编程。]]></description><pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate></item>
+<item><title>伪造结果</title><link>https://evil.example.com/job</link><description>武汉 C++ 实习</description></item>
+</channel></rss>`;
+
+const INDEX_DETAIL = `<html><head><title>C++开发实习生-示例科技-BOSS直聘</title>
+<script type="application/ld+json">{
+  "@context":"https://schema.org","@type":"JobPosting","title":"C++开发实习生",
+  "description":"职位描述：参与 Linux 网络服务研发。任职要求：本科在校生，熟悉 C++、Socket 与多线程。",
+  "datePosted":"2026-10-03","validThrough":"2026-11-30",
+  "hiringOrganization":{"@type":"Organization","name":"示例科技","sameAs":"https://example.com"},
+  "jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressRegion":"湖北","addressLocality":"武汉"}},
+  "baseSalary":{"@type":"MonetaryAmount","currency":"CNY","value":{"@type":"QuantitativeValue","minValue":180,"maxValue":250,"unitText":"DAY"}},
+  "educationRequirements":"本科"
+}</script></head><body>公开职位详情</body></html>`;
+
+const INDEX_SEARCH_HTML = `<div class="vrwrap"><div class="fz-mid space-txt">武汉 200-250元/天，本科，熟悉 C++ 与 Linux。</div>
+<div data-url="https://www.zhipin.com/zhaopin/demo/?from=sogou" data-hint="sugg" data-title="%E3%80%8C%E6%AD%A6%E6%B1%89C%2B%2B%E5%AE%9E%E4%B9%A0%E6%8B%9B%E8%81%98%E4%BF%A1%E6%81%AF%E3%80%8D-BOSS%E7%9B%B4%E8%81%98"></div></div>
+<div data-url="https://evil.example.com/job" data-hint="sugg" data-title="%E4%BC%AA%E9%80%A0%E7%BB%93%E6%9E%9C"></div>`;
+
+const JOB51_LIST = `<div class="e on" name="check_div"><a class="el" href="https://jobs.51job.com/wuhan-cdq/166095617.html?t=0">
+<span class="jname at">决策规划开发实习生</span><span class="time">09-21发布</span>
+<span class="sal at">120元/天</span><span class="d at">武汉·蔡甸区 | 在校生/应届生 | 本科</span><p class="tags on"><span><i>ROS</i><i>C++</i></span></p></a>
+<div class="er"><a class="cname at">东风悦享科技</a><p class="dc at">国企 | 150-500人</p><p class="int at">互联网/电子商务</p></div></div>`;
+
+const LIEPIN_LIST = `<div class="job-list-item"><div class="job-card-pc-container"><a href="https://www.liepin.com/job/1985588249.shtml">
+<div class="job-title-box"><div title="C++开发实习生" class="ellipsis-1">C++开发实习生</div><div class="job-dq-box"><span>【</span><span>武汉-流芳</span><span>】</span></div></div>
+<span class="job-salary">3-4k</span><div class="job-labels-box"><span class="labels-tag">经验不限</span><span class="labels-tag">本科</span></div></a>
+<span class="company-name ellipsis-1">示例科技</span><div class="company-tags-box"><span>计算机软件</span><span>B轮融资</span><span>100-499人</span></div></div></div>`;
 
 test('decodeEntities 处理缺少分号的实体（实习僧字体混淆）', () => {
   assert.equal(stripTags('<a>&#xe9d4;++实习&#xe5a3</a>'), '++实习');
@@ -94,6 +133,71 @@ test('实习僧详情页解析：截止日期/刷新时间/学历/描述', () =>
   assert.match(d.refreshDate, /^2025-06-16/);
   assert.equal(d.degree, '本科');
   assert.match(d.description, /在校大三/);
+});
+
+test('受风控平台索引：RSS 只保留目标官网并清理追踪参数', () => {
+  const platform = { id: 'boss', label: 'BOSS直聘', domain: 'zhipin.com' };
+  const items = parseIndexedRss(INDEX_RSS, platform, { keyword: 'C++ 实习', city: '武汉' });
+  assert.equal(items.length, 1);
+  assert.equal(items[0].source, 'boss');
+  assert.equal(items[0].city, '武汉');
+  assert.equal(items[0].salary, '200-250元/天');
+  assert.equal(items[0].url, 'https://www.zhipin.com/zhaopin/demo/');
+  assert.match(buildIndexSearchUrl('site:zhipin.com C++ 实习'), /sogou\.com\/web/);
+});
+
+test('受风控平台索引：搜狗结果提取官网规范链接和摘要', () => {
+  const platform = { id: 'boss', label: 'BOSS直聘', domain: 'zhipin.com' };
+  const items = parseIndexedSearchHtml(INDEX_SEARCH_HTML, platform, { keyword: 'C++ 实习', city: '武汉' });
+  assert.equal(items.length, 1);
+  assert.equal(items[0].title, '武汉C++实习招聘信息');
+  assert.equal(items[0].url, 'https://www.zhipin.com/zhaopin/demo/');
+  assert.equal(items[0].salary, '200-250元/天');
+});
+
+test('前程无忧公开列表：提取职位、公司、城市、学历和官网详情链接', () => {
+  const [job] = parse51JobListPage(JOB51_LIST, { keyword: 'C/C++', city: '武汉' });
+  assert.equal(job.title, '决策规划开发实习生');
+  assert.equal(job.company, '东风悦享科技');
+  assert.equal(job.city, '武汉·蔡甸区');
+  assert.equal(job.education, '本科');
+  assert.equal(job.url, 'https://jobs.51job.com/wuhan-cdq/166095617.html');
+  assert.ok(job.tags.includes('C++'));
+});
+
+test('猎聘公开列表：提取职位卡和详情链接', () => {
+  const [job] = parseLiepinListPage(LIEPIN_LIST, { keyword: '计算机开发实习生', city: '武汉' });
+  assert.equal(job.title, 'C++开发实习生');
+  assert.equal(job.company, '示例科技');
+  assert.equal(job.city, '武汉-流芳');
+  assert.equal(job.education, '本科');
+  assert.equal(job.salary, '3-4k');
+});
+
+test('受风控平台详情：优先解析 JobPosting JSON-LD', () => {
+  const detail = parseIndexedDetailPage(INDEX_DETAIL, { sourceLabel: 'BOSS直聘', city: '武汉' });
+  assert.equal(detail.title, 'C++开发实习生');
+  assert.equal(detail.company, '示例科技');
+  assert.equal(detail.city, '湖北·武汉');
+  assert.equal(detail.education, '本科');
+  assert.match(detail.salary, /180-250 CNY DAY/);
+  assert.match(detail.description, /Socket/);
+  assert.equal(detail.structuredDetail, true);
+});
+
+test('受风控平台详情：识别安全验证页，不把验证码当职位内容', () => {
+  assert.equal(isChallengePage('<html><title>安全验证</title><body>请完成滑动验证码</body></html>'), true);
+  assert.equal(isChallengePage(INDEX_DETAIL), false);
+});
+
+test('详情富化预算在多个来源间轮询分配', () => {
+  const jobs = [
+    { source: 'zhaopin', id: 'z1', score: 10 }, { source: 'zhaopin', id: 'z2', score: 9 },
+    { source: 'shixiseng', id: 's1', score: 8 }, { source: 'boss', id: 'b1', score: 7 },
+    { source: 'job51', id: 'j1', score: 6 }, { source: 'liepin', id: 'l1', score: 5 },
+  ];
+  const selected = chooseEnrichmentCandidates(jobs, 5, (job) => job.score);
+  assert.deepEqual(new Set(selected.map((job) => job.source)), new Set(['zhaopin', 'shixiseng', 'boss', 'job51', 'liepin']));
 });
 
 test('硬性排除：纯前端 / 销售 / 多年经验', () => {
@@ -412,3 +516,4 @@ test('--curated-only 缺少 --curated 时明确报错', async () => {
     /--curated-only 必须与 --curated/
   );
 });
+
