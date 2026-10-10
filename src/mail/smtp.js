@@ -10,6 +10,18 @@ function dotStuff(body) {
   return body.replace(/\r?\n/g, CRLF).replace(/^\./gm, '..');
 }
 
+export function normalizeMailbox(value, { gmailDefault = false, label = '邮箱地址' } = {}) {
+  let address = String(value || '').trim();
+  const bracketed = address.match(/<([^<>]+)>/);
+  if (bracketed) address = bracketed[1].trim();
+  address = address.replace(/^["']|["']$/g, '').trim();
+  if (gmailDefault && address && !address.includes('@')) address += '@gmail.com';
+  if (!/^[^\s<>@]+@[^\s<>@]+\.[^\s<>@]+$/.test(address)) {
+    throw new Error(`${label}格式无效，请填写完整邮箱地址`);
+  }
+  return address;
+}
+
 export class SmtpSession {
   constructor(socket, onLine) {
     this.waiters = [];
@@ -99,6 +111,8 @@ export async function sendMail({
   const transcript = [];
   let socket;
   try {
+    const authUser = normalizeMailbox(user, { gmailDefault: host === 'smtp.gmail.com', label: 'GMAIL_USER' });
+    const envelopeTo = normalizeMailbox(to, { label: '收件地址' });
     // Implicit TLS (:465) wraps the tunnel immediately; :587 speaks plain until STARTTLS.
     let rawSocket = await connect({ host, port, timeoutMs, proxy });
     socket = useStartTls ? rawSocket : await tlsOverTunnel(rawSocket, host, timeoutMs);
@@ -121,7 +135,7 @@ export async function sendMail({
       await session.command(`EHLO ${host}`, [250]);
     }
 
-    const authLogin = Buffer.from(String(user), 'utf8').toString('base64');
+    const authLogin = Buffer.from(authUser, 'utf8').toString('base64');
     const authPass = Buffer.from(String(password), 'utf8').toString('base64');
     const authStart = await session.command('AUTH LOGIN', [334, 235, 503]);
     if (authStart.code === 334) {
@@ -130,8 +144,8 @@ export async function sendMail({
       if (done.code !== 235) throw new Error(`SMTP 认证失败：${done.text}`);
     }
 
-    await session.command(`MAIL FROM:<${user}>`, [250]);
-    await session.command(`RCPT TO:<${to}>`, [250, 251]);
+    await session.command(`MAIL FROM:<${authUser}>`, [250]);
+    await session.command(`RCPT TO:<${envelopeTo}>`, [250, 251]);
     await session.command('DATA', [354]);
     socket.write(`${dotStuff(rawMessage)}${CRLF}.${CRLF}`);
     // The body terminator already ended the command; read the acceptance reply without
@@ -165,11 +179,13 @@ export async function sendMail({
 }
 
 export function buildRawMessage({ from, fromName, to, subject, text, html, date = new Date() }) {
+  const headerFrom = normalizeMailbox(from, { gmailDefault: true, label: '发件地址' });
+  const headerTo = normalizeMailbox(to, { label: '收件地址' });
   const boundary = `----cppinternradar${Math.random().toString(36).slice(2)}`;
   const encodeHeader = (s) => (/^[\x20-\x7E]*$/.test(s) ? s : `=?UTF-8?B?${Buffer.from(s, 'utf8').toString('base64')}?=`);
   const headers = [
-    `From: ${encodeHeader(fromName)} <${from}>`,
-    `To: <${to}>`,
+    `From: ${encodeHeader(fromName)} <${headerFrom}>`,
+    `To: <${headerTo}>`,
     `Subject: ${encodeHeader(subject)}`,
     `Date: ${date.toUTCString()}`,
     'MIME-Version: 1.0',

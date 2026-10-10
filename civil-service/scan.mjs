@@ -536,6 +536,9 @@ export async function run(args = parseArgs(), deps = {}) {
   fs.writeFileSync(DEFAULT_STATE, JSON.stringify(updateState(state, items, now.toISOString()), null, 2) + '\n', 'utf8');
   console.log(`完成：扫描 ${coverage.queryProvinceCount}/${coverage.expectedProvinceCount} 省级行政区 + 国考，命中 ${coverage.hitProvinceCount} 省，排除边境/艰苦地区 ${coverage.excludedAreaCount} 条；有效资料 ${items.length} 条，新发现 ${fresh.length} 条，异常 ${errors.length} 个，邮件 ${mail.sent ? '已发送' : `未发送（${mail.reason || mail.error || '未知原因'}）`}`);
   if (mail.error) console.warn(`邮件警告：${mail.error}`);
+  if (!args.noMail && !mail.sent && !mail.skipped) {
+    throw new Error(`邮件发送失败：${mail.error || mail.reason || 'SMTP 未确认投递'}`);
+  }
   return { items, fresh, errors, excluded, coverage, report, mail };
 }
 

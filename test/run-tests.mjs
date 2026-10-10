@@ -22,7 +22,7 @@ import {
 import { scoreJob, dedupeJobs, rankJobs, selectForReport, hardExcluded, jobIdentity } from '../src/filter/score.js';
 import { loadLedger, saveLedger, splitNewSeen, markSeen, isSeen } from '../src/dedupe/ledger.js';
 import { buildEmail, buildSubject } from '../src/mail/compose.js';
-import { buildRawMessage } from '../src/mail/smtp.js';
+import { buildRawMessage, normalizeMailbox } from '../src/mail/smtp.js';
 import { chooseEnrichmentCandidates, normalizeJob, preFilter, parseArgs, runScan } from '../src/main.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -400,6 +400,15 @@ test('MIME 报文：中文主题编码 + 结构完整', () => {
   assert.match(raw, /Content-Type: multipart\/alternative; boundary=/);
   assert.match(raw, /Content-Type: text\/plain; charset=UTF-8/);
   assert.match(raw, /Content-Type: text\/html; charset=UTF-8/);
+});
+
+test('SMTP 邮箱规范化：Gmail 用户名补全，空白和尖括号被清理', () => {
+  assert.equal(normalizeMailbox('  example  ', { gmailDefault: true }), 'example@gmail.com');
+  assert.equal(normalizeMailbox('Example <example@gmail.com>'), 'example@gmail.com');
+  assert.throws(() => normalizeMailbox('not-an-email'), /格式无效/);
+  const raw = buildRawMessage({ from: ' example ', fromName: '雷达', to: ' target@example.com ', subject: '测试', text: '文本', html: '<p>HTML</p>' });
+  assert.match(raw, /^From: =\?UTF-8\?B\?.* <example@gmail\.com>$/m);
+  assert.match(raw, /^To: <target@example\.com>$/m);
 });
 
 test('北京时间换算（UTC 环境）', () => {
