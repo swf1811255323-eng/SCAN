@@ -1,9 +1,7 @@
 {
-  "generatedAt": "2026-10-10T14:18:24.581Z",
+  "generatedAt": "2026-10-10T14:39:35.175Z",
   "years": [
-    2026,
-    2025,
-    2024
+    2026
   ],
   "graduationYear": 2028,
   "coverage": {
@@ -115,8 +113,8 @@
       "新疆": 0
     },
     "excludedAreaCount": 0,
-    "queryCount": 144,
-    "searchResultCount": 1440,
+    "queryCount": 79,
+    "searchResultCount": 790,
     "seedSourceCount": 16,
     "searchConcurrency": 6,
     "errorCount": 0
@@ -138,6 +136,7 @@
       "regionalPriority": 30,
       "priorityRegionLabel": "湖北优先",
       "weightedScore": 115,
+      "administrativeLevel": "市级",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -158,6 +157,7 @@
       "regionalPriority": 30,
       "priorityRegionLabel": "湖北优先",
       "weightedScore": 114,
+      "administrativeLevel": "市级",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -178,6 +178,7 @@
       "regionalPriority": 30,
       "priorityRegionLabel": "湖北优先",
       "weightedScore": 110,
+      "administrativeLevel": "层级待职位表确认",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -199,6 +200,7 @@
       "regionalPriority": 30,
       "priorityRegionLabel": "重庆优先",
       "weightedScore": 110,
+      "administrativeLevel": "区县/县级市",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -220,6 +222,7 @@
       "regionalPriority": 30,
       "priorityRegionLabel": "重庆优先",
       "weightedScore": 110,
+      "administrativeLevel": "区县/县级市",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -240,6 +243,7 @@
       "regionalPriority": 30,
       "priorityRegionLabel": "重庆优先",
       "weightedScore": 109,
+      "administrativeLevel": "市级",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -260,6 +264,7 @@
       "regionalPriority": 30,
       "priorityRegionLabel": "重庆优先",
       "weightedScore": 109,
+      "administrativeLevel": "市级",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -280,6 +285,7 @@
       "regionalPriority": 30,
       "priorityRegionLabel": "重庆优先",
       "weightedScore": 109,
+      "administrativeLevel": "市级",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -300,6 +306,7 @@
       "regionalPriority": 30,
       "priorityRegionLabel": "湖北优先",
       "weightedScore": 109,
+      "administrativeLevel": "市级",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -320,6 +327,7 @@
       "regionalPriority": 30,
       "priorityRegionLabel": "湖北优先",
       "weightedScore": 108,
+      "administrativeLevel": "区县/县级市",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -340,6 +348,7 @@
       "regionalPriority": 30,
       "priorityRegionLabel": "重庆优先",
       "weightedScore": 108,
+      "administrativeLevel": "区县/县级市",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -360,6 +369,7 @@
       "regionalPriority": 30,
       "priorityRegionLabel": "湖北优先",
       "weightedScore": 108,
+      "administrativeLevel": "市级",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -380,6 +390,7 @@
       "regionalPriority": 0,
       "priorityRegionLabel": "",
       "weightedScore": 82,
+      "administrativeLevel": "层级待职位表确认",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -400,6 +411,7 @@
       "regionalPriority": 0,
       "priorityRegionLabel": "",
       "weightedScore": 81,
+      "administrativeLevel": "区县/县级市",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -420,6 +432,7 @@
       "regionalPriority": 0,
       "priorityRegionLabel": "",
       "weightedScore": 81,
+      "administrativeLevel": "层级待职位表确认",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -440,6 +453,7 @@
       "regionalPriority": 0,
       "priorityRegionLabel": "",
       "weightedScore": 81,
+      "administrativeLevel": "区县/县级市",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -461,6 +475,7 @@
       "regionalPriority": 0,
       "priorityRegionLabel": "",
       "weightedScore": 80,
+      "administrativeLevel": "层级待职位表确认",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -481,6 +496,7 @@
       "regionalPriority": 0,
       "priorityRegionLabel": "",
       "weightedScore": 79,
+      "administrativeLevel": "层级待职位表确认",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -501,6 +517,7 @@
       "regionalPriority": 0,
       "priorityRegionLabel": "",
       "weightedScore": 79,
+      "administrativeLevel": "层级待职位表确认",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -521,6 +538,7 @@
       "regionalPriority": 0,
       "priorityRegionLabel": "",
       "weightedScore": 78,
+      "administrativeLevel": "层级待职位表确认",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -541,6 +559,7 @@
       "regionalPriority": 0,
       "priorityRegionLabel": "",
       "weightedScore": 78,
+      "administrativeLevel": "层级待职位表确认",
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -568,6 +587,7 @@
       "regionalPriority": 30,
       "priorityRegionLabel": "湖北优先",
       "weightedScore": 61,
+      "administrativeLevel": "市级",
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -606,6 +626,7 @@
       "regionalPriority": 30,
       "priorityRegionLabel": "四川优先",
       "weightedScore": 60,
+      "administrativeLevel": "省级",
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -645,6 +666,7 @@
       "regionalPriority": 30,
       "priorityRegionLabel": "重庆优先",
       "weightedScore": 60,
+      "administrativeLevel": "层级待职位表确认",
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -682,6 +704,7 @@
       "regionalPriority": 30,
       "priorityRegionLabel": "湖北优先",
       "weightedScore": 59,
+      "administrativeLevel": "层级待职位表确认",
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -718,6 +741,7 @@
       "regionalPriority": 30,
       "priorityRegionLabel": "湖北优先",
       "weightedScore": 58,
+      "administrativeLevel": "层级待职位表确认",
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -752,6 +776,7 @@
       "regionalPriority": 30,
       "priorityRegionLabel": "重庆优先",
       "weightedScore": 52,
+      "administrativeLevel": "层级待职位表确认",
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -787,6 +812,7 @@
       "regionalPriority": 30,
       "priorityRegionLabel": "湖北优先",
       "weightedScore": 52,
+      "administrativeLevel": "层级待职位表确认",
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -821,6 +847,7 @@
       "regionalPriority": 0,
       "priorityRegionLabel": "",
       "weightedScore": 48,
+      "administrativeLevel": "层级待职位表确认",
       "isNationalExam": true,
       "excludedAreaReason": "",
       "civilHits": [
@@ -859,6 +886,7 @@
       "regionalPriority": 0,
       "priorityRegionLabel": "",
       "weightedScore": 47,
+      "administrativeLevel": "层级待职位表确认",
       "isNationalExam": true,
       "excludedAreaReason": "",
       "civilHits": [
@@ -901,6 +929,7 @@
       "regionalPriority": 0,
       "priorityRegionLabel": "",
       "weightedScore": 33,
+      "administrativeLevel": "层级待职位表确认",
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -939,6 +968,7 @@
       "regionalPriority": 0,
       "priorityRegionLabel": "",
       "weightedScore": 31,
+      "administrativeLevel": "中央/国考",
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -977,6 +1007,7 @@
       "regionalPriority": 0,
       "priorityRegionLabel": "",
       "weightedScore": 29,
+      "administrativeLevel": "中央/国考",
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -1013,6 +1044,7 @@
       "regionalPriority": 0,
       "priorityRegionLabel": "",
       "weightedScore": 27,
+      "administrativeLevel": "层级待职位表确认",
       "isNationalExam": true,
       "excludedAreaReason": "",
       "civilHits": [
@@ -1044,6 +1076,7 @@
       "regionalPriority": 0,
       "priorityRegionLabel": "",
       "weightedScore": 27,
+      "administrativeLevel": "层级待职位表确认",
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -1076,6 +1109,7 @@
       "regionalPriority": 0,
       "priorityRegionLabel": "",
       "weightedScore": 16,
+      "administrativeLevel": "层级待职位表确认",
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -1107,6 +1141,7 @@
       "regionalPriority": 0,
       "priorityRegionLabel": "",
       "weightedScore": 14,
+      "administrativeLevel": "层级待职位表确认",
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [],

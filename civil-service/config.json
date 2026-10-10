@@ -4,6 +4,7 @@
   "reportLimit": 80,
   "searchConcurrency": 6,
   "nationwideQueryTemplate": "\"{year}年度\" \"{target}\" 公务员 计算机 职位表 site:gov.cn",
+  "localQueryTemplate": "\"{year}年度\" \"{target}\" 公务员 区县 县级市 计算机 信息技术 职位表 site:gov.cn",
   "nationalExamQueryTemplate": "\"{year}年度\" 国考 \"计算机类\" 职位表 site:gov.cn",
   "excludeAltitudeMeters": 2500,
   "excludedAreaPatterns": [

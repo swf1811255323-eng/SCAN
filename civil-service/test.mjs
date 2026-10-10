@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {
-  PROVINCIAL_REGIONS, analyseItem, buildCoverageStats, buildQueries, classifyRole,
+  PROVINCIAL_REGIONS, analyseItem, buildCoverageStats, buildQueries, classifyAdministrativeLevel, classifyRole,
   detectExcludedArea, extractRegions, extractTreatment, extractYear, parseRss,
   prepareConcretePositions, regionalPriorityWeight, renderEmailHtml, sendMailWithRetry, shouldSendToday
 } from './scan.mjs';
@@ -49,6 +49,9 @@ assert.deepEqual(regionalPriorityWeight('湖北武汉公务员'), { label: '湖�
 assert.deepEqual(regionalPriorityWeight('四川成都公务员'), { label: '四川优先', weight: 30 });
 assert.deepEqual(regionalPriorityWeight('重庆公务员'), { label: '重庆优先', weight: 30 });
 assert.deepEqual(regionalPriorityWeight('广东广州公务员'), { label: '', weight: 0 });
+assert.equal(classifyAdministrativeLevel('重庆 渝中区 医疗保障事务中心'), '区县/县级市');
+assert.equal(classifyAdministrativeLevel('湖北 荆州市直 审计局'), '市级');
+assert.equal(classifyAdministrativeLevel('湖北省直机关'), '省级');
 assert.equal(hubei.weightedScore, hubei.score + 30);
 assert.equal(chuanYu.weightedScore, chuanYu.score + 30);
 
@@ -56,7 +59,7 @@ assert.equal(PROVINCIAL_REGIONS.length, 31);
 assert.equal(new Set(PROVINCIAL_REGIONS).size, 31);
 const nationwideQueries = buildQueries({ queries: [] }, [2026]);
 const queryCoverage = buildCoverageStats([], nationwideQueries, []);
-assert.equal(nationwideQueries.length, 32);
+assert.equal(nationwideQueries.length, 63);
 assert.equal(queryCoverage.queryProvinceCount, 31);
 assert.equal(queryCoverage.nationalExamQueried, true);
 assert.deepEqual(queryCoverage.missingQueryRegions, []);
@@ -70,6 +73,7 @@ const borderPost = analyseItem({
 assert.equal(borderPost.relevant, false);
 assert.equal(borderPost.excludedAreaReason, '艰苦边远地区');
 assert.equal(detectExcludedArea('工作地点平均海拔 3200 米'), '海拔3200米');
+assert.equal(detectExcludedArea('普通县级机关，不属于艰苦边远地区'), '');
 
 const normalWesternPost = analyseItem({
   title: '2026年度西藏拉萨市公务员招录',
@@ -78,6 +82,14 @@ const normalWesternPost = analyseItem({
 }, config);
 assert.equal(normalWesternPost.relevant, true);
 assert.equal(normalWesternPost.excludedAreaReason, '');
+
+const normalCountyPost = analyseItem({
+  title: '2026年度湖北省某县考试录用公务员职位表',
+  summary: '县级机关信息技术岗，计算机类专业，不属于艰苦边远地区',
+  url: 'https://hubei.gov.cn/county-job',
+}, config);
+assert.equal(normalCountyPost.administrativeLevel, '区县/县级市');
+assert.equal(normalCountyPost.relevant, true);
 
 const nationalExam = analyseItem({
   title: '国家公务员局2026年度中央机关及其直属机构考试录用公务员',
@@ -99,14 +111,18 @@ assert.equal(resultCoverage.excludedAreaCount, 1);
 const concretePositions = prepareConcretePositions([
   { grade: 'A+', score: 92, year: 2026, region: '广东 广州', agency: '广东某单位', position: '信息技术岗', headcount: 2, notes: ['历史职位模板'], url: 'https://example.gov.cn/guangdong.xlsx' },
   { grade: 'A+', score: 85, year: 2026, region: '湖北 荆州市直', agency: '荆州市审计局', position: '信息技术岗', headcount: 1, notes: ['历史职位模板'], url: 'https://example.gov.cn/jobs.xlsx' },
+  { grade: 'A', score: 77, year: 2026, region: '重庆 某普通县', agency: '某县数据管理局', position: '信息管理职位', headcount: 1, notes: ['普通区县岗位'], url: 'https://example.gov.cn/county.xlsx' },
   { grade: 'A', score: 78, year: 2026, region: '某边境县', agency: '某单位', position: '信息岗', headcount: 1, notes: ['艰苦边远地区'], url: 'https://example.gov.cn/border.xlsx' },
 ], config, 2028);
-assert.equal(concretePositions.length, 2);
+assert.equal(concretePositions.length, 3);
 assert.equal(concretePositions[0].agency, '荆州市审计局');
 assert.equal(concretePositions[0].graduationYear, 2028);
 assert.equal(concretePositions[0].regionalPriority, 30);
 assert.equal(concretePositions[0].weightedScore, 115);
-assert.equal(concretePositions[1].agency, '广东某单位');
+assert.equal(concretePositions[0].administrativeLevel, '市级');
+assert.equal(concretePositions[1].agency, '某县数据管理局');
+assert.equal(concretePositions[1].administrativeLevel, '区县/县级市');
+assert.equal(concretePositions[2].agency, '广东某单位');
 
 assert.deepEqual(shouldSendToday({ emailSuccess: {} }, '2026-10-04'), { send: true, reason: 'daily-send-due' });
 assert.deepEqual(shouldSendToday({ emailSuccess: { '2026-10-04': 'ok' } }, '2026-10-04'), { send: false, reason: 'already-sent-today' });
@@ -134,6 +150,8 @@ assert.match(emailPreview, /不代表当前可报名/);
 assert.match(emailPreview, /具体岗位清单｜湖北 · 川渝优先/);
 assert.match(emailPreview, /湖北优先 \+30/);
 assert.match(emailPreview, /加权 115 分/);
+assert.match(emailPreview, /省会不是硬条件/);
+assert.match(emailPreview, /区县\/县级市/);
 
 console.log('civil-service radar tests: OK');
 

@@ -112,7 +112,10 @@ export function extractProvincialRegions(text) {
 }
 
 export function detectExcludedArea(text, config = {}) {
-  const value = String(text);
+  const value = String(text).replace(
+    /(?:不属于|不在|未列入|不涉及|非)[^，。；]{0,8}(?:艰苦边远地区|艰苦边远|艰苦地区|边境地区|高海拔地区)/g,
+    '',
+  );
   const patterns = config.excludedAreaPatterns || DEFAULT_EXCLUDED_AREA_PATTERNS;
   const explicit = patterns.find((term) => value.includes(term));
   if (explicit) return explicit;
@@ -131,6 +134,15 @@ export function regionalPriorityWeight(text) {
   return { label: '', weight: 0 };
 }
 
+export function classifyAdministrativeLevel(text) {
+  const value = String(text);
+  if (/区县|县级市|自治县|自治旗|(?:县|区|旗)(?:直|级|机关|政府|人社|社保|医保|市场监管|财政|审计|数据|信息|公务员|\s|$)/.test(value)) return '区县/县级市';
+  if (/市直|地级市|市级/.test(value)) return '市级';
+  if (/省直|省级/.test(value)) return '省级';
+  if (/中央机关|国考|国家公务员局/.test(value)) return '中央/国考';
+  return '层级待职位表确认';
+}
+
 export function prepareConcretePositions(rows = [], config = {}, graduationYear = 2028) {
   return rows
     .map((row) => {
@@ -144,6 +156,7 @@ export function prepareConcretePositions(rows = [], config = {}, graduationYear 
         regionalPriority: regionalPriority.weight,
         priorityRegionLabel: regionalPriority.label,
         weightedScore: score + regionalPriority.weight,
+        administrativeLevel: classifyAdministrativeLevel(exclusionText),
         headcount: Number(row.headcount) || 0,
         notes: Array.isArray(row.notes) ? row.notes : [String(row.notes || '')].filter(Boolean),
         currentEligible: Boolean(row.currentEligible),
@@ -201,6 +214,7 @@ export function analyseItem(item, config) {
   const isChuanYu = /四川|成都|重庆|川渝/.test(text);
   const isHubei = /湖北|武汉/.test(text);
   const regionalPriority = regionalPriorityWeight(text);
+  const administrativeLevel = classifyAdministrativeLevel(text);
   let score = civilHits.length * 4 + csHits.length * 3 + (official ? 10 : 0) + (year ? 2 : 0);
   if (/事业单位|国企|教师|选聘职员/.test(text) && !/公务员|考试录用/.test(text)) score -= 10;
   return {
@@ -218,6 +232,7 @@ export function analyseItem(item, config) {
     regionalPriority: regionalPriority.weight,
     priorityRegionLabel: regionalPriority.label,
     weightedScore: score + regionalPriority.weight,
+    administrativeLevel,
     isNationalExam,
     excludedAreaReason,
     civilHits,
@@ -273,9 +288,11 @@ export function buildQueries(config, years) {
   const base = config.queries.flatMap((template) => years.map((year) => template.replaceAll('{year}', year)));
   const template = config.nationwideQueryTemplate || '"{year}年度" "{target}" 公务员 计算机 职位表 site:gov.cn';
   const nationwide = years.flatMap((year) => PROVINCIAL_REGIONS.map((target) => template.replaceAll('{year}', year).replaceAll('{target}', target)));
+  const localTemplate = config.localQueryTemplate || '"{year}年度" "{target}" 公务员 区县 县级市 计算机 信息技术 职位表 site:gov.cn';
+  const local = years.flatMap((year) => PROVINCIAL_REGIONS.map((target) => localTemplate.replaceAll('{year}', year).replaceAll('{target}', target)));
   const nationalTemplate = config.nationalExamQueryTemplate || '"{year}年度" 国考 "计算机类" 职位表 site:gov.cn';
   const national = years.map((year) => nationalTemplate.replaceAll('{year}', year));
-  return [...new Set([...base, ...nationwide, ...national])];
+  return [...new Set([...base, ...nationwide, ...local, ...national])];
 }
 
 export function buildCoverageStats(items, queries, excluded = []) {
@@ -339,7 +356,7 @@ function renderReport({ items, fresh, errors, years, generatedAt, coverage, excl
     `- 扫描范围：${coverage.queryProvinceCount}/${coverage.expectedProvinceCount} 个省级行政区；国考检索：${coverage.nationalExamQueried ? '已执行' : '缺失'}；共执行 ${coverage.queryCount} 个查询，并发 ${coverage.searchConcurrency}`,
     `- 联网发现：搜索返回 ${coverage.searchResultCount} 条原始结果；内置官方基准 ${coverage.seedSourceCount} 条；抓取失败 ${coverage.errorCount} 个`,
     `- 结果命中：${coverage.hitProvinceCount}/${coverage.expectedProvinceCount} 个省级行政区；国考有效资料：${coverage.nationalExamHits} 条；边境/艰苦地区过滤：${coverage.excludedAreaCount} 条`,
-    '- 口径：优先政府官网；“岗位”是招录职位或专业目录线索，不把事业单位、国企岗位混作公务员。', '',
+    '- 口径：优先政府官网；省直、市直、城区、普通县、县级市均纳入，不把事业单位、国企岗位混作公务员。', '',
     '## 结论速览', '',
     `- 主要岗位方向：${roles.slice(0, 6).map(([k, v]) => `${k}（${v}）`).join('、') || '暂无足够结果'}`,
     `- 高频地区：${regions.slice(0, 12).map(([k, v]) => `${k}（${v}）`).join('、') || '职位页未明确地区'}`,
@@ -350,15 +367,15 @@ function renderReport({ items, fresh, errors, years, generatedAt, coverage, excl
     '- 重要提醒：招录公告通常不披露实发工资。程序只摘录页面中明确出现的金额，不根据地区传闻推算。', '',
     `## 具体岗位（重点用于 ${graduationYear} 选岗预测）`, '',
     '> 下表来自已解析的往年官方职位表，是结构性匹配模板，不代表现在可以报名；正式报考必须等待对应年度职位表。', '',
-    '| 等级 | 基础分 | 区域加分 | 加权分 | 年份 | 地区 | 单位 | 职位 | 人数 | 主要提示 | 来源 |',
-    '| --- | ---: | ---: | ---: | ---: | --- | --- | --- | ---: | --- | --- |',
+    '| 等级 | 基础分 | 区域加分 | 加权分 | 层级 | 年份 | 地区 | 单位 | 职位 | 人数 | 主要提示 | 来源 |',
+    '| --- | ---: | ---: | ---: | --- | ---: | --- | --- | --- | ---: | --- | --- |',
   ];
   if (concretePositions.length) {
     for (const position of concretePositions.slice(0, 50)) {
-      lines.push(`| ${md(position.grade)} | ${position.score} | +${position.regionalPriority} | ${position.weightedScore} | ${position.year || '未识别'} | ${md(position.region)} | ${md(position.agency)} | ${md(position.position)} | ${position.headcount || '未注明'} | ${md(position.notes.join('；'))} | [职位表](${position.url}) |`);
+      lines.push(`| ${md(position.grade)} | ${position.score} | +${position.regionalPriority} | ${position.weightedScore} | ${md(position.administrativeLevel)} | ${position.year || '未识别'} | ${md(position.region)} | ${md(position.agency)} | ${md(position.position)} | ${position.headcount || '未注明'} | ${md(position.notes.join('；'))} | [职位表](${position.url}) |`);
     }
   } else {
-    lines.push('| — | — | — | — | — | — | — | — | — | 暂无已解析的具体职位 | — |');
+    lines.push('| — | — | — | — | — | — | — | — | — | — | 暂无已解析的具体职位 | — |');
   }
   lines.push('', '## 公告、职位表与待遇证据', '',
     '| 年份 | 岗位方向 | 地区 | 待遇信息 | 来源 |',
@@ -421,6 +438,7 @@ export function renderEmailHtml({ items, fresh, years, generatedAt, coverage = b
           <tr><td style="padding:18px 18px 8px">
             <span style="display:inline-block;padding:4px 9px;border-radius:999px;background:#eef2ff;color:#4338ca;font-size:12px;font-weight:800">${html(position.grade)} · 加权 ${position.weightedScore} 分</span>
             ${position.regionalPriority ? `<span style="display:inline-block;margin-left:6px;padding:4px 9px;border-radius:999px;background:#ecfdf5;color:#047857;font-size:12px;font-weight:800">${html(position.priorityRegionLabel)} +${position.regionalPriority}</span>` : ''}
+            <span style="display:inline-block;margin-left:6px;padding:4px 9px;border-radius:999px;background:#f1f5f9;color:#334155;font-size:12px;font-weight:700">${html(position.administrativeLevel)}</span>
             <span style="display:inline-block;margin-left:6px;padding:4px 9px;border-radius:999px;background:#fff7ed;color:#c2410c;font-size:12px;font-weight:700">历史职位模板</span>
           </td></tr>
           <tr><td style="padding:2px 18px 5px;color:#111827;font-size:17px;line-height:1.5;font-weight:800">${html(position.agency)}</td></tr>
@@ -478,7 +496,7 @@ export function renderEmailHtml({ items, fresh, years, generatedAt, coverage = b
             <li style="margin:0 0 8px">当前最集中方向：<b style="color:#111827">${html(mainRole)}</b></li>
             <li style="margin:0 0 8px">地区热度：${regionSummary}</li>
             <li style="margin:0 0 8px"><b style="color:#111827">湖北 ${hubeiCount} 条 · 川渝 ${chuanYuCount} 条</b>，重点区域线索已优先排列。</li>
-            <li style="margin:0 0 8px">全国扫描：<b style="color:#111827">${coverage.queryProvinceCount}/${coverage.expectedProvinceCount} 省级行政区 + 国考</b>；结果命中 ${coverage.hitProvinceCount} 个省级行政区。</li>
+            <li style="margin:0 0 8px">全国扫描：<b style="color:#111827">${coverage.queryProvinceCount}/${coverage.expectedProvinceCount} 省级行政区 + 国考</b>；省直、市直、普通区县和县级市均纳入。</li>
             <li style="margin:0 0 8px">已排除明确边境/艰苦地区结果：${coverage.excludedAreaCount} 条。</li>
             <li>公告通常不披露实发金额；未明示时不采用网传薪资。</li>
           </ul>
@@ -487,7 +505,7 @@ export function renderEmailHtml({ items, fresh, years, generatedAt, coverage = b
         <tr><td style="padding:0 30px 14px"><div style="padding:16px 18px;border-radius:14px;background:#fffbeb;border-left:4px solid #f59e0b;color:#78350f;font-size:13px;line-height:1.75"><b>待遇怎么读：</b>依据《公务员法》，工资由基本工资、津贴、补贴和奖金构成，并依法享受住房、医疗等补贴补助及社会保险。实际金额与职级、地区、单位和特殊岗位有关，最终以录用后的工资核定为准。</div></td></tr>
 
         <tr><td style="padding:18px 30px 8px"><div style="font-size:18px;font-weight:800;color:#111827">主要岗位方向</div><ul style="padding-left:20px;color:#475467;font-size:14px;line-height:1.65">${roleSummary}</ul></td></tr>
-        <tr><td style="padding:8px 30px 14px"><div style="font-size:19px;font-weight:850;color:#111827">具体岗位清单｜湖北 · 川渝优先</div><div style="margin-top:6px;color:#b45309;font-size:13px;line-height:1.65">湖北/武汉、四川/成都、重庆统一增加 30 分区域权重；基础分仍表示岗位本身的专业匹配度。以下均为往年官方职位模板，用于 ${html(graduationYear)} 届预测，不代表当前可报名。</div></td></tr>
+        <tr><td style="padding:8px 30px 14px"><div style="font-size:19px;font-weight:850;color:#111827">具体岗位清单｜湖北 · 川渝优先</div><div style="margin-top:6px;color:#b45309;font-size:13px;line-height:1.65">省会不是硬条件：普通城区、县、县级市岗位同样纳入且不降分；湖北/武汉、四川/成都、重庆统一增加 30 分区域权重。仅排除明确标注的艰苦边远、边境、高海拔等岗位。以下均为往年官方职位模板，用于 ${html(graduationYear)} 届预测，不代表当前可报名。</div></td></tr>
         ${priorityPositionCards || '<tr><td style="padding:0 30px 24px;color:#667085">暂未加载湖北或川渝具体职位模板。</td></tr>'}
         ${otherPositionCards ? '<tr><td style="padding:8px 30px 14px"><div style="font-size:18px;font-weight:800;color:#111827">其他地区高匹配岗位</div></td></tr>' + otherPositionCards : ''}
         <tr><td style="padding:18px 30px 18px"><div style="font-size:18px;font-weight:800;color:#111827">最新公告与职位表入口</div><div style="margin-top:5px;color:#98a2b3;font-size:12px">用于跟踪新年度发布；具体报名资格以当年职位表为准</div></td></tr>
