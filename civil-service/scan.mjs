@@ -123,14 +123,27 @@ export function detectExcludedArea(text, config = {}) {
   return '';
 }
 
+export function regionalPriorityWeight(text) {
+  const value = String(text);
+  if (/湖北|武汉/.test(value)) return { label: '湖北优先', weight: 30 };
+  if (/重庆/.test(value)) return { label: '重庆优先', weight: 30 };
+  if (/四川|成都|川渝/.test(value)) return { label: '四川优先', weight: 30 };
+  return { label: '', weight: 0 };
+}
+
 export function prepareConcretePositions(rows = [], config = {}, graduationYear = 2028) {
   return rows
     .map((row) => {
       const exclusionText = `${row.region || ''} ${row.agency || ''} ${row.position || ''} ${(row.notes || []).join(' ')}`;
+      const regionalPriority = regionalPriorityWeight(exclusionText);
+      const score = Number(row.score) || 0;
       return {
         ...row,
         grade: row.grade || 'B',
-        score: Number(row.score) || 0,
+        score,
+        regionalPriority: regionalPriority.weight,
+        priorityRegionLabel: regionalPriority.label,
+        weightedScore: score + regionalPriority.weight,
         headcount: Number(row.headcount) || 0,
         notes: Array.isArray(row.notes) ? row.notes : [String(row.notes || '')].filter(Boolean),
         currentEligible: Boolean(row.currentEligible),
@@ -139,7 +152,10 @@ export function prepareConcretePositions(rows = [], config = {}, graduationYear 
       };
     })
     .filter((row) => row.region && row.agency && row.position && row.url && !row.excludedAreaReason)
-    .sort((a, b) => Number(b.currentEligible) - Number(a.currentEligible) || b.score - a.score || b.headcount - a.headcount);
+    .sort((a, b) => Number(b.currentEligible) - Number(a.currentEligible)
+      || b.regionalPriority - a.regionalPriority
+      || b.weightedScore - a.weightedScore
+      || b.headcount - a.headcount);
 }
 
 export function isNationalExamItem(text) {
@@ -184,6 +200,7 @@ export function analyseItem(item, config) {
   const isNationalExam = isNationalExamItem(text);
   const isChuanYu = /四川|成都|重庆|川渝/.test(text);
   const isHubei = /湖北|武汉/.test(text);
+  const regionalPriority = regionalPriorityWeight(text);
   let score = civilHits.length * 4 + csHits.length * 3 + (official ? 10 : 0) + (year ? 2 : 0);
   if (/事业单位|国企|教师|选聘职员/.test(text) && !/公务员|考试录用/.test(text)) score -= 10;
   return {
@@ -198,6 +215,9 @@ export function analyseItem(item, config) {
     treatment,
     isChuanYu,
     isHubei,
+    regionalPriority: regionalPriority.weight,
+    priorityRegionLabel: regionalPriority.label,
+    weightedScore: score + regionalPriority.weight,
     isNationalExam,
     excludedAreaReason,
     civilHits,
@@ -330,15 +350,15 @@ function renderReport({ items, fresh, errors, years, generatedAt, coverage, excl
     '- 重要提醒：招录公告通常不披露实发工资。程序只摘录页面中明确出现的金额，不根据地区传闻推算。', '',
     `## 具体岗位（重点用于 ${graduationYear} 选岗预测）`, '',
     '> 下表来自已解析的往年官方职位表，是结构性匹配模板，不代表现在可以报名；正式报考必须等待对应年度职位表。', '',
-    '| 等级 | 分数 | 年份 | 地区 | 单位 | 职位 | 人数 | 主要提示 | 来源 |',
-    '| --- | ---: | ---: | --- | --- | --- | ---: | --- | --- |',
+    '| 等级 | 基础分 | 区域加分 | 加权分 | 年份 | 地区 | 单位 | 职位 | 人数 | 主要提示 | 来源 |',
+    '| --- | ---: | ---: | ---: | ---: | --- | --- | --- | ---: | --- | --- |',
   ];
   if (concretePositions.length) {
     for (const position of concretePositions.slice(0, 50)) {
-      lines.push(`| ${md(position.grade)} | ${position.score} | ${position.year || '未识别'} | ${md(position.region)} | ${md(position.agency)} | ${md(position.position)} | ${position.headcount || '未注明'} | ${md(position.notes.join('；'))} | [职位表](${position.url}) |`);
+      lines.push(`| ${md(position.grade)} | ${position.score} | +${position.regionalPriority} | ${position.weightedScore} | ${position.year || '未识别'} | ${md(position.region)} | ${md(position.agency)} | ${md(position.position)} | ${position.headcount || '未注明'} | ${md(position.notes.join('；'))} | [职位表](${position.url}) |`);
     }
   } else {
-    lines.push('| — | — | — | — | — | — | — | 暂无已解析的具体职位 | — |');
+    lines.push('| — | — | — | — | — | — | — | — | — | 暂无已解析的具体职位 | — |');
   }
   lines.push('', '## 公告、职位表与待遇证据', '',
     '| 年份 | 岗位方向 | 地区 | 待遇信息 | 来源 |',
@@ -395,11 +415,12 @@ export function renderEmailHtml({ items, fresh, years, generatedAt, coverage = b
   const topRegion = regionCounts[0]?.[0] || '职位表未注明';
   const hubeiCount = items.filter((x) => x.isHubei).length;
   const chuanYuCount = items.filter((x) => x.isChuanYu).length;
-  const positionCards = concretePositions.slice(0, 16).map((position) => `
+  const renderPositionCards = (positions) => positions.map((position) => `
       <tr><td style="padding:0 24px 14px">
         <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border:1px solid #dbeafe;border-radius:14px;background:#fff">
           <tr><td style="padding:18px 18px 8px">
-            <span style="display:inline-block;padding:4px 9px;border-radius:999px;background:#eef2ff;color:#4338ca;font-size:12px;font-weight:800">${html(position.grade)} · ${position.score}分</span>
+            <span style="display:inline-block;padding:4px 9px;border-radius:999px;background:#eef2ff;color:#4338ca;font-size:12px;font-weight:800">${html(position.grade)} · 加权 ${position.weightedScore} 分</span>
+            ${position.regionalPriority ? `<span style="display:inline-block;margin-left:6px;padding:4px 9px;border-radius:999px;background:#ecfdf5;color:#047857;font-size:12px;font-weight:800">${html(position.priorityRegionLabel)} +${position.regionalPriority}</span>` : ''}
             <span style="display:inline-block;margin-left:6px;padding:4px 9px;border-radius:999px;background:#fff7ed;color:#c2410c;font-size:12px;font-weight:700">历史职位模板</span>
           </td></tr>
           <tr><td style="padding:2px 18px 5px;color:#111827;font-size:17px;line-height:1.5;font-weight:800">${html(position.agency)}</td></tr>
@@ -408,6 +429,10 @@ export function renderEmailHtml({ items, fresh, years, generatedAt, coverage = b
           <tr><td style="padding:0 18px 18px"><a href="${html(position.url)}" style="display:inline-block;padding:9px 15px;border-radius:9px;background:#1d4ed8;color:#fff;text-decoration:none;font-size:13px;font-weight:700">打开官方职位表 →</a></td></tr>
         </table>
       </td></tr>`).join('');
+  const priorityPositions = concretePositions.filter((position) => position.regionalPriority > 0).slice(0, 16);
+  const otherPositions = concretePositions.filter((position) => !position.regionalPriority).slice(0, Math.max(0, 16 - priorityPositions.length));
+  const priorityPositionCards = renderPositionCards(priorityPositions);
+  const otherPositionCards = renderPositionCards(otherPositions);
   const sourceCards = items.filter((x) => x.roleCategory !== '待遇制度依据').slice(0, 8).map((item) => {
     const pay = item.treatment.length ? item.treatment.join('；') : '公告未公开具体金额';
     const location = item.regions.join(' · ') || '地区待职位表确认';
@@ -462,8 +487,9 @@ export function renderEmailHtml({ items, fresh, years, generatedAt, coverage = b
         <tr><td style="padding:0 30px 14px"><div style="padding:16px 18px;border-radius:14px;background:#fffbeb;border-left:4px solid #f59e0b;color:#78350f;font-size:13px;line-height:1.75"><b>待遇怎么读：</b>依据《公务员法》，工资由基本工资、津贴、补贴和奖金构成，并依法享受住房、医疗等补贴补助及社会保险。实际金额与职级、地区、单位和特殊岗位有关，最终以录用后的工资核定为准。</div></td></tr>
 
         <tr><td style="padding:18px 30px 8px"><div style="font-size:18px;font-weight:800;color:#111827">主要岗位方向</div><ul style="padding-left:20px;color:#475467;font-size:14px;line-height:1.65">${roleSummary}</ul></td></tr>
-        <tr><td style="padding:8px 30px 14px"><div style="font-size:19px;font-weight:850;color:#111827">具体岗位清单</div><div style="margin-top:6px;color:#b45309;font-size:13px;line-height:1.65">这些是往年官方职位表中与 ${html(graduationYear)} 届本科计算机专业结构匹配的岗位，用于预测选岗；不代表当前可报名。</div></td></tr>
-        ${positionCards || '<tr><td style="padding:0 30px 24px;color:#667085">暂未加载具体职位模板。</td></tr>'}
+        <tr><td style="padding:8px 30px 14px"><div style="font-size:19px;font-weight:850;color:#111827">具体岗位清单｜湖北 · 川渝优先</div><div style="margin-top:6px;color:#b45309;font-size:13px;line-height:1.65">湖北/武汉、四川/成都、重庆统一增加 30 分区域权重；基础分仍表示岗位本身的专业匹配度。以下均为往年官方职位模板，用于 ${html(graduationYear)} 届预测，不代表当前可报名。</div></td></tr>
+        ${priorityPositionCards || '<tr><td style="padding:0 30px 24px;color:#667085">暂未加载湖北或川渝具体职位模板。</td></tr>'}
+        ${otherPositionCards ? '<tr><td style="padding:8px 30px 14px"><div style="font-size:18px;font-weight:800;color:#111827">其他地区高匹配岗位</div></td></tr>' + otherPositionCards : ''}
         <tr><td style="padding:18px 30px 18px"><div style="font-size:18px;font-weight:800;color:#111827">最新公告与职位表入口</div><div style="margin-top:5px;color:#98a2b3;font-size:12px">用于跟踪新年度发布；具体报名资格以当年职位表为准</div></td></tr>
         ${sourceCards || '<tr><td style="padding:0 30px 24px;color:#667085">今天暂未检出新的官方来源。</td></tr>'}
         <tr><td style="padding:22px 30px 30px;background:#f8fafc;color:#667085;font-size:12px;line-height:1.75;text-align:center">每天扫描 4 次 · 每天最多成功发送 1 封<br>自动归类用于发现线索，报考条件和待遇以官方职位表及招录机关答复为准。</td></tr>
@@ -550,7 +576,7 @@ export async function run(args = parseArgs(), deps = {}) {
     const old = byUrl.get(key);
     if (!old || item.score > old.score) byUrl.set(key, item);
   }
-  const all = [...byUrl.values()].sort((a, b) => Number(b.isHubei || b.isChuanYu) - Number(a.isHubei || a.isChuanYu) || b.score - a.score || (b.year || 0) - (a.year || 0));
+  const all = [...byUrl.values()].sort((a, b) => b.regionalPriority - a.regionalPriority || b.weightedScore - a.weightedScore || (b.year || 0) - (a.year || 0));
   const limit = Number.isFinite(args.limit) && args.limit > 0 ? args.limit : config.reportLimit;
   const items = all.slice(0, limit);
   const state = loadJson(DEFAULT_STATE, { version: 2, emailSuccess: {}, entries: {} });

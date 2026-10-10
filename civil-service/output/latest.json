@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T13:42:20.998Z",
+  "generatedAt": "2026-10-10T14:01:29.215Z",
   "years": [
     2026
   ],
@@ -113,8 +113,8 @@
       "新疆": 0
     },
     "excludedAreaCount": 0,
-    "queryCount": 42,
-    "searchResultCount": 420,
+    "queryCount": 48,
+    "searchResultCount": 480,
     "seedSourceCount": 16,
     "searchConcurrency": 6,
     "errorCount": 0
@@ -133,6 +133,9 @@
         "2028届需等待对应年度职位表"
       ],
       "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
+      "regionalPriority": 30,
+      "priorityRegionLabel": "湖北优先",
+      "weightedScore": 115,
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -150,74 +153,9 @@
         "数据管理方向"
       ],
       "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
-      "currentEligible": false,
-      "graduationYear": 2028,
-      "excludedAreaReason": ""
-    },
-    {
-      "grade": "A+",
-      "score": 82,
-      "year": 2026,
-      "region": "广东 广州",
-      "agency": "广东省审计厅",
-      "position": "一级主任科员以下",
-      "headcount": 2,
-      "notes": [
-        "历史职位模板",
-        "审计与计算机复合方向"
-      ],
-      "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
-      "currentEligible": false,
-      "graduationYear": 2028,
-      "excludedAreaReason": ""
-    },
-    {
-      "grade": "A+",
-      "score": 81,
-      "year": 2026,
-      "region": "广东 广州",
-      "agency": "广州市荔湾区审计局",
-      "position": "重点项目审计科四级主任科员以下",
-      "headcount": 1,
-      "notes": [
-        "历史职位模板",
-        "需核对专业目录"
-      ],
-      "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
-      "currentEligible": false,
-      "graduationYear": 2028,
-      "excludedAreaReason": ""
-    },
-    {
-      "grade": "A+",
-      "score": 81,
-      "year": 2026,
-      "region": "广东 广州",
-      "agency": "广州市白云区政务服务和数据管理局",
-      "position": "基础设施建设科一级科员",
-      "headcount": 1,
-      "notes": [
-        "历史职位模板",
-        "政务信息化方向"
-      ],
-      "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
-      "currentEligible": false,
-      "graduationYear": 2028,
-      "excludedAreaReason": ""
-    },
-    {
-      "grade": "A+",
-      "score": 81,
-      "year": 2026,
-      "region": "广东 广州",
-      "agency": "广州市番禺区财政局",
-      "position": "财政国库支付管理办公室一级科员",
-      "headcount": 1,
-      "notes": [
-        "历史职位模板",
-        "财政信息系统方向"
-      ],
-      "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
+      "regionalPriority": 30,
+      "priorityRegionLabel": "湖北优先",
+      "weightedScore": 114,
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -235,6 +173,271 @@
         "最低服务年限3年"
       ],
       "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
+      "regionalPriority": 30,
+      "priorityRegionLabel": "湖北优先",
+      "weightedScore": 110,
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A+",
+      "score": 80,
+      "year": 2026,
+      "region": "重庆 渝中区",
+      "agency": "渝中区医疗保障事务中心（参照）",
+      "position": "信息技术职位",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "重庆官方报名统计",
+        "2028届需等待对应年度职位表"
+      ],
+      "url": "https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2026/202601/t20260123_15348516.html",
+      "regionalPriority": 30,
+      "priorityRegionLabel": "重庆优先",
+      "weightedScore": 110,
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A+",
+      "score": 80,
+      "year": 2026,
+      "region": "重庆 渝中区",
+      "agency": "渝中区社会保险事务中心（参照）",
+      "position": "信息技术职位",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "重庆官方报名统计",
+        "2028届需等待对应年度职位表"
+      ],
+      "url": "https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2026/202601/t20260121_15341242.html",
+      "regionalPriority": 30,
+      "priorityRegionLabel": "重庆优先",
+      "weightedScore": 110,
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A",
+      "score": 79,
+      "year": 2025,
+      "region": "重庆 市级",
+      "agency": "市政协办公厅信息化工作处",
+      "position": "信息化技术岗",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "重庆官方报名统计"
+      ],
+      "url": "https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2025/202502/t20250228_14358696.html",
+      "regionalPriority": 30,
+      "priorityRegionLabel": "重庆优先",
+      "weightedScore": 109,
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A",
+      "score": 79,
+      "year": 2025,
+      "region": "重庆 市级",
+      "agency": "市环境卫生事务中心（参照）",
+      "position": "信息技术管理",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "重庆官方报名统计"
+      ],
+      "url": "https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2025/202502/t20250228_14358696.html",
+      "regionalPriority": 30,
+      "priorityRegionLabel": "重庆优先",
+      "weightedScore": 109,
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A",
+      "score": 79,
+      "year": 2025,
+      "region": "重庆 市级",
+      "agency": "市城市供节水事务中心（参照）",
+      "position": "信息技术管理",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "重庆官方报名统计"
+      ],
+      "url": "https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2025/202502/t20250228_14358696.html",
+      "regionalPriority": 30,
+      "priorityRegionLabel": "重庆优先",
+      "weightedScore": 109,
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A",
+      "score": 79,
+      "year": 2026,
+      "region": "湖北 襄阳市直",
+      "agency": "襄阳市发展和改革委员会",
+      "position": "价格调控岗",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "需核对专业目录"
+      ],
+      "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
+      "regionalPriority": 30,
+      "priorityRegionLabel": "湖北优先",
+      "weightedScore": 109,
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A",
+      "score": 78,
+      "year": 2026,
+      "region": "湖北 武汉硚口区",
+      "agency": "武汉市硚口区市场监管局",
+      "position": "信息技术岗",
+      "headcount": 2,
+      "notes": [
+        "历史职位模板",
+        "最低服务年限3年"
+      ],
+      "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
+      "regionalPriority": 30,
+      "priorityRegionLabel": "湖北优先",
+      "weightedScore": 108,
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A",
+      "score": 78,
+      "year": 2025,
+      "region": "重庆 沙坪坝区",
+      "agency": "沙坪坝区人力资源和社会保障局",
+      "position": "信息管理职位",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "重庆官方报名统计"
+      ],
+      "url": "https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2025/202502/t20250228_14358696.html",
+      "regionalPriority": 30,
+      "priorityRegionLabel": "重庆优先",
+      "weightedScore": 108,
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A",
+      "score": 78,
+      "year": 2026,
+      "region": "湖北 鄂州市直",
+      "agency": "鄂州市财政局",
+      "position": "信息风控岗",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "信息风控方向"
+      ],
+      "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
+      "regionalPriority": 30,
+      "priorityRegionLabel": "湖北优先",
+      "weightedScore": 108,
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A+",
+      "score": 82,
+      "year": 2026,
+      "region": "广东 广州",
+      "agency": "广东省审计厅",
+      "position": "一级主任科员以下",
+      "headcount": 2,
+      "notes": [
+        "历史职位模板",
+        "审计与计算机复合方向"
+      ],
+      "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
+      "regionalPriority": 0,
+      "priorityRegionLabel": "",
+      "weightedScore": 82,
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A+",
+      "score": 81,
+      "year": 2026,
+      "region": "广东 广州",
+      "agency": "广州市荔湾区审计局",
+      "position": "重点项目审计科四级主任科员以下",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "需核对专业目录"
+      ],
+      "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
+      "regionalPriority": 0,
+      "priorityRegionLabel": "",
+      "weightedScore": 81,
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A+",
+      "score": 81,
+      "year": 2026,
+      "region": "广东 广州",
+      "agency": "广州市白云区政务服务和数据管理局",
+      "position": "基础设施建设科一级科员",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "政务信息化方向"
+      ],
+      "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
+      "regionalPriority": 0,
+      "priorityRegionLabel": "",
+      "weightedScore": 81,
+      "currentEligible": false,
+      "graduationYear": 2028,
+      "excludedAreaReason": ""
+    },
+    {
+      "grade": "A+",
+      "score": 81,
+      "year": 2026,
+      "region": "广东 广州",
+      "agency": "广州市番禺区财政局",
+      "position": "财政国库支付管理办公室一级科员",
+      "headcount": 1,
+      "notes": [
+        "历史职位模板",
+        "财政信息系统方向"
+      ],
+      "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
+      "regionalPriority": 0,
+      "priorityRegionLabel": "",
+      "weightedScore": 81,
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -253,23 +456,9 @@
         "需核对体测体检和专业科目"
       ],
       "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
-      "currentEligible": false,
-      "graduationYear": 2028,
-      "excludedAreaReason": ""
-    },
-    {
-      "grade": "A",
-      "score": 79,
-      "year": 2026,
-      "region": "湖北 襄阳市直",
-      "agency": "襄阳市发展和改革委员会",
-      "position": "价格调控岗",
-      "headcount": 1,
-      "notes": [
-        "历史职位模板",
-        "需核对专业目录"
-      ],
-      "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
+      "regionalPriority": 0,
+      "priorityRegionLabel": "",
+      "weightedScore": 80,
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -287,6 +476,9 @@
         "网络安全与信息化方向"
       ],
       "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
+      "regionalPriority": 0,
+      "priorityRegionLabel": "",
+      "weightedScore": 79,
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -304,40 +496,9 @@
         "数据管理方向"
       ],
       "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
-      "currentEligible": false,
-      "graduationYear": 2028,
-      "excludedAreaReason": ""
-    },
-    {
-      "grade": "A",
-      "score": 78,
-      "year": 2026,
-      "region": "湖北 武汉硚口区",
-      "agency": "武汉市硚口区市场监管局",
-      "position": "信息技术岗",
-      "headcount": 2,
-      "notes": [
-        "历史职位模板",
-        "最低服务年限3年"
-      ],
-      "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
-      "currentEligible": false,
-      "graduationYear": 2028,
-      "excludedAreaReason": ""
-    },
-    {
-      "grade": "A",
-      "score": 78,
-      "year": 2026,
-      "region": "湖北 鄂州市直",
-      "agency": "鄂州市财政局",
-      "position": "信息风控岗",
-      "headcount": 1,
-      "notes": [
-        "历史职位模板",
-        "信息风控方向"
-      ],
-      "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
+      "regionalPriority": 0,
+      "priorityRegionLabel": "",
+      "weightedScore": 79,
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -355,6 +516,9 @@
         "数据安全方向"
       ],
       "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
+      "regionalPriority": 0,
+      "priorityRegionLabel": "",
+      "weightedScore": 78,
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -372,6 +536,9 @@
         "电子数据审计方向"
       ],
       "url": "https://www.gdzz.gov.cn/public/%E5%B9%BF%E4%B8%9C%E7%9C%812026%E5%B9%B4%E8%80%83%E8%AF%95%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E5%85%AC%E5%91%8A%E9%99%84%E4%BB%B6.zip",
+      "regionalPriority": 0,
+      "priorityRegionLabel": "",
+      "weightedScore": 78,
       "currentEligible": false,
       "graduationYear": 2028,
       "excludedAreaReason": ""
@@ -396,6 +563,9 @@
       "treatment": [],
       "isChuanYu": false,
       "isHubei": true,
+      "regionalPriority": 30,
+      "priorityRegionLabel": "湖北优先",
+      "weightedScore": 61,
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -431,6 +601,9 @@
       "treatment": [],
       "isChuanYu": true,
       "isHubei": false,
+      "regionalPriority": 30,
+      "priorityRegionLabel": "四川优先",
+      "weightedScore": 60,
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -467,6 +640,9 @@
       "treatment": [],
       "isChuanYu": true,
       "isHubei": false,
+      "regionalPriority": 30,
+      "priorityRegionLabel": "重庆优先",
+      "weightedScore": 60,
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -501,6 +677,9 @@
       "treatment": [],
       "isChuanYu": false,
       "isHubei": true,
+      "regionalPriority": 30,
+      "priorityRegionLabel": "湖北优先",
+      "weightedScore": 59,
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -534,6 +713,9 @@
       "treatment": [],
       "isChuanYu": false,
       "isHubei": true,
+      "regionalPriority": 30,
+      "priorityRegionLabel": "湖北优先",
+      "weightedScore": 58,
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -565,6 +747,9 @@
       "treatment": [],
       "isChuanYu": true,
       "isHubei": false,
+      "regionalPriority": 30,
+      "priorityRegionLabel": "重庆优先",
+      "weightedScore": 52,
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -597,6 +782,9 @@
       "treatment": [],
       "isChuanYu": false,
       "isHubei": true,
+      "regionalPriority": 30,
+      "priorityRegionLabel": "湖北优先",
+      "weightedScore": 52,
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -628,6 +816,9 @@
       "treatment": [],
       "isChuanYu": false,
       "isHubei": false,
+      "regionalPriority": 0,
+      "priorityRegionLabel": "",
+      "weightedScore": 48,
       "isNationalExam": true,
       "excludedAreaReason": "",
       "civilHits": [
@@ -663,6 +854,9 @@
       "treatment": [],
       "isChuanYu": false,
       "isHubei": false,
+      "regionalPriority": 0,
+      "priorityRegionLabel": "",
+      "weightedScore": 47,
       "isNationalExam": true,
       "excludedAreaReason": "",
       "civilHits": [
@@ -702,6 +896,9 @@
       "treatment": [],
       "isChuanYu": false,
       "isHubei": false,
+      "regionalPriority": 0,
+      "priorityRegionLabel": "",
+      "weightedScore": 33,
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -737,6 +934,9 @@
       "treatment": [],
       "isChuanYu": false,
       "isHubei": false,
+      "regionalPriority": 0,
+      "priorityRegionLabel": "",
+      "weightedScore": 31,
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -772,6 +972,9 @@
       "treatment": [],
       "isChuanYu": false,
       "isHubei": false,
+      "regionalPriority": 0,
+      "priorityRegionLabel": "",
+      "weightedScore": 29,
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -805,6 +1008,9 @@
       "treatment": [],
       "isChuanYu": false,
       "isHubei": false,
+      "regionalPriority": 0,
+      "priorityRegionLabel": "",
+      "weightedScore": 27,
       "isNationalExam": true,
       "excludedAreaReason": "",
       "civilHits": [
@@ -833,6 +1039,9 @@
       "treatment": [],
       "isChuanYu": false,
       "isHubei": false,
+      "regionalPriority": 0,
+      "priorityRegionLabel": "",
+      "weightedScore": 27,
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -862,6 +1071,9 @@
       "treatment": [],
       "isChuanYu": false,
       "isHubei": false,
+      "regionalPriority": 0,
+      "priorityRegionLabel": "",
+      "weightedScore": 16,
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [
@@ -890,6 +1102,9 @@
       "treatment": [],
       "isChuanYu": false,
       "isHubei": false,
+      "regionalPriority": 0,
+      "priorityRegionLabel": "",
+      "weightedScore": 14,
       "isNationalExam": false,
       "excludedAreaReason": "",
       "civilHits": [],

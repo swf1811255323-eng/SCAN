@@ -28,9 +28,15 @@
     "\"{year}年度\" 公务员 数据管理 信息技术 招录 site:gov.cn",
     "\"{year}年度\" 税务 海关 证监 公安 \"计算机类\" site:gov.cn",
     "\"{year}年度\" 四川 成都 公务员 \"计算机类\" 职位表 site:scpta.com.cn",
+    "\"{year}年度\" 四川 公务员 信息技术 数据管理 职位表 site:scpta.com.cn",
+    "\"{year}年度\" 成都 公务员 计算机 网络安全 信息化 site:scpta.com.cn",
     "\"{year}年度\" 重庆 公务员 \"计算机类\" 信息技术 site:cq.gov.cn",
     "\"{year}年度\" 重庆 公务员 计算机 网络安全 site:rlsbj.cq.gov.cn",
-    "\"{year}年度\" 湖北 武汉 公务员 计算机 信息技术 site:hubei.gov.cn"
+    "\"{year}年度\" 重庆 公务员 \"信息技术职位\" site:rlsbj.cq.gov.cn",
+    "\"{year}年度\" 重庆 公务员 信息化 数据管理 职位表 site:cq.gov.cn",
+    "\"{year}年度\" 湖北 武汉 公务员 计算机 信息技术 site:hubei.gov.cn",
+    "\"{year}年度\" 湖北 公务员 \"信息技术岗\" 职位表 site:rst.hubei.gov.cn",
+    "\"{year}年度\" 武汉 公务员 计算机 数据管理 网络安全 site:wuhan.gov.cn"
   ],
   "roleCategories": {
     "信息化/电子政务": ["信息化", "电子政务", "数字政府", "政务系统", "信息中心", "信息技术"],

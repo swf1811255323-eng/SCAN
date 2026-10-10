@@ -23,6 +23,72 @@
   },
   {
     "grade": "A+",
+    "score": 80,
+    "year": 2026,
+    "region": "重庆 渝中区",
+    "agency": "渝中区医疗保障事务中心（参照）",
+    "position": "信息技术职位",
+    "headcount": 1,
+    "notes": ["历史职位模板", "重庆官方报名统计", "2028届需等待对应年度职位表"],
+    "url": "https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2026/202601/t20260123_15348516.html"
+  },
+  {
+    "grade": "A+",
+    "score": 80,
+    "year": 2026,
+    "region": "重庆 渝中区",
+    "agency": "渝中区社会保险事务中心（参照）",
+    "position": "信息技术职位",
+    "headcount": 1,
+    "notes": ["历史职位模板", "重庆官方报名统计", "2028届需等待对应年度职位表"],
+    "url": "https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2026/202601/t20260121_15341242.html"
+  },
+  {
+    "grade": "A",
+    "score": 79,
+    "year": 2025,
+    "region": "重庆 市级",
+    "agency": "市政协办公厅信息化工作处",
+    "position": "信息化技术岗",
+    "headcount": 1,
+    "notes": ["历史职位模板", "重庆官方报名统计"],
+    "url": "https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2025/202502/t20250228_14358696.html"
+  },
+  {
+    "grade": "A",
+    "score": 79,
+    "year": 2025,
+    "region": "重庆 市级",
+    "agency": "市环境卫生事务中心（参照）",
+    "position": "信息技术管理",
+    "headcount": 1,
+    "notes": ["历史职位模板", "重庆官方报名统计"],
+    "url": "https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2025/202502/t20250228_14358696.html"
+  },
+  {
+    "grade": "A",
+    "score": 79,
+    "year": 2025,
+    "region": "重庆 市级",
+    "agency": "市城市供节水事务中心（参照）",
+    "position": "信息技术管理",
+    "headcount": 1,
+    "notes": ["历史职位模板", "重庆官方报名统计"],
+    "url": "https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2025/202502/t20250228_14358696.html"
+  },
+  {
+    "grade": "A",
+    "score": 78,
+    "year": 2025,
+    "region": "重庆 沙坪坝区",
+    "agency": "沙坪坝区人力资源和社会保障局",
+    "position": "信息管理职位",
+    "headcount": 1,
+    "notes": ["历史职位模板", "重庆官方报名统计"],
+    "url": "https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2025/202502/t20250228_14358696.html"
+  },
+  {
+    "grade": "A+",
     "score": 82,
     "year": 2026,
     "region": "广东 广州",
