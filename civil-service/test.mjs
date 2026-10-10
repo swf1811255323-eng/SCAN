@@ -1,5 +1,9 @@
 import assert from 'node:assert/strict';
-import { analyseItem, classifyRole, extractRegions, extractTreatment, extractYear, parseRss, renderEmailHtml, shouldSendToday } from './scan.mjs';
+import {
+  PROVINCIAL_REGIONS, analyseItem, buildCoverageStats, buildQueries, classifyRole,
+  detectExcludedArea, extractRegions, extractTreatment, extractYear, parseRss,
+  renderEmailHtml, shouldSendToday
+} from './scan.mjs';
 
 const config = {
   roleCategories: {
@@ -41,6 +45,50 @@ assert.deepEqual(chuanYu.regions, ['重庆']);
 const hubei = analyseItem({ title: '湖北省公务员网络安全职位', summary: '工作地点武汉', url: 'https://rst.hubei.gov.cn/job' }, config);
 assert.equal(hubei.isHubei, true);
 assert.deepEqual(hubei.regions, ['湖北', '武汉']);
+
+assert.equal(PROVINCIAL_REGIONS.length, 31);
+assert.equal(new Set(PROVINCIAL_REGIONS).size, 31);
+const nationwideQueries = buildQueries({ queries: [] }, [2026]);
+const queryCoverage = buildCoverageStats([], nationwideQueries, []);
+assert.equal(nationwideQueries.length, 32);
+assert.equal(queryCoverage.queryProvinceCount, 31);
+assert.equal(queryCoverage.nationalExamQueried, true);
+assert.deepEqual(queryCoverage.missingQueryRegions, []);
+
+const borderPost = analyseItem({
+  title: '2026年度云南省某边境县公务员招录',
+  summary: '计算机类信息化岗位，工作地点属于艰苦边远地区',
+  url: 'https://yn.gov.cn/job',
+  forceInclude: true,
+}, config);
+assert.equal(borderPost.relevant, false);
+assert.equal(borderPost.excludedAreaReason, '艰苦边远地区');
+assert.equal(detectExcludedArea('工作地点平均海拔 3200 米'), '海拔3200米');
+
+const normalWesternPost = analyseItem({
+  title: '2026年度西藏拉萨市公务员招录',
+  summary: '市直机关计算机类信息化岗位',
+  url: 'https://lasa.gov.cn/job',
+}, config);
+assert.equal(normalWesternPost.relevant, true);
+assert.equal(normalWesternPost.excludedAreaReason, '');
+
+const nationalExam = analyseItem({
+  title: '国家公务员局2026年度中央机关及其直属机构考试录用公务员',
+  summary: '国考计算机类职位表',
+  url: 'https://www.gov.cn/job',
+}, config);
+assert.equal(nationalExam.isNationalExam, true);
+const fullCoverageItems = PROVINCIAL_REGIONS.map((name) => analyseItem({
+  title: `2026年度${name}公务员计算机类岗位`,
+  summary: '信息化职位表',
+  url: `https://${encodeURIComponent(name)}.gov.cn/job`,
+  forceInclude: true,
+}, config));
+const resultCoverage = buildCoverageStats([...fullCoverageItems, nationalExam], nationwideQueries, [borderPost]);
+assert.equal(resultCoverage.hitProvinceCount, 31);
+assert.equal(resultCoverage.nationalExamHits, 1);
+assert.equal(resultCoverage.excludedAreaCount, 1);
 
 assert.deepEqual(shouldSendToday({ emailSuccess: {} }, '2026-10-04'), { send: true, reason: 'daily-send-due' });
 assert.deepEqual(shouldSendToday({ emailSuccess: { '2026-10-04': 'ok' } }, '2026-10-04'), { send: false, reason: 'already-sent-today' });
