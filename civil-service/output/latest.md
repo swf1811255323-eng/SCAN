@@ -1,8 +1,8 @@
 # 计算机专业公务员岗位雷达
 
-- 生成时间：2026-10-10 20:41:56（Asia/Shanghai）
+- 生成时间：2026-10-10 20:52:24（Asia/Shanghai）
 - 覆盖年份：2026
-- 本轮有效资料：16 条；首次发现：16 条；抓取异常：0 个
+- 本轮有效资料：16 条；首次发现：0 条；抓取异常：0 个
 - 扫描范围：31/31 个省级行政区；国考检索：已执行；共执行 42 个查询，并发 6
 - 联网发现：搜索返回 420 条原始结果；内置官方基准 16 条；抓取失败 0 个
 - 结果命中：7/31 个省级行政区；国考有效资料：3 条；边境/艰苦地区过滤：0 条
@@ -97,21 +97,6 @@
 
 ## 本轮新发现
 
-- [武汉市2024年度市直机关公开遴选公务员职位计划表](https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202410/P020241008651489684198.pdf)｜网络安全/网信｜武汉
-- [四川省2026年度省级机关及其直属机构公开考试录用公务员](https://www.scpta.com.cn/front/Special/Info/85887d50aadf43f491088f4a9106c647)｜信息化/电子政务｜四川、成都
-- [重庆市2025年度公开考试录用公务员公告及职位表](https://cq.gov.cn/ywdt/tzgg/202502/t20250211_14293058.html)｜其他计算机相关岗位｜重庆
-- [湖北省公安机关2025年网络安全技术特殊职位公务员招录](https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zytz/202509/t20250930_5783872.shtml)｜网络安全/网信｜湖北、武汉
-- [湖北省2025年度省市县乡考试录用公务员公告](https://zrzyt.hubei.gov.cn/fbjd/xxgkml/zkly/202510/t20251030_5801217.shtml)｜其他计算机相关岗位｜湖北
-- [重庆市2025年度公务员信息技术管理职位录用结果](https://cgj.cq.gov.cn/zwgk_173/fdzdgknr/zzrs/202509/t20250905_14979015.html)｜信息化/电子政务｜重庆
-- [武汉市2025年度公务员信息技术岗拟录用公示](https://www.wuhan.gov.cn/zwgk/tzgg/202505/P020250524563596165268.pdf)｜信息化/电子政务｜湖北、武汉
-- [税务系统2024年度考试录用公务员相关事项通知](https://shanghai.chinatax.gov.cn/xxgk/rsxx/202311/t469406.html)｜网络安全/网信｜上海
-- [税务系统2026年度考试录用公务员相关事项通知](https://www.chinatax.gov.cn/chinatax/n896543r/c5243601/content.html)｜网络安全/网信｜地区未注明
-- [河南省2024年度统一考试录用公务员职位表](https://www.beiguan.gov.cn/UploadFiles/file/20240122/6384151219711290496981301.pdf)｜网络安全/网信｜河南
-- [外交部2025年度公务员录用计划表](https://www.mfa.gov.cn/web/wjb_673085/gbclc_603848/tzgg_660725/202410/P020241014571145485714.pdf)｜数据管理/统计分析｜北京、中央
-- [商务部2025年度补充录用公务员职位表](https://rss.mofcom.gov.cn/api-gateway/jpaas-web-server/front/document/download?fileName=%E5%95%86%E5%8A%A1%E9%83%A82025%E5%B9%B4%E5%BA%A6%E8%A1%A5%E5%85%85%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E8%81%8C%E4%BD%8D%E8%A1%A8.pdf&fileUrl=YW5UzzlvCwcM%2FNHHX%2FtT6BcWYLharpwdJgwBRDMZZpwJDAtMw5Adlcka7ZaGBiCRBGaOoYnRP0NfsndJ%2FvNyhGd2Fxg2DfgLOa8WS6geSitaoAsQlV%2Br3bfx4UEV5dx%2F%2ByfkdOtoJ%2F5lcv%2Fnyve4f2V9YLf1xUcQYK5j9D5ESo0%3D)｜网络安全/网信｜北京、中央
-- [2026年度中国证监会考试录用公务员公告](https://www.csrc.gov.cn/csrc/c100083/c7588473/content.shtml)｜专业监管/技术监管｜北京
-- [欢迎广大考生报考工业和信息化部公务员](https://www.miit.gov.cn/xwfb/gxdt/sjdt/art/2024/art_32724046a6ab4015a45c50f53b291418.html)｜信息化/电子政务｜地区未注明
-- [中华人民共和国公务员法：工资福利保险](https://www.stats.gov.cn/gk/tjfg/xgfxfg/202503/t20250310_1958920.html)｜待遇制度依据｜地区未注明
-- [福建省机关事业单位招考专业指导目录（2025年）](https://gwykl.fujian.gov.cn/portal/policy/specialtylist2025.html)｜网络安全/网信｜福建
+- 没有新的有效资料。
 
 > 自动归类仅用于缩小检索范围。报考资格、专业代码、学历、应届身份、政治面貌、基层经历、工作地点和待遇均以当年官方职位表及招录机关答复为准。
