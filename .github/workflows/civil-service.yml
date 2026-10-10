@@ -67,12 +67,13 @@ jobs:
           FORCE_MAIL: ${{ (github.event_name == 'push' && contains(github.event.head_commit.message, '[civil-send-now]')) || github.event.inputs.force_mail == 'true' }}
         shell: bash
         run: |
-          if [ -z "$MAIL_TO" ]; then
+          NO_MAIL="${{ github.event.inputs.no_mail || 'false' }}"
+          if [ "$NO_MAIL" != "true" ] && [ -z "$MAIL_TO" ]; then
             echo "::error::缺少独立收件地址 Secret：CIVIL_SERVICE_MAIL_TO"
             exit 1
           fi
           ARGS="--years ${{ github.event.inputs.years || '2026,2025,2024' }} --limit ${{ github.event.inputs.limit || '80' }}"
-          if [ "${{ github.event.inputs.no_mail }}" = "true" ]; then ARGS="$ARGS --no-mail"; fi
+          if [ "$NO_MAIL" = "true" ]; then ARGS="$ARGS --no-mail"; fi
           if [ "$FORCE_MAIL" = "true" ]; then ARGS="$ARGS --force-mail"; fi
           node civil-service/scan.mjs $ARGS
 
