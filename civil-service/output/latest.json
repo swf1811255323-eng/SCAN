@@ -1,0 +1,649 @@
+{
+  "generatedAt": "2026-10-10T12:41:56.030Z",
+  "years": [
+    2026
+  ],
+  "coverage": {
+    "expectedProvinceCount": 31,
+    "queryProvinceCount": 31,
+    "queriedRegions": [
+      "北京",
+      "天津",
+      "河北",
+      "山西",
+      "内蒙古",
+      "辽宁",
+      "吉林",
+      "黑龙江",
+      "上海",
+      "江苏",
+      "浙江",
+      "安徽",
+      "福建",
+      "江西",
+      "山东",
+      "河南",
+      "湖北",
+      "湖南",
+      "广东",
+      "广西",
+      "海南",
+      "重庆",
+      "四川",
+      "贵州",
+      "云南",
+      "西藏",
+      "陕西",
+      "甘肃",
+      "青海",
+      "宁夏",
+      "新疆"
+    ],
+    "missingQueryRegions": [],
+    "nationalExamQueried": true,
+    "nationalExamHits": 3,
+    "hitProvinceCount": 7,
+    "hitRegions": [
+      "北京",
+      "上海",
+      "福建",
+      "河南",
+      "湖北",
+      "重庆",
+      "四川"
+    ],
+    "missingHitRegions": [
+      "天津",
+      "河北",
+      "山西",
+      "内蒙古",
+      "辽宁",
+      "吉林",
+      "黑龙江",
+      "江苏",
+      "浙江",
+      "安徽",
+      "江西",
+      "山东",
+      "湖南",
+      "广东",
+      "广西",
+      "海南",
+      "贵州",
+      "云南",
+      "西藏",
+      "陕西",
+      "甘肃",
+      "青海",
+      "宁夏",
+      "新疆"
+    ],
+    "itemCounts": {
+      "北京": 3,
+      "天津": 0,
+      "河北": 0,
+      "山西": 0,
+      "内蒙古": 0,
+      "辽宁": 0,
+      "吉林": 0,
+      "黑龙江": 0,
+      "上海": 1,
+      "江苏": 0,
+      "浙江": 0,
+      "安徽": 0,
+      "福建": 1,
+      "江西": 0,
+      "山东": 0,
+      "河南": 1,
+      "湖北": 3,
+      "湖南": 0,
+      "广东": 0,
+      "广西": 0,
+      "海南": 0,
+      "重庆": 2,
+      "四川": 1,
+      "贵州": 0,
+      "云南": 0,
+      "西藏": 0,
+      "陕西": 0,
+      "甘肃": 0,
+      "青海": 0,
+      "宁夏": 0,
+      "新疆": 0
+    },
+    "excludedAreaCount": 0,
+    "queryCount": 42,
+    "searchResultCount": 420,
+    "seedSourceCount": 16,
+    "searchConcurrency": 6,
+    "errorCount": 0
+  },
+  "excluded": [],
+  "items": [
+    {
+      "title": "武汉市2024年度市直机关公开遴选公务员职位计划表",
+      "url": "https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202410/P020241008651489684198.pdf",
+      "summary": "武汉市公安局网络安全保卫支队警务技术职位，从事网络违法犯罪侦查，专业范围含计算机类、网络空间安全、软件工程等；该来源属于面向在职公务员的公开遴选。",
+      "year": 2024,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "www.wuhan.gov.cn",
+      "official": true,
+      "regions": [
+        "武汉"
+      ],
+      "provincialRegions": [],
+      "roleCategory": "网络安全/网信",
+      "treatment": [],
+      "isChuanYu": false,
+      "isHubei": true,
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员"
+      ],
+      "csHits": [
+        "计算机类",
+        "计算机",
+        "软件工程",
+        "网络安全",
+        "网络空间安全"
+      ],
+      "score": 31,
+      "relevant": true
+    },
+    {
+      "title": "四川省2026年度省级机关及其直属机构公开考试录用公务员",
+      "url": "https://www.scpta.com.cn/front/Special/Info/85887d50aadf43f491088f4a9106c647",
+      "summary": "四川省及成都等地区2026年度公务员招录专题，具体计算机类、信息化、网络安全和数据岗位以各机关职位表为准。",
+      "year": 2026,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "www.scpta.com.cn",
+      "official": false,
+      "regions": [
+        "四川",
+        "成都"
+      ],
+      "provincialRegions": [
+        "四川"
+      ],
+      "roleCategory": "信息化/电子政务",
+      "treatment": [],
+      "isChuanYu": true,
+      "isHubei": false,
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员",
+        "考试录用",
+        "招录",
+        "职位表"
+      ],
+      "csHits": [
+        "计算机类",
+        "计算机",
+        "网络安全",
+        "信息化"
+      ],
+      "score": 30,
+      "relevant": true
+    },
+    {
+      "title": "重庆市2025年度公开考试录用公务员公告及职位表",
+      "url": "https://cq.gov.cn/ywdt/tzgg/202502/t20250211_14293058.html",
+      "summary": "重庆市2025年度公务员招考公告，附件含职位情况一览表和专业参考目录，计算机类考生可按专业、学历和地区筛选职位。",
+      "year": 2025,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "cq.gov.cn",
+      "official": true,
+      "regions": [
+        "重庆"
+      ],
+      "provincialRegions": [
+        "重庆"
+      ],
+      "roleCategory": "其他计算机相关岗位",
+      "treatment": [],
+      "isChuanYu": true,
+      "isHubei": false,
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员",
+        "考试录用",
+        "职位表"
+      ],
+      "csHits": [
+        "计算机类",
+        "计算机"
+      ],
+      "score": 30,
+      "relevant": true
+    },
+    {
+      "title": "湖北省公安机关2025年网络安全技术特殊职位公务员招录",
+      "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zytz/202509/t20250930_5783872.shtml",
+      "summary": "湖北省公安机关网络安全技术人民警察职位，专业技能测试地点设在武汉，面向具备信息安全、网络安全和计算机编程能力的报考人员。",
+      "year": 2025,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "rst.hubei.gov.cn",
+      "official": true,
+      "regions": [
+        "湖北",
+        "武汉"
+      ],
+      "provincialRegions": [
+        "湖北"
+      ],
+      "roleCategory": "网络安全/网信",
+      "treatment": [],
+      "isChuanYu": false,
+      "isHubei": true,
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员",
+        "招录"
+      ],
+      "csHits": [
+        "计算机",
+        "信息安全",
+        "网络安全"
+      ],
+      "score": 29,
+      "relevant": true
+    },
+    {
+      "title": "湖北省2025年度省市县乡考试录用公务员公告",
+      "url": "https://zrzyt.hubei.gov.cn/fbjd/xxgkml/zkly/202510/t20251030_5801217.shtml",
+      "summary": "湖北省省市县乡公务员招录公告，职位资格条件和工作地点以湖北省人事考试网职位表为准。",
+      "year": 2025,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "zrzyt.hubei.gov.cn",
+      "official": true,
+      "regions": [
+        "湖北"
+      ],
+      "provincialRegions": [
+        "湖北"
+      ],
+      "roleCategory": "其他计算机相关岗位",
+      "treatment": [],
+      "isChuanYu": false,
+      "isHubei": true,
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员",
+        "考试录用",
+        "招录",
+        "职位表"
+      ],
+      "csHits": [],
+      "score": 28,
+      "relevant": true
+    },
+    {
+      "title": "重庆市2025年度公务员信息技术管理职位录用结果",
+      "url": "https://cgj.cq.gov.cn/zwgk_173/fdzdgknr/zzrs/202509/t20250905_14979015.html",
+      "summary": "重庆市城市供节水事务中心信息技术管理职位，录用成绩公示显示报考专业包含计算机技术，是川渝地区计算机专业公务员岗位实例。",
+      "year": 2025,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "cgj.cq.gov.cn",
+      "official": true,
+      "regions": [
+        "重庆"
+      ],
+      "provincialRegions": [
+        "重庆"
+      ],
+      "roleCategory": "信息化/电子政务",
+      "treatment": [],
+      "isChuanYu": true,
+      "isHubei": false,
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员"
+      ],
+      "csHits": [
+        "计算机",
+        "信息技术"
+      ],
+      "score": 22,
+      "relevant": true
+    },
+    {
+      "title": "武汉市2025年度公务员信息技术岗拟录用公示",
+      "url": "https://www.wuhan.gov.cn/zwgk/tzgg/202505/P020250524563596165268.pdf",
+      "summary": "武汉市2025年度公务员拟录用名单包含信息技术岗、数据审计岗等计算机专业相关职位，是湖北地区实际录用岗位实例。",
+      "year": 2025,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "www.wuhan.gov.cn",
+      "official": true,
+      "regions": [
+        "湖北",
+        "武汉"
+      ],
+      "provincialRegions": [
+        "湖北"
+      ],
+      "roleCategory": "信息化/电子政务",
+      "treatment": [],
+      "isChuanYu": false,
+      "isHubei": true,
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员"
+      ],
+      "csHits": [
+        "计算机",
+        "信息技术"
+      ],
+      "score": 22,
+      "relevant": true
+    },
+    {
+      "title": "税务系统2024年度考试录用公务员相关事项通知",
+      "url": "https://shanghai.chinatax.gov.cn/xxgk/rsxx/202311/t469406.html",
+      "summary": "税务系统招录专业目录中的计算机类包含计算机科学与技术、软件工程、网络工程、信息安全、数据科学与大数据技术等，职位分布覆盖上海等税务机关。",
+      "year": 2024,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "shanghai.chinatax.gov.cn",
+      "official": true,
+      "regions": [
+        "上海"
+      ],
+      "provincialRegions": [
+        "上海"
+      ],
+      "roleCategory": "网络安全/网信",
+      "treatment": [],
+      "isChuanYu": false,
+      "isHubei": false,
+      "isNationalExam": true,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员",
+        "考试录用",
+        "招录"
+      ],
+      "csHits": [
+        "计算机科学与技术",
+        "计算机类",
+        "计算机",
+        "软件工程",
+        "网络工程",
+        "信息安全",
+        "数据科学",
+        "大数据"
+      ],
+      "score": 48,
+      "relevant": true
+    },
+    {
+      "title": "税务系统2026年度考试录用公务员相关事项通知",
+      "url": "https://www.chinatax.gov.cn/chinatax/n896543r/c5243601/content.html",
+      "summary": "税务系统专业目录中的计算机类包含计算机科学与技术、软件工程、网络工程、信息安全、数据科学与大数据技术、网络空间安全等。",
+      "year": 2026,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "www.chinatax.gov.cn",
+      "official": true,
+      "regions": [],
+      "provincialRegions": [],
+      "roleCategory": "网络安全/网信",
+      "treatment": [],
+      "isChuanYu": false,
+      "isHubei": false,
+      "isNationalExam": true,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员",
+        "考试录用"
+      ],
+      "csHits": [
+        "计算机科学与技术",
+        "计算机类",
+        "计算机",
+        "软件工程",
+        "网络工程",
+        "信息安全",
+        "网络空间安全",
+        "数据科学",
+        "大数据"
+      ],
+      "score": 47,
+      "relevant": true
+    },
+    {
+      "title": "河南省2024年度统一考试录用公务员职位表",
+      "url": "https://www.beiguan.gov.cn/UploadFiles/file/20240122/6384151219711290496981301.pdf",
+      "summary": "河南省辖市以下职位表包含计算机科学与技术、信息安全等专业要求，具体用人单位和工作地点见职位表。",
+      "year": 2024,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "www.beiguan.gov.cn",
+      "official": true,
+      "regions": [
+        "河南"
+      ],
+      "provincialRegions": [
+        "河南"
+      ],
+      "roleCategory": "网络安全/网信",
+      "treatment": [],
+      "isChuanYu": false,
+      "isHubei": false,
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员",
+        "考试录用",
+        "职位表"
+      ],
+      "csHits": [
+        "计算机科学与技术",
+        "计算机",
+        "信息安全"
+      ],
+      "score": 33,
+      "relevant": true
+    },
+    {
+      "title": "外交部2025年度公务员录用计划表",
+      "url": "https://www.mfa.gov.cn/web/wjb_673085/gbclc_603848/tzgg_660725/202410/P020241014571145485714.pdf",
+      "summary": "北京中央机关职位面向计算机科学与技术、软件工程、大数据技术与工程等人工智能相关专业，部分职位设置英语条件和专业能力测试。",
+      "year": 2025,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "www.mfa.gov.cn",
+      "official": true,
+      "regions": [
+        "北京",
+        "中央"
+      ],
+      "provincialRegions": [
+        "北京"
+      ],
+      "roleCategory": "数据管理/统计分析",
+      "treatment": [],
+      "isChuanYu": false,
+      "isHubei": false,
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员"
+      ],
+      "csHits": [
+        "计算机科学与技术",
+        "计算机",
+        "软件工程",
+        "大数据",
+        "人工智能"
+      ],
+      "score": 31,
+      "relevant": true
+    },
+    {
+      "title": "商务部2025年度补充录用公务员职位表",
+      "url": "https://rss.mofcom.gov.cn/api-gateway/jpaas-web-server/front/document/download?fileName=%E5%95%86%E5%8A%A1%E9%83%A82025%E5%B9%B4%E5%BA%A6%E8%A1%A5%E5%85%85%E5%BD%95%E7%94%A8%E5%85%AC%E5%8A%A1%E5%91%98%E8%81%8C%E4%BD%8D%E8%A1%A8.pdf&fileUrl=YW5UzzlvCwcM%2FNHHX%2FtT6BcWYLharpwdJgwBRDMZZpwJDAtMw5Adlcka7ZaGBiCRBGaOoYnRP0NfsndJ%2FvNyhGd2Fxg2DfgLOa8WS6geSitaoAsQlV%2Br3bfx4UEV5dx%2F%2ByfkdOtoJ%2F5lcv%2Fnyve4f2V9YLf1xUcQYK5j9D5ESo0%3D",
+      "summary": "北京中央机关综合管理岗位，专业范围包含计算机科学与技术、网络空间安全、智能科学与技术等，部分岗位有英语条件。",
+      "year": 2025,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "rss.mofcom.gov.cn",
+      "official": true,
+      "regions": [
+        "北京",
+        "中央"
+      ],
+      "provincialRegions": [
+        "北京"
+      ],
+      "roleCategory": "网络安全/网信",
+      "treatment": [],
+      "isChuanYu": false,
+      "isHubei": false,
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员",
+        "职位表"
+      ],
+      "csHits": [
+        "计算机科学与技术",
+        "计算机",
+        "网络空间安全"
+      ],
+      "score": 29,
+      "relevant": true
+    },
+    {
+      "title": "2026年度中国证监会考试录用公务员公告",
+      "url": "https://www.csrc.gov.cn/csrc/c100083/c7588473/content.shtml",
+      "summary": "中国证监会及派出机构拟招录财金、法律、会计、计算机等专业监管人才，职位覆盖北京证监局等派出机构。",
+      "year": 2026,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "www.csrc.gov.cn",
+      "official": true,
+      "regions": [
+        "北京"
+      ],
+      "provincialRegions": [
+        "北京"
+      ],
+      "roleCategory": "专业监管/技术监管",
+      "treatment": [],
+      "isChuanYu": false,
+      "isHubei": false,
+      "isNationalExam": true,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员",
+        "考试录用",
+        "招录"
+      ],
+      "csHits": [
+        "计算机"
+      ],
+      "score": 27,
+      "relevant": true
+    },
+    {
+      "title": "欢迎广大考生报考工业和信息化部公务员",
+      "url": "https://www.miit.gov.cn/xwfb/gxdt/sjdt/art/2024/art_32724046a6ab4015a45c50f53b291418.html",
+      "summary": "工业和信息化部2025年度公务员招录信息，涉及部机关及直属机构，具体专业和工作地点以职位表为准。",
+      "year": 2025,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "www.miit.gov.cn",
+      "official": true,
+      "regions": [],
+      "provincialRegions": [],
+      "roleCategory": "信息化/电子政务",
+      "treatment": [],
+      "isChuanYu": false,
+      "isHubei": false,
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员",
+        "招录",
+        "职位表"
+      ],
+      "csHits": [
+        "信息化"
+      ],
+      "score": 27,
+      "relevant": true
+    },
+    {
+      "title": "中华人民共和国公务员法：工资福利保险",
+      "url": "https://www.stats.gov.cn/gk/tjfg/xgfxfg/202503/t20250310_1958920.html",
+      "summary": "公务员工资包括基本工资、津贴、补贴和奖金，并依法享受住房、医疗等补贴补助及社会保险待遇。",
+      "year": 2025,
+      "treatmentBasis": true,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "www.stats.gov.cn",
+      "official": true,
+      "regions": [],
+      "provincialRegions": [],
+      "roleCategory": "待遇制度依据",
+      "treatment": [],
+      "isChuanYu": false,
+      "isHubei": false,
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员"
+      ],
+      "csHits": [],
+      "score": 16,
+      "relevant": true
+    },
+    {
+      "title": "福建省机关事业单位招考专业指导目录（2025年）",
+      "url": "https://gwykl.fujian.gov.cn/portal/policy/specialtylist2025.html",
+      "summary": "官方专业目录列出计算机网络、软件、信息安全、数据科学、人工智能等可报专业范围。",
+      "year": 2025,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "gwykl.fujian.gov.cn",
+      "official": true,
+      "regions": [
+        "福建"
+      ],
+      "provincialRegions": [
+        "福建"
+      ],
+      "roleCategory": "网络安全/网信",
+      "treatment": [],
+      "isChuanYu": false,
+      "isHubei": false,
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [],
+      "csHits": [
+        "计算机",
+        "信息安全",
+        "数据科学",
+        "人工智能"
+      ],
+      "score": 14,
+      "relevant": true
+    }
+  ],
+  "freshCount": 16,
+  "errors": []
+}
