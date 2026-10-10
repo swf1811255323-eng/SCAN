@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {
   PROVINCIAL_REGIONS, analyseItem, buildCoverageStats, buildQueries, classifyRole,
   detectExcludedArea, extractRegions, extractTreatment, extractYear, parseRss,
-  renderEmailHtml, shouldSendToday
+  prepareConcretePositions, renderEmailHtml, shouldSendToday
 } from './scan.mjs';
 
 const config = {
@@ -90,13 +90,25 @@ assert.equal(resultCoverage.hitProvinceCount, 31);
 assert.equal(resultCoverage.nationalExamHits, 1);
 assert.equal(resultCoverage.excludedAreaCount, 1);
 
+const concretePositions = prepareConcretePositions([
+  { grade: 'A+', score: 85, year: 2026, region: '湖北 荆州市直', agency: '荆州市审计局', position: '信息技术岗', headcount: 1, notes: ['历史职位模板'], url: 'https://example.gov.cn/jobs.xlsx' },
+  { grade: 'A', score: 78, year: 2026, region: '某边境县', agency: '某单位', position: '信息岗', headcount: 1, notes: ['艰苦边远地区'], url: 'https://example.gov.cn/border.xlsx' },
+], config, 2028);
+assert.equal(concretePositions.length, 1);
+assert.equal(concretePositions[0].agency, '荆州市审计局');
+assert.equal(concretePositions[0].graduationYear, 2028);
+
 assert.deepEqual(shouldSendToday({ emailSuccess: {} }, '2026-10-04'), { send: true, reason: 'daily-send-due' });
 assert.deepEqual(shouldSendToday({ emailSuccess: { '2026-10-04': 'ok' } }, '2026-10-04'), { send: false, reason: 'already-sent-today' });
 assert.deepEqual(shouldSendToday({ emailSuccess: { '2026-10-04': 'ok' } }, '2026-10-04', false, true), { send: true, reason: 'forced-send' });
 assert.deepEqual(shouldSendToday({ emailSuccess: { '2026-10-04': 'ok' } }, '2026-10-04', true, true), { send: false, reason: 'manual-no-mail' });
-const emailPreview = renderEmailHtml({ items: [analysed, chuanYu, hubei], fresh: [analysed], years: [2026, 2025, 2024], generatedAt: '2026-10-04 08:23:00' });
+const emailPreview = renderEmailHtml({ items: [analysed, chuanYu, hubei], fresh: [analysed], years: [2026, 2025, 2024], generatedAt: '2026-10-04 08:23:00', concretePositions, graduationYear: 2028 });
 assert.match(emailPreview, /每天最多成功发送 1 封/);
 assert.match(emailPreview, /湖北 1 条 · 川渝 1 条/);
+assert.match(emailPreview, /荆州市审计局/);
+assert.match(emailPreview, /信息技术岗/);
+assert.match(emailPreview, /具体岗位清单/);
+assert.match(emailPreview, /不代表当前可报名/);
 
 console.log('civil-service radar tests: OK');
 

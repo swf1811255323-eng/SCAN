@@ -8,6 +8,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');
 const DEFAULT_STATE = path.join(HERE, 'state', 'seen.json');
 const DEFAULT_OUTPUT = path.join(HERE, 'output');
+const DEFAULT_CONCRETE_POSITIONS = path.join(HERE, 'data', 'concrete-positions.json');
 
 const CIVIL_TERMS = ['公务员', '国考', '省考', '考试录用', '招录', '招考职位', '职位表', '主任科员'];
 const CS_TERMS = [
@@ -120,6 +121,25 @@ export function detectExcludedArea(text, config = {}) {
     return `海拔${altitude[1]}米`;
   }
   return '';
+}
+
+export function prepareConcretePositions(rows = [], config = {}, graduationYear = 2028) {
+  return rows
+    .map((row) => {
+      const exclusionText = `${row.region || ''} ${row.agency || ''} ${row.position || ''} ${(row.notes || []).join(' ')}`;
+      return {
+        ...row,
+        grade: row.grade || 'B',
+        score: Number(row.score) || 0,
+        headcount: Number(row.headcount) || 0,
+        notes: Array.isArray(row.notes) ? row.notes : [String(row.notes || '')].filter(Boolean),
+        currentEligible: Boolean(row.currentEligible),
+        graduationYear,
+        excludedAreaReason: detectExcludedArea(exclusionText, config),
+      };
+    })
+    .filter((row) => row.region && row.agency && row.position && row.url && !row.excludedAreaReason)
+    .sort((a, b) => Number(b.currentEligible) - Number(a.currentEligible) || b.score - a.score || b.headcount - a.headcount);
 }
 
 export function isNationalExamItem(text) {
@@ -283,7 +303,7 @@ function html(value) {
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
-function renderReport({ items, fresh, errors, years, generatedAt, coverage, excluded }) {
+function renderReport({ items, fresh, errors, years, generatedAt, coverage, excluded, concretePositions = [], graduationYear = 2028 }) {
   const roles = countBy(items.filter((x) => x.roleCategory !== '待遇制度依据'), (x) => x.roleCategory);
   const regions = countBy(items, (x) => x.regions);
   const yearCounts = countBy(items, (x) => x.year ? String(x.year) : '年份未识别');
@@ -295,6 +315,7 @@ function renderReport({ items, fresh, errors, years, generatedAt, coverage, excl
     `- 生成时间：${generatedAt}（Asia/Shanghai）`,
     `- 覆盖年份：${years.join('、')}`,
     `- 本轮有效资料：${items.length} 条；首次发现：${fresh.length} 条；抓取异常：${errors.length} 个`,
+    `- 具体职位：${concretePositions.length} 个历史职位模板；候选人毕业年份：${graduationYear}`,
     `- 扫描范围：${coverage.queryProvinceCount}/${coverage.expectedProvinceCount} 个省级行政区；国考检索：${coverage.nationalExamQueried ? '已执行' : '缺失'}；共执行 ${coverage.queryCount} 个查询，并发 ${coverage.searchConcurrency}`,
     `- 联网发现：搜索返回 ${coverage.searchResultCount} 条原始结果；内置官方基准 ${coverage.seedSourceCount} 条；抓取失败 ${coverage.errorCount} 个`,
     `- 结果命中：${coverage.hitProvinceCount}/${coverage.expectedProvinceCount} 个省级行政区；国考有效资料：${coverage.nationalExamHits} 条；边境/艰苦地区过滤：${coverage.excludedAreaCount} 条`,
@@ -307,10 +328,22 @@ function renderReport({ items, fresh, errors, years, generatedAt, coverage, excl
     `- 全国覆盖：查询缺失 ${coverage.missingQueryRegions.join('、') || '无'}；本轮结果未命中 ${coverage.missingHitRegions.join('、') || '无'}。`,
     '- 待遇制度：依据《公务员法》，工资由基本工资、津贴、补贴和奖金构成，并依法享受住房、医疗等补贴补助及社会保险；实际金额随职级、地区、单位和特殊岗位变化。',
     '- 重要提醒：招录公告通常不披露实发工资。程序只摘录页面中明确出现的金额，不根据地区传闻推算。', '',
-    '## 岗位、地区与待遇证据', '',
+    `## 具体岗位（重点用于 ${graduationYear} 选岗预测）`, '',
+    '> 下表来自已解析的往年官方职位表，是结构性匹配模板，不代表现在可以报名；正式报考必须等待对应年度职位表。', '',
+    '| 等级 | 分数 | 年份 | 地区 | 单位 | 职位 | 人数 | 主要提示 | 来源 |',
+    '| --- | ---: | ---: | --- | --- | --- | ---: | --- | --- |',
+  ];
+  if (concretePositions.length) {
+    for (const position of concretePositions.slice(0, 50)) {
+      lines.push(`| ${md(position.grade)} | ${position.score} | ${position.year || '未识别'} | ${md(position.region)} | ${md(position.agency)} | ${md(position.position)} | ${position.headcount || '未注明'} | ${md(position.notes.join('；'))} | [职位表](${position.url}) |`);
+    }
+  } else {
+    lines.push('| — | — | — | — | — | — | — | 暂无已解析的具体职位 | — |');
+  }
+  lines.push('', '## 公告、职位表与待遇证据', '',
     '| 年份 | 岗位方向 | 地区 | 待遇信息 | 来源 |',
     '| --- | --- | --- | --- | --- |',
-  ];
+  );
   for (const item of items) {
     const pay = item.treatment.length ? item.treatment.join('；') : (item.roleCategory === '待遇制度依据' ? '基本工资＋津贴＋补贴＋奖金等法定构成' : '公告未公开金额');
     lines.push(`| ${item.year || '未识别'} | ${md(item.roleCategory)} | ${md(item.regions.join('、') || '未注明')} | ${md(pay)} | [${md(item.title)}](${item.url}) |`);
@@ -355,14 +388,27 @@ function renderReport({ items, fresh, errors, years, generatedAt, coverage, excl
   return lines.join('\n');
 }
 
-export function renderEmailHtml({ items, fresh, years, generatedAt, coverage = buildCoverageStats(items, [], []) }) {
+export function renderEmailHtml({ items, fresh, years, generatedAt, coverage = buildCoverageStats(items, [], []), concretePositions = [], graduationYear = 2028 }) {
   const roleCounts = countBy(items.filter((x) => x.roleCategory !== '待遇制度依据'), (x) => x.roleCategory);
   const regionCounts = countBy(items, (x) => x.regions);
   const mainRole = roleCounts[0]?.[0] || '等待更多资料';
   const topRegion = regionCounts[0]?.[0] || '职位表未注明';
   const hubeiCount = items.filter((x) => x.isHubei).length;
   const chuanYuCount = items.filter((x) => x.isChuanYu).length;
-  const cards = items.filter((x) => x.roleCategory !== '待遇制度依据').slice(0, 12).map((item) => {
+  const positionCards = concretePositions.slice(0, 16).map((position) => `
+      <tr><td style="padding:0 24px 14px">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border:1px solid #dbeafe;border-radius:14px;background:#fff">
+          <tr><td style="padding:18px 18px 8px">
+            <span style="display:inline-block;padding:4px 9px;border-radius:999px;background:#eef2ff;color:#4338ca;font-size:12px;font-weight:800">${html(position.grade)} · ${position.score}分</span>
+            <span style="display:inline-block;margin-left:6px;padding:4px 9px;border-radius:999px;background:#fff7ed;color:#c2410c;font-size:12px;font-weight:700">历史职位模板</span>
+          </td></tr>
+          <tr><td style="padding:2px 18px 5px;color:#111827;font-size:17px;line-height:1.5;font-weight:800">${html(position.agency)}</td></tr>
+          <tr><td style="padding:0 18px 10px;color:#1d4ed8;font-size:16px;line-height:1.5;font-weight:750">${html(position.position)}</td></tr>
+          <tr><td style="padding:0 18px 12px;color:#667085;font-size:13px;line-height:1.75">📍 ${html(position.region)}　·　📅 ${html(position.year)} 年　·　👥 招 ${html(position.headcount || '未注明')} 人<br>⚠️ ${html(position.notes.join('；'))}</td></tr>
+          <tr><td style="padding:0 18px 18px"><a href="${html(position.url)}" style="display:inline-block;padding:9px 15px;border-radius:9px;background:#1d4ed8;color:#fff;text-decoration:none;font-size:13px;font-weight:700">打开官方职位表 →</a></td></tr>
+        </table>
+      </td></tr>`).join('');
+  const sourceCards = items.filter((x) => x.roleCategory !== '待遇制度依据').slice(0, 8).map((item) => {
     const pay = item.treatment.length ? item.treatment.join('；') : '公告未公开具体金额';
     const location = item.regions.join(' · ') || '地区待职位表确认';
     return `
@@ -393,7 +439,7 @@ export function renderEmailHtml({ items, fresh, years, generatedAt, coverage = b
 
         <tr><td style="padding:24px 24px 10px">
           <table role="presentation" width="100%" cellspacing="0" cellpadding="0"><tr>
-            <td width="32%" style="padding:15px 8px;text-align:center;background:#f8f7ff;border-radius:12px"><div style="font-size:25px;font-weight:850;color:#4338ca">${items.length}</div><div style="font-size:12px;color:#667085">有效资料</div></td>
+            <td width="32%" style="padding:15px 8px;text-align:center;background:#f8f7ff;border-radius:12px"><div style="font-size:25px;font-weight:850;color:#4338ca">${concretePositions.length}</div><div style="font-size:12px;color:#667085">具体职位模板</div></td>
             <td width="2%"></td>
             <td width="32%" style="padding:15px 8px;text-align:center;background:#f0fdfa;border-radius:12px"><div style="font-size:25px;font-weight:850;color:#0f766e">${fresh.length}</div><div style="font-size:12px;color:#667085">本轮新发现</div></td>
             <td width="2%"></td>
@@ -416,8 +462,10 @@ export function renderEmailHtml({ items, fresh, years, generatedAt, coverage = b
         <tr><td style="padding:0 30px 14px"><div style="padding:16px 18px;border-radius:14px;background:#fffbeb;border-left:4px solid #f59e0b;color:#78350f;font-size:13px;line-height:1.75"><b>待遇怎么读：</b>依据《公务员法》，工资由基本工资、津贴、补贴和奖金构成，并依法享受住房、医疗等补贴补助及社会保险。实际金额与职级、地区、单位和特殊岗位有关，最终以录用后的工资核定为准。</div></td></tr>
 
         <tr><td style="padding:18px 30px 8px"><div style="font-size:18px;font-weight:800;color:#111827">主要岗位方向</div><ul style="padding-left:20px;color:#475467;font-size:14px;line-height:1.65">${roleSummary}</ul></td></tr>
-        <tr><td style="padding:8px 30px 18px"><div style="font-size:18px;font-weight:800;color:#111827">精选官方线索</div><div style="margin-top:5px;color:#98a2b3;font-size:12px">按相关度排序，报考前务必打开职位表核对专业代码与资格条件</div></td></tr>
-        ${cards || '<tr><td style="padding:0 30px 24px;color:#667085">今天暂未检出新的岗位线索。</td></tr>'}
+        <tr><td style="padding:8px 30px 14px"><div style="font-size:19px;font-weight:850;color:#111827">具体岗位清单</div><div style="margin-top:6px;color:#b45309;font-size:13px;line-height:1.65">这些是往年官方职位表中与 ${html(graduationYear)} 届本科计算机专业结构匹配的岗位，用于预测选岗；不代表当前可报名。</div></td></tr>
+        ${positionCards || '<tr><td style="padding:0 30px 24px;color:#667085">暂未加载具体职位模板。</td></tr>'}
+        <tr><td style="padding:18px 30px 18px"><div style="font-size:18px;font-weight:800;color:#111827">最新公告与职位表入口</div><div style="margin-top:5px;color:#98a2b3;font-size:12px">用于跟踪新年度发布；具体报名资格以当年职位表为准</div></td></tr>
+        ${sourceCards || '<tr><td style="padding:0 30px 24px;color:#667085">今天暂未检出新的官方来源。</td></tr>'}
         <tr><td style="padding:22px 30px 30px;background:#f8fafc;color:#667085;font-size:12px;line-height:1.75;text-align:center">每天扫描 4 次 · 每天最多成功发送 1 封<br>自动归类用于发现线索，报考条件和待遇以官方职位表及招录机关答复为准。</td></tr>
       </table>
     </td></tr></table>
@@ -443,7 +491,7 @@ export function shouldSendToday(state, date, noMail = false, forceMail = false) 
   return { send: true, reason: 'daily-send-due' };
 }
 
-async function maybeSendMail({ report, emailHtml, items, date, state, noMail, forceMail }) {
+async function maybeSendMail({ report, emailHtml, items, concretePositions = [], date, state, noMail, forceMail }) {
   const gate = shouldSendToday(state, date, noMail, forceMail);
   if (!gate.send) return { sent: false, skipped: true, reason: gate.reason };
   if (!process.env.GMAIL_APP_PASSWORD) return { sent: false, skipped: true, reason: 'missing-password' };
@@ -452,7 +500,7 @@ async function maybeSendMail({ report, emailHtml, items, date, state, noMail, fo
     const user = process.env.GMAIL_USER;
     const to = process.env.MAIL_TO || user;
     if (!user || !to) return { sent: false, skipped: true, reason: 'missing-user' };
-    const subject = `【公务员岗位雷达】${date}｜${items.length} 条计算机专业线索`;
+    const subject = `【公务员具体岗位】${date}｜${concretePositions.length} 个职位模板｜全国扫描 ${items.length} 条线索`;
     const text = report.length > 80_000 ? `${report.slice(0, 80_000)}\n\n（正文已截断，完整报告见 GitHub Actions artifact）` : report;
     const rawMessage = buildRawMessage({ from: user, fromName: '公务员岗位雷达', to, subject, text, html: emailHtml });
     const result = await sendMail({ user, password: process.env.GMAIL_APP_PASSWORD, to, rawMessage, log: console.log });
@@ -465,6 +513,9 @@ async function maybeSendMail({ report, emailHtml, items, date, state, noMail, fo
 export async function run(args = parseArgs(), deps = {}) {
   const config = loadJson(path.join(HERE, 'config.json'), null);
   if (!config) throw new Error('无法读取 civil-service/config.json');
+  const profile = loadJson(path.join(ROOT, 'config', 'profile.json'), { candidate: { graduationYear: 2028 } });
+  const graduationYear = Number(profile?.candidate?.graduationYear) || 2028;
+  const concretePositions = prepareConcretePositions(loadJson(DEFAULT_CONCRETE_POSITIONS, []), config, graduationYear);
   const years = args.years?.length ? args.years : config.years;
   const queries = buildQueries(config, years);
   if (args.dryRun) {
@@ -514,19 +565,20 @@ export async function run(args = parseArgs(), deps = {}) {
     searchConcurrency: concurrency,
     errorCount: errors.length,
   });
-  const report = renderReport({ items, fresh, errors, years, generatedAt: bj.stamp, coverage, excluded });
-  const emailHtml = renderEmailHtml({ items, fresh, years, generatedAt: bj.stamp, coverage });
+  const report = renderReport({ items, fresh, errors, years, generatedAt: bj.stamp, coverage, excluded, concretePositions, graduationYear });
+  const emailHtml = renderEmailHtml({ items, fresh, years, generatedAt: bj.stamp, coverage, concretePositions, graduationYear });
 
   fs.mkdirSync(DEFAULT_OUTPUT, { recursive: true });
   fs.mkdirSync(path.join(DEFAULT_OUTPUT, 'history'), { recursive: true });
   fs.mkdirSync(path.dirname(DEFAULT_STATE), { recursive: true });
   fs.writeFileSync(path.join(DEFAULT_OUTPUT, 'latest.md'), report, 'utf8');
-  fs.writeFileSync(path.join(DEFAULT_OUTPUT, 'latest.json'), JSON.stringify({ generatedAt: now.toISOString(), years, coverage, excluded, items, freshCount: fresh.length, errors }, null, 2) + '\n', 'utf8');
+  fs.writeFileSync(path.join(DEFAULT_OUTPUT, 'latest.json'), JSON.stringify({ generatedAt: now.toISOString(), years, graduationYear, coverage, concretePositions, excluded, items, freshCount: fresh.length, errors }, null, 2) + '\n', 'utf8');
   fs.writeFileSync(path.join(DEFAULT_OUTPUT, 'history', `${bj.date}.md`), report, 'utf8');
   const mail = await maybeSendMail({
     report,
     emailHtml,
     items,
+    concretePositions,
     date: bj.date,
     state,
     noMail: args.noMail,
@@ -534,12 +586,12 @@ export async function run(args = parseArgs(), deps = {}) {
   });
   if (mail.sent) state.emailSuccess = { ...(state.emailSuccess || {}), [bj.date]: now.toISOString() };
   fs.writeFileSync(DEFAULT_STATE, JSON.stringify(updateState(state, items, now.toISOString()), null, 2) + '\n', 'utf8');
-  console.log(`完成：扫描 ${coverage.queryProvinceCount}/${coverage.expectedProvinceCount} 省级行政区 + 国考，命中 ${coverage.hitProvinceCount} 省，排除边境/艰苦地区 ${coverage.excludedAreaCount} 条；有效资料 ${items.length} 条，新发现 ${fresh.length} 条，异常 ${errors.length} 个，邮件 ${mail.sent ? '已发送' : `未发送（${mail.reason || mail.error || '未知原因'}）`}`);
+  console.log(`完成：扫描 ${coverage.queryProvinceCount}/${coverage.expectedProvinceCount} 省级行政区 + 国考，命中 ${coverage.hitProvinceCount} 省，具体职位模板 ${concretePositions.length} 个，排除边境/艰苦地区 ${coverage.excludedAreaCount} 条；有效资料 ${items.length} 条，新发现 ${fresh.length} 条，异常 ${errors.length} 个，邮件 ${mail.sent ? '已发送' : `未发送（${mail.reason || mail.error || '未知原因'}）`}`);
   if (mail.error) console.warn(`邮件警告：${mail.error}`);
   if (!args.noMail && !mail.sent && !mail.skipped) {
     throw new Error(`邮件发送失败：${mail.error || mail.reason || 'SMTP 未确认投递'}`);
   }
-  return { items, fresh, errors, excluded, coverage, report, mail };
+  return { items, fresh, errors, excluded, concretePositions, coverage, report, mail };
 }
 
 async function main() {
