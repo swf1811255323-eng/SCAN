@@ -517,20 +517,41 @@ export function shouldSendToday(state, date, noMail = false, forceMail = false) 
   return { send: true, reason: 'daily-send-due' };
 }
 
+export async function sendMailWithRetry(send, { attempts = 3, wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms)), log = console.warn } = {}) {
+  let last = { ok: false, error: 'SMTP 未确认投递' };
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    try {
+      last = await send(attempt);
+    } catch (error) {
+      last = { ok: false, error: error.message };
+    }
+    if (last?.ok) return { ...last, attemptsUsed: attempt };
+    if (attempt < attempts) {
+      log(`邮件发送第 ${attempt}/${attempts} 次失败，稍后自动重试：${last?.error || last?.status || 'SMTP 未确认投递'}`);
+      await wait(attempt * 2_000);
+    }
+  }
+  return { ...last, ok: false, attemptsUsed: attempts };
+}
+
 async function maybeSendMail({ report, emailHtml, items, concretePositions = [], date, state, noMail, forceMail }) {
   const gate = shouldSendToday(state, date, noMail, forceMail);
   if (!gate.send) return { sent: false, skipped: true, reason: gate.reason };
-  if (!process.env.GMAIL_APP_PASSWORD) return { sent: false, skipped: true, reason: 'missing-password' };
+  if (!process.env.GMAIL_APP_PASSWORD) return { sent: false, error: '缺少 GMAIL_APP_PASSWORD' };
   try {
     const { sendMail, buildRawMessage } = await import('../src/mail/smtp.js');
     const user = process.env.GMAIL_USER;
     const to = process.env.MAIL_TO || user;
-    if (!user || !to) return { sent: false, skipped: true, reason: 'missing-user' };
+    if (!user) return { sent: false, error: '缺少 GMAIL_USER' };
+    if (!to) return { sent: false, error: '缺少 CIVIL_SERVICE_MAIL_TO' };
     const subject = `【公务员具体岗位】${date}｜${concretePositions.length} 个职位模板｜全国扫描 ${items.length} 条线索`;
     const text = report.length > 80_000 ? `${report.slice(0, 80_000)}\n\n（正文已截断，完整报告见 GitHub Actions artifact）` : report;
     const rawMessage = buildRawMessage({ from: user, fromName: '公务员岗位雷达', to, subject, text, html: emailHtml });
-    const result = await sendMail({ user, password: process.env.GMAIL_APP_PASSWORD, to, rawMessage, log: console.log });
-    return { sent: Boolean(result.ok), status: result.status || '', error: result.error || '' };
+    const result = await sendMailWithRetry(
+      () => sendMail({ user, password: process.env.GMAIL_APP_PASSWORD, to, rawMessage, log: console.log }),
+      { attempts: 3 },
+    );
+    return { sent: Boolean(result.ok), status: result.status || '', error: result.error || '', attemptsUsed: result.attemptsUsed };
   } catch (error) {
     return { sent: false, error: error.message };
   }
@@ -614,7 +635,7 @@ export async function run(args = parseArgs(), deps = {}) {
   fs.writeFileSync(DEFAULT_STATE, JSON.stringify(updateState(state, items, now.toISOString()), null, 2) + '\n', 'utf8');
   console.log(`完成：扫描 ${coverage.queryProvinceCount}/${coverage.expectedProvinceCount} 省级行政区 + 国考，命中 ${coverage.hitProvinceCount} 省，具体职位模板 ${concretePositions.length} 个，排除边境/艰苦地区 ${coverage.excludedAreaCount} 条；有效资料 ${items.length} 条，新发现 ${fresh.length} 条，异常 ${errors.length} 个，邮件 ${mail.sent ? '已发送' : `未发送（${mail.reason || mail.error || '未知原因'}）`}`);
   if (mail.error) console.warn(`邮件警告：${mail.error}`);
-  if (!args.noMail && !mail.sent && !mail.skipped) {
+  if (!args.noMail && !mail.sent && mail.reason !== 'already-sent-today') {
     throw new Error(`邮件发送失败：${mail.error || mail.reason || 'SMTP 未确认投递'}`);
   }
   return { items, fresh, errors, excluded, concretePositions, coverage, report, mail };

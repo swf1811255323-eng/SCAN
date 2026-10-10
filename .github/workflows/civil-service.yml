@@ -10,10 +10,12 @@ on:
       - '.github/workflows/civil-service.yml'
       - 'civil-service/**'
   schedule:
-    - cron: '23 0 * * *'   # 北京 08:23
-    - cron: '37 3 * * *'   # 北京 11:37
-    - cron: '47 7 * * *'   # 北京 15:47
-    - cron: '53 12 * * *'  # 北京 20:53
+    # GitHub 官方说明整点附近负载最高；使用分散的非整点分钟，并保留全天补偿机会。
+    - cron: '17 23 * * *'  # 北京 07:17（主发送窗口）
+    - cron: '43 1 * * *'   # 北京 09:43（未成功则补发）
+    - cron: '29 5 * * *'   # 北京 13:29（未成功则补发）
+    - cron: '47 9 * * *'   # 北京 17:47（未成功则补发）
+    - cron: '13 13 * * *'  # 北京 21:13（当日最后补发）
   workflow_dispatch:
     inputs:
       years:
@@ -68,9 +70,10 @@ jobs:
         shell: bash
         run: |
           NO_MAIL="${{ github.event.inputs.no_mail || 'false' }}"
-          if [ "$NO_MAIL" != "true" ] && [ -z "$MAIL_TO" ]; then
-            echo "::error::缺少独立收件地址 Secret：CIVIL_SERVICE_MAIL_TO"
-            exit 1
+          if [ "$NO_MAIL" != "true" ]; then
+            [ -n "$GMAIL_USER" ] || { echo "::error::缺少 Secret：GMAIL_USER"; exit 1; }
+            [ -n "$GMAIL_APP_PASSWORD" ] || { echo "::error::缺少 Secret：GMAIL_APP_PASSWORD"; exit 1; }
+            [ -n "$MAIL_TO" ] || { echo "::error::缺少独立收件地址 Secret：CIVIL_SERVICE_MAIL_TO"; exit 1; }
           fi
           ARGS="--years ${{ github.event.inputs.years || '2026,2025,2024' }} --limit ${{ github.event.inputs.limit || '80' }}"
           if [ "$NO_MAIL" = "true" ]; then ARGS="$ARGS --no-mail"; fi

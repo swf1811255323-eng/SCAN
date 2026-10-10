@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {
   PROVINCIAL_REGIONS, analyseItem, buildCoverageStats, buildQueries, classifyRole,
   detectExcludedArea, extractRegions, extractTreatment, extractYear, parseRss,
-  prepareConcretePositions, regionalPriorityWeight, renderEmailHtml, shouldSendToday
+  prepareConcretePositions, regionalPriorityWeight, renderEmailHtml, sendMailWithRetry, shouldSendToday
 } from './scan.mjs';
 
 const config = {
@@ -112,6 +112,18 @@ assert.deepEqual(shouldSendToday({ emailSuccess: {} }, '2026-10-04'), { send: tr
 assert.deepEqual(shouldSendToday({ emailSuccess: { '2026-10-04': 'ok' } }, '2026-10-04'), { send: false, reason: 'already-sent-today' });
 assert.deepEqual(shouldSendToday({ emailSuccess: { '2026-10-04': 'ok' } }, '2026-10-04', false, true), { send: true, reason: 'forced-send' });
 assert.deepEqual(shouldSendToday({ emailSuccess: { '2026-10-04': 'ok' } }, '2026-10-04', true, true), { send: false, reason: 'manual-no-mail' });
+let smtpAttempts = 0;
+const retryResult = await sendMailWithRetry(async () => {
+  smtpAttempts += 1;
+  return smtpAttempts < 3 ? { ok: false, error: 'temporary SMTP error' } : { ok: true, status: '250 accepted' };
+}, { attempts: 3, wait: async () => {}, log: () => {} });
+assert.equal(retryResult.ok, true);
+assert.equal(retryResult.attemptsUsed, 3);
+assert.equal(smtpAttempts, 3);
+
+const failedRetry = await sendMailWithRetry(async () => ({ ok: false, error: 'still failing' }), { attempts: 3, wait: async () => {}, log: () => {} });
+assert.equal(failedRetry.ok, false);
+assert.equal(failedRetry.attemptsUsed, 3);
 const emailPreview = renderEmailHtml({ items: [analysed, chuanYu, hubei], fresh: [analysed], years: [2026, 2025, 2024], generatedAt: '2026-10-04 08:23:00', concretePositions, graduationYear: 2028 });
 assert.match(emailPreview, /每天最多成功发送 1 封/);
 assert.match(emailPreview, /湖北 1 条 · 川渝 1 条/);
