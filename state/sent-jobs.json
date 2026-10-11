@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-04T14:23:10.124Z",
+  "updatedAt": "2026-10-11T04:50:23.268Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -810,6 +810,126 @@
       "tier": "长期备选",
       "firstSeenAt": "2026-10-04T14:23:10.123Z",
       "notifiedAt": "2026-10-04T14:23:10.123Z",
+      "channel": "smtp"
+    },
+    "id:8bc64f50501d61e5": {
+      "company": "JANGTOP疆钍",
+      "title": "C/C++",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_t9amj5pwriyp",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-11T00:47:46.906Z",
+      "notifiedAt": "2026-10-11T00:47:46.906Z",
+      "channel": "smtp"
+    },
+    "url:8bac69eee7bc2011": {
+      "company": "JANGTOP疆钍",
+      "title": "C/C++",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_t9amj5pwriyp",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-11T00:47:46.906Z",
+      "notifiedAt": "2026-10-11T00:47:46.906Z",
+      "channel": "smtp"
+    },
+    "ct:jangtop疆钍|c/c++": {
+      "company": "JANGTOP疆钍",
+      "title": "C/C++",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_t9amj5pwriyp",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-11T00:47:46.906Z",
+      "notifiedAt": "2026-10-11T00:47:46.906Z",
+      "channel": "smtp"
+    },
+    "id:95aaba47b7aa45ba": {
+      "company": "�����Ƽ�",
+      "title": "WiFi��������ʦ��Linux C/C++��",
+      "city": "�人��������",
+      "url": "https://jobs.51job.com/wuhan-jxq/171846881.html",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-11T00:47:46.907Z",
+      "notifiedAt": "2026-10-11T00:47:46.907Z",
+      "channel": "smtp"
+    },
+    "url:75a570d0f354dc5a": {
+      "company": "�����Ƽ�",
+      "title": "WiFi��������ʦ��Linux C/C++��",
+      "city": "�人��������",
+      "url": "https://jobs.51job.com/wuhan-jxq/171846881.html",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-11T00:47:46.907Z",
+      "notifiedAt": "2026-10-11T00:47:46.907Z",
+      "channel": "smtp"
+    },
+    "ct:�����ƽ�|wifi��������ʦ��linuxc/c++��": {
+      "company": "�����Ƽ�",
+      "title": "WiFi��������ʦ��Linux C/C++��",
+      "city": "�人��������",
+      "url": "https://jobs.51job.com/wuhan-jxq/171846881.html",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-11T00:47:46.907Z",
+      "notifiedAt": "2026-10-11T00:47:46.907Z",
+      "channel": "smtp"
+    },
+    "id:1f70a88e67c18b08": {
+      "company": "����¿����ּ���",
+      "title": "C/C++����",
+      "city": "�人��������",
+      "url": "https://jobs.51job.com/wuhan-jxq/173539369.html",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-11T00:47:46.907Z",
+      "notifiedAt": "2026-10-11T00:47:46.907Z",
+      "channel": "smtp"
+    },
+    "url:c8402dcd5009a20b": {
+      "company": "����¿����ּ���",
+      "title": "C/C++����",
+      "city": "�人��������",
+      "url": "https://jobs.51job.com/wuhan-jxq/173539369.html",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-11T00:47:46.907Z",
+      "notifiedAt": "2026-10-11T00:47:46.907Z",
+      "channel": "smtp"
+    },
+    "ct:����¿����ּ���|c/c++����": {
+      "company": "����¿����ּ���",
+      "title": "C/C++����",
+      "city": "�人��������",
+      "url": "https://jobs.51job.com/wuhan-jxq/173539369.html",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-11T00:47:46.907Z",
+      "notifiedAt": "2026-10-11T00:47:46.907Z",
+      "channel": "smtp"
+    },
+    "id:a89878f2e6944090": {
+      "company": "�˲����缼��",
+      "title": "C/C++������������ʦ",
+      "city": "�人�������¼�����ҵ������",
+      "url": "https://jobs.51job.com/wuhan-dhxjs/173817756.html",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-11T04:50:23.268Z",
+      "notifiedAt": "2026-10-11T04:50:23.267Z",
+      "channel": "smtp"
+    },
+    "url:aa3e87396b8fe645": {
+      "company": "�˲����缼��",
+      "title": "C/C++������������ʦ",
+      "city": "�人�������¼�����ҵ������",
+      "url": "https://jobs.51job.com/wuhan-dhxjs/173817756.html",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-11T04:50:23.268Z",
+      "notifiedAt": "2026-10-11T04:50:23.267Z",
+      "channel": "smtp"
+    },
+    "ct:�˲����缼��|c/c++������������ʦ": {
+      "company": "�˲����缼��",
+      "title": "C/C++������������ʦ",
+      "city": "�人�������¼�����ҵ������",
+      "url": "https://jobs.51job.com/wuhan-dhxjs/173817756.html",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-11T04:50:23.268Z",
+      "notifiedAt": "2026-10-11T04:50:23.267Z",
       "channel": "smtp"
     }
   }
