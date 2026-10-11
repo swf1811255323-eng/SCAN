@@ -128,9 +128,9 @@ export function detectExcludedArea(text, config = {}) {
 
 export function regionalPriorityWeight(text) {
   const value = String(text);
-  if (/湖北|武汉/.test(value)) return { label: '湖北优先', weight: 30 };
-  if (/重庆/.test(value)) return { label: '重庆优先', weight: 30 };
-  if (/四川|成都|川渝/.test(value)) return { label: '四川优先', weight: 30 };
+  if (/湖北|武汉/.test(value)) return { label: '湖北标注', weight: 5 };
+  if (/重庆/.test(value)) return { label: '重庆标注', weight: 5 };
+  if (/四川|成都|川渝/.test(value)) return { label: '四川标注', weight: 5 };
   return { label: '', weight: 0 };
 }
 
@@ -166,7 +166,6 @@ export function prepareConcretePositions(rows = [], config = {}, graduationYear 
     })
     .filter((row) => row.region && row.agency && row.position && row.url && !row.excludedAreaReason)
     .sort((a, b) => Number(b.currentEligible) - Number(a.currentEligible)
-      || b.regionalPriority - a.regionalPriority
       || b.weightedScore - a.weightedScore
       || b.headcount - a.headcount);
 }
@@ -361,7 +360,7 @@ function renderReport({ items, fresh, errors, years, generatedAt, coverage, excl
     `- 主要岗位方向：${roles.slice(0, 6).map(([k, v]) => `${k}（${v}）`).join('、') || '暂无足够结果'}`,
     `- 高频地区：${regions.slice(0, 12).map(([k, v]) => `${k}（${v}）`).join('、') || '职位页未明确地区'}`,
     `- 年份分布：${yearCounts.map(([k, v]) => `${k}（${v}）`).join('、')}`,
-    `- 重点地区：湖北（含武汉）命中 ${hubei.length} 条；川渝（四川/成都/重庆）命中 ${chuanYu.length} 条，两组均优先展示。`,
+    `- 标注地区：湖北（含武汉）命中 ${hubei.length} 条；川渝（四川/成都/重庆）命中 ${chuanYu.length} 条，仅增加 5 分并与全国岗位按加权分混合排序。`,
     `- 全国覆盖：查询缺失 ${coverage.missingQueryRegions.join('、') || '无'}；本轮结果未命中 ${coverage.missingHitRegions.join('、') || '无'}。`,
     '- 待遇制度：依据《公务员法》，工资由基本工资、津贴、补贴和奖金构成，并依法享受住房、医疗等补贴补助及社会保险；实际金额随职级、地区、单位和特殊岗位变化。',
     '- 重要提醒：招录公告通常不披露实发工资。程序只摘录页面中明确出现的金额，不根据地区传闻推算。', '',
@@ -447,10 +446,7 @@ export function renderEmailHtml({ items, fresh, years, generatedAt, coverage = b
           <tr><td style="padding:0 18px 18px"><a href="${html(position.url)}" style="display:inline-block;padding:9px 15px;border-radius:9px;background:#1d4ed8;color:#fff;text-decoration:none;font-size:13px;font-weight:700">打开官方职位表 →</a></td></tr>
         </table>
       </td></tr>`).join('');
-  const priorityPositions = concretePositions.filter((position) => position.regionalPriority > 0).slice(0, 16);
-  const otherPositions = concretePositions.filter((position) => !position.regionalPriority).slice(0, Math.max(0, 16 - priorityPositions.length));
-  const priorityPositionCards = renderPositionCards(priorityPositions);
-  const otherPositionCards = renderPositionCards(otherPositions);
+  const positionCards = renderPositionCards(concretePositions.slice(0, 16));
   const sourceCards = items.filter((x) => x.roleCategory !== '待遇制度依据').slice(0, 8).map((item) => {
     const pay = item.treatment.length ? item.treatment.join('；') : '公告未公开具体金额';
     const location = item.regions.join(' · ') || '地区待职位表确认';
@@ -495,7 +491,7 @@ export function renderEmailHtml({ items, fresh, years, generatedAt, coverage = b
           <ul style="padding-left:20px;margin:13px 0 0;color:#475467;font-size:14px;line-height:1.7">
             <li style="margin:0 0 8px">当前最集中方向：<b style="color:#111827">${html(mainRole)}</b></li>
             <li style="margin:0 0 8px">地区热度：${regionSummary}</li>
-            <li style="margin:0 0 8px"><b style="color:#111827">湖北 ${hubeiCount} 条 · 川渝 ${chuanYuCount} 条</b>，重点区域线索已优先排列。</li>
+            <li style="margin:0 0 8px"><b style="color:#111827">湖北 ${hubeiCount} 条 · 川渝 ${chuanYuCount} 条</b>，标注地区仅加 5 分，与全国岗位混合排序。</li>
             <li style="margin:0 0 8px">全国扫描：<b style="color:#111827">${coverage.queryProvinceCount}/${coverage.expectedProvinceCount} 省级行政区 + 国考</b>；省直、市直、普通区县和县级市均纳入。</li>
             <li style="margin:0 0 8px">已排除明确边境/艰苦地区结果：${coverage.excludedAreaCount} 条。</li>
             <li>公告通常不披露实发金额；未明示时不采用网传薪资。</li>
@@ -505,12 +501,11 @@ export function renderEmailHtml({ items, fresh, years, generatedAt, coverage = b
         <tr><td style="padding:0 30px 14px"><div style="padding:16px 18px;border-radius:14px;background:#fffbeb;border-left:4px solid #f59e0b;color:#78350f;font-size:13px;line-height:1.75"><b>待遇怎么读：</b>依据《公务员法》，工资由基本工资、津贴、补贴和奖金构成，并依法享受住房、医疗等补贴补助及社会保险。实际金额与职级、地区、单位和特殊岗位有关，最终以录用后的工资核定为准。</div></td></tr>
 
         <tr><td style="padding:18px 30px 8px"><div style="font-size:18px;font-weight:800;color:#111827">主要岗位方向</div><ul style="padding-left:20px;color:#475467;font-size:14px;line-height:1.65">${roleSummary}</ul></td></tr>
-        <tr><td style="padding:8px 30px 14px"><div style="font-size:19px;font-weight:850;color:#111827">具体岗位清单｜湖北 · 川渝优先</div><div style="margin-top:6px;color:#b45309;font-size:13px;line-height:1.65">省会不是硬条件：普通城区、县、县级市岗位同样纳入且不降分；湖北/武汉、四川/成都、重庆统一增加 30 分区域权重。仅排除明确标注的艰苦边远、边境、高海拔等岗位。以下均为往年官方职位模板，用于 ${html(graduationYear)} 届预测，不代表当前可报名。</div></td></tr>
-        ${priorityPositionCards || '<tr><td style="padding:0 30px 24px;color:#667085">暂未加载湖北或川渝具体职位模板。</td></tr>'}
-        ${otherPositionCards ? '<tr><td style="padding:8px 30px 14px"><div style="font-size:18px;font-weight:800;color:#111827">其他地区高匹配岗位</div></td></tr>' + otherPositionCards : ''}
+        <tr><td style="padding:8px 30px 14px"><div style="font-size:19px;font-weight:850;color:#111827">具体岗位清单｜标注地区 +5</div><div style="margin-top:6px;color:#b45309;font-size:13px;line-height:1.65">省会不是硬条件：普通城区、县、县级市岗位同样纳入且不降分；湖北/武汉、四川/成都、重庆仅增加 5 分，与其他地区按加权分统一排序，不再强制置顶。仅排除明确标注的艰苦边远、边境、高海拔等岗位。以下均为往年官方职位模板，用于 ${html(graduationYear)} 届预测，不代表当前可报名。</div></td></tr>
+        ${positionCards || '<tr><td style="padding:0 30px 24px;color:#667085">暂未加载具体职位模板。</td></tr>'}
         <tr><td style="padding:18px 30px 18px"><div style="font-size:18px;font-weight:800;color:#111827">最新公告与职位表入口</div><div style="margin-top:5px;color:#98a2b3;font-size:12px">用于跟踪新年度发布；具体报名资格以当年职位表为准</div></td></tr>
         ${sourceCards || '<tr><td style="padding:0 30px 24px;color:#667085">今天暂未检出新的官方来源。</td></tr>'}
-        <tr><td style="padding:22px 30px 30px;background:#f8fafc;color:#667085;font-size:12px;line-height:1.75;text-align:center">每天扫描 4 次 · 每天最多成功发送 1 封<br>自动归类用于发现线索，报考条件和待遇以官方职位表及招录机关答复为准。</td></tr>
+        <tr><td style="padding:22px 30px 30px;background:#f8fafc;color:#667085;font-size:12px;line-height:1.75;text-align:center">每天错峰扫描 5 次 · 每天最多成功发送 1 封<br>自动归类用于发现线索，报考条件和待遇以官方职位表及招录机关答复为准。</td></tr>
       </table>
     </td></tr></table>
   </body></html>`;
@@ -615,7 +610,7 @@ export async function run(args = parseArgs(), deps = {}) {
     const old = byUrl.get(key);
     if (!old || item.score > old.score) byUrl.set(key, item);
   }
-  const all = [...byUrl.values()].sort((a, b) => b.regionalPriority - a.regionalPriority || b.weightedScore - a.weightedScore || (b.year || 0) - (a.year || 0));
+  const all = [...byUrl.values()].sort((a, b) => b.weightedScore - a.weightedScore || (b.year || 0) - (a.year || 0));
   const limit = Number.isFinite(args.limit) && args.limit > 0 ? args.limit : config.reportLimit;
   const items = all.slice(0, limit);
   const state = loadJson(DEFAULT_STATE, { version: 2, emailSuccess: {}, entries: {} });

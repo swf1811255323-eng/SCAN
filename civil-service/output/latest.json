@@ -1,9 +1,7 @@
 {
-  "generatedAt": "2026-10-10T14:40:23.497Z",
+  "generatedAt": "2026-10-11T06:08:27.040Z",
   "years": [
-    2026,
-    2025,
-    2024
+    2026
   ],
   "graduationYear": 2028,
   "coverage": {
@@ -115,8 +113,8 @@
       "新疆": 0
     },
     "excludedAreaCount": 0,
-    "queryCount": 237,
-    "searchResultCount": 2370,
+    "queryCount": 79,
+    "searchResultCount": 790,
     "seedSourceCount": 16,
     "searchConcurrency": 6,
     "errorCount": 0
@@ -135,9 +133,9 @@
         "2028届需等待对应年度职位表"
       ],
       "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
-      "regionalPriority": 30,
-      "priorityRegionLabel": "湖北优先",
-      "weightedScore": 115,
+      "regionalPriority": 5,
+      "priorityRegionLabel": "湖北标注",
+      "weightedScore": 90,
       "administrativeLevel": "市级",
       "currentEligible": false,
       "graduationYear": 2028,
@@ -156,9 +154,9 @@
         "数据管理方向"
       ],
       "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
-      "regionalPriority": 30,
-      "priorityRegionLabel": "湖北优先",
-      "weightedScore": 114,
+      "regionalPriority": 5,
+      "priorityRegionLabel": "湖北标注",
+      "weightedScore": 89,
       "administrativeLevel": "市级",
       "currentEligible": false,
       "graduationYear": 2028,
@@ -177,9 +175,9 @@
         "最低服务年限3年"
       ],
       "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
-      "regionalPriority": 30,
-      "priorityRegionLabel": "湖北优先",
-      "weightedScore": 110,
+      "regionalPriority": 5,
+      "priorityRegionLabel": "湖北标注",
+      "weightedScore": 85,
       "administrativeLevel": "层级待职位表确认",
       "currentEligible": false,
       "graduationYear": 2028,
@@ -199,9 +197,9 @@
         "2028届需等待对应年度职位表"
       ],
       "url": "https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2026/202601/t20260123_15348516.html",
-      "regionalPriority": 30,
-      "priorityRegionLabel": "重庆优先",
-      "weightedScore": 110,
+      "regionalPriority": 5,
+      "priorityRegionLabel": "重庆标注",
+      "weightedScore": 85,
       "administrativeLevel": "区县/县级市",
       "currentEligible": false,
       "graduationYear": 2028,
@@ -221,9 +219,9 @@
         "2028届需等待对应年度职位表"
       ],
       "url": "https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2026/202601/t20260121_15341242.html",
-      "regionalPriority": 30,
-      "priorityRegionLabel": "重庆优先",
-      "weightedScore": 110,
+      "regionalPriority": 5,
+      "priorityRegionLabel": "重庆标注",
+      "weightedScore": 85,
       "administrativeLevel": "区县/县级市",
       "currentEligible": false,
       "graduationYear": 2028,
@@ -242,9 +240,9 @@
         "重庆官方报名统计"
       ],
       "url": "https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2025/202502/t20250228_14358696.html",
-      "regionalPriority": 30,
-      "priorityRegionLabel": "重庆优先",
-      "weightedScore": 109,
+      "regionalPriority": 5,
+      "priorityRegionLabel": "重庆标注",
+      "weightedScore": 84,
       "administrativeLevel": "市级",
       "currentEligible": false,
       "graduationYear": 2028,
@@ -263,9 +261,9 @@
         "重庆官方报名统计"
       ],
       "url": "https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2025/202502/t20250228_14358696.html",
-      "regionalPriority": 30,
-      "priorityRegionLabel": "重庆优先",
-      "weightedScore": 109,
+      "regionalPriority": 5,
+      "priorityRegionLabel": "重庆标注",
+      "weightedScore": 84,
       "administrativeLevel": "市级",
       "currentEligible": false,
       "graduationYear": 2028,
@@ -284,9 +282,9 @@
         "重庆官方报名统计"
       ],
       "url": "https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2025/202502/t20250228_14358696.html",
-      "regionalPriority": 30,
-      "priorityRegionLabel": "重庆优先",
-      "weightedScore": 109,
+      "regionalPriority": 5,
+      "priorityRegionLabel": "重庆标注",
+      "weightedScore": 84,
       "administrativeLevel": "市级",
       "currentEligible": false,
       "graduationYear": 2028,
@@ -305,9 +303,9 @@
         "需核对专业目录"
       ],
       "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
-      "regionalPriority": 30,
-      "priorityRegionLabel": "湖北优先",
-      "weightedScore": 109,
+      "regionalPriority": 5,
+      "priorityRegionLabel": "湖北标注",
+      "weightedScore": 84,
       "administrativeLevel": "市级",
       "currentEligible": false,
       "graduationYear": 2028,
@@ -326,9 +324,9 @@
         "最低服务年限3年"
       ],
       "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
-      "regionalPriority": 30,
-      "priorityRegionLabel": "湖北优先",
-      "weightedScore": 108,
+      "regionalPriority": 5,
+      "priorityRegionLabel": "湖北标注",
+      "weightedScore": 83,
       "administrativeLevel": "区县/县级市",
       "currentEligible": false,
       "graduationYear": 2028,
@@ -347,9 +345,9 @@
         "重庆官方报名统计"
       ],
       "url": "https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2025/202502/t20250228_14358696.html",
-      "regionalPriority": 30,
-      "priorityRegionLabel": "重庆优先",
-      "weightedScore": 108,
+      "regionalPriority": 5,
+      "priorityRegionLabel": "重庆标注",
+      "weightedScore": 83,
       "administrativeLevel": "区县/县级市",
       "currentEligible": false,
       "graduationYear": 2028,
@@ -368,9 +366,9 @@
         "信息风控方向"
       ],
       "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/xgxz/202601/P020260112368501086460.xlsx",
-      "regionalPriority": 30,
-      "priorityRegionLabel": "湖北优先",
-      "weightedScore": 108,
+      "regionalPriority": 5,
+      "priorityRegionLabel": "湖北标注",
+      "weightedScore": 83,
       "administrativeLevel": "市级",
       "currentEligible": false,
       "graduationYear": 2028,
@@ -570,264 +568,6 @@
   "excluded": [],
   "items": [
     {
-      "title": "武汉市2024年度市直机关公开遴选公务员职位计划表",
-      "url": "https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202410/P020241008651489684198.pdf",
-      "summary": "武汉市公安局网络安全保卫支队警务技术职位，从事网络违法犯罪侦查，专业范围含计算机类、网络空间安全、软件工程等；该来源属于面向在职公务员的公开遴选。",
-      "year": 2024,
-      "forceInclude": true,
-      "query": "内置官方基准来源",
-      "domain": "www.wuhan.gov.cn",
-      "official": true,
-      "regions": [
-        "武汉"
-      ],
-      "provincialRegions": [],
-      "roleCategory": "网络安全/网信",
-      "treatment": [],
-      "isChuanYu": false,
-      "isHubei": true,
-      "regionalPriority": 30,
-      "priorityRegionLabel": "湖北优先",
-      "weightedScore": 61,
-      "administrativeLevel": "市级",
-      "isNationalExam": false,
-      "excludedAreaReason": "",
-      "civilHits": [
-        "公务员"
-      ],
-      "csHits": [
-        "计算机类",
-        "计算机",
-        "软件工程",
-        "网络安全",
-        "网络空间安全"
-      ],
-      "score": 31,
-      "relevant": true
-    },
-    {
-      "title": "四川省2026年度省级机关及其直属机构公开考试录用公务员",
-      "url": "https://www.scpta.com.cn/front/Special/Info/85887d50aadf43f491088f4a9106c647",
-      "summary": "四川省及成都等地区2026年度公务员招录专题，具体计算机类、信息化、网络安全和数据岗位以各机关职位表为准。",
-      "year": 2026,
-      "forceInclude": true,
-      "query": "内置官方基准来源",
-      "domain": "www.scpta.com.cn",
-      "official": false,
-      "regions": [
-        "四川",
-        "成都"
-      ],
-      "provincialRegions": [
-        "四川"
-      ],
-      "roleCategory": "信息化/电子政务",
-      "treatment": [],
-      "isChuanYu": true,
-      "isHubei": false,
-      "regionalPriority": 30,
-      "priorityRegionLabel": "四川优先",
-      "weightedScore": 60,
-      "administrativeLevel": "省级",
-      "isNationalExam": false,
-      "excludedAreaReason": "",
-      "civilHits": [
-        "公务员",
-        "考试录用",
-        "招录",
-        "职位表"
-      ],
-      "csHits": [
-        "计算机类",
-        "计算机",
-        "网络安全",
-        "信息化"
-      ],
-      "score": 30,
-      "relevant": true
-    },
-    {
-      "title": "重庆市2025年度公开考试录用公务员公告及职位表",
-      "url": "https://cq.gov.cn/ywdt/tzgg/202502/t20250211_14293058.html",
-      "summary": "重庆市2025年度公务员招考公告，附件含职位情况一览表和专业参考目录，计算机类考生可按专业、学历和地区筛选职位。",
-      "year": 2025,
-      "forceInclude": true,
-      "query": "内置官方基准来源",
-      "domain": "cq.gov.cn",
-      "official": true,
-      "regions": [
-        "重庆"
-      ],
-      "provincialRegions": [
-        "重庆"
-      ],
-      "roleCategory": "其他计算机相关岗位",
-      "treatment": [],
-      "isChuanYu": true,
-      "isHubei": false,
-      "regionalPriority": 30,
-      "priorityRegionLabel": "重庆优先",
-      "weightedScore": 60,
-      "administrativeLevel": "层级待职位表确认",
-      "isNationalExam": false,
-      "excludedAreaReason": "",
-      "civilHits": [
-        "公务员",
-        "考试录用",
-        "职位表"
-      ],
-      "csHits": [
-        "计算机类",
-        "计算机"
-      ],
-      "score": 30,
-      "relevant": true
-    },
-    {
-      "title": "湖北省公安机关2025年网络安全技术特殊职位公务员招录",
-      "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zytz/202509/t20250930_5783872.shtml",
-      "summary": "湖北省公安机关网络安全技术人民警察职位，专业技能测试地点设在武汉，面向具备信息安全、网络安全和计算机编程能力的报考人员。",
-      "year": 2025,
-      "forceInclude": true,
-      "query": "内置官方基准来源",
-      "domain": "rst.hubei.gov.cn",
-      "official": true,
-      "regions": [
-        "湖北",
-        "武汉"
-      ],
-      "provincialRegions": [
-        "湖北"
-      ],
-      "roleCategory": "网络安全/网信",
-      "treatment": [],
-      "isChuanYu": false,
-      "isHubei": true,
-      "regionalPriority": 30,
-      "priorityRegionLabel": "湖北优先",
-      "weightedScore": 59,
-      "administrativeLevel": "层级待职位表确认",
-      "isNationalExam": false,
-      "excludedAreaReason": "",
-      "civilHits": [
-        "公务员",
-        "招录"
-      ],
-      "csHits": [
-        "计算机",
-        "信息安全",
-        "网络安全"
-      ],
-      "score": 29,
-      "relevant": true
-    },
-    {
-      "title": "湖北省2025年度省市县乡考试录用公务员公告",
-      "url": "https://zrzyt.hubei.gov.cn/fbjd/xxgkml/zkly/202510/t20251030_5801217.shtml",
-      "summary": "湖北省省市县乡公务员招录公告，职位资格条件和工作地点以湖北省人事考试网职位表为准。",
-      "year": 2025,
-      "forceInclude": true,
-      "query": "内置官方基准来源",
-      "domain": "zrzyt.hubei.gov.cn",
-      "official": true,
-      "regions": [
-        "湖北"
-      ],
-      "provincialRegions": [
-        "湖北"
-      ],
-      "roleCategory": "其他计算机相关岗位",
-      "treatment": [],
-      "isChuanYu": false,
-      "isHubei": true,
-      "regionalPriority": 30,
-      "priorityRegionLabel": "湖北优先",
-      "weightedScore": 58,
-      "administrativeLevel": "层级待职位表确认",
-      "isNationalExam": false,
-      "excludedAreaReason": "",
-      "civilHits": [
-        "公务员",
-        "考试录用",
-        "招录",
-        "职位表"
-      ],
-      "csHits": [],
-      "score": 28,
-      "relevant": true
-    },
-    {
-      "title": "重庆市2025年度公务员信息技术管理职位录用结果",
-      "url": "https://cgj.cq.gov.cn/zwgk_173/fdzdgknr/zzrs/202509/t20250905_14979015.html",
-      "summary": "重庆市城市供节水事务中心信息技术管理职位，录用成绩公示显示报考专业包含计算机技术，是川渝地区计算机专业公务员岗位实例。",
-      "year": 2025,
-      "forceInclude": true,
-      "query": "内置官方基准来源",
-      "domain": "cgj.cq.gov.cn",
-      "official": true,
-      "regions": [
-        "重庆"
-      ],
-      "provincialRegions": [
-        "重庆"
-      ],
-      "roleCategory": "信息化/电子政务",
-      "treatment": [],
-      "isChuanYu": true,
-      "isHubei": false,
-      "regionalPriority": 30,
-      "priorityRegionLabel": "重庆优先",
-      "weightedScore": 52,
-      "administrativeLevel": "层级待职位表确认",
-      "isNationalExam": false,
-      "excludedAreaReason": "",
-      "civilHits": [
-        "公务员"
-      ],
-      "csHits": [
-        "计算机",
-        "信息技术"
-      ],
-      "score": 22,
-      "relevant": true
-    },
-    {
-      "title": "武汉市2025年度公务员信息技术岗拟录用公示",
-      "url": "https://www.wuhan.gov.cn/zwgk/tzgg/202505/P020250524563596165268.pdf",
-      "summary": "武汉市2025年度公务员拟录用名单包含信息技术岗、数据审计岗等计算机专业相关职位，是湖北地区实际录用岗位实例。",
-      "year": 2025,
-      "forceInclude": true,
-      "query": "内置官方基准来源",
-      "domain": "www.wuhan.gov.cn",
-      "official": true,
-      "regions": [
-        "湖北",
-        "武汉"
-      ],
-      "provincialRegions": [
-        "湖北"
-      ],
-      "roleCategory": "信息化/电子政务",
-      "treatment": [],
-      "isChuanYu": false,
-      "isHubei": true,
-      "regionalPriority": 30,
-      "priorityRegionLabel": "湖北优先",
-      "weightedScore": 52,
-      "administrativeLevel": "层级待职位表确认",
-      "isNationalExam": false,
-      "excludedAreaReason": "",
-      "civilHits": [
-        "公务员"
-      ],
-      "csHits": [
-        "计算机",
-        "信息技术"
-      ],
-      "score": 22,
-      "relevant": true
-    },
-    {
       "title": "税务系统2024年度考试录用公务员相关事项通知",
       "url": "https://shanghai.chinatax.gov.cn/xxgk/rsxx/202311/t469406.html",
       "summary": "税务系统招录专业目录中的计算机类包含计算机科学与技术、软件工程、网络工程、信息安全、数据科学与大数据技术等，职位分布覆盖上海等税务机关。",
@@ -907,6 +647,193 @@
         "大数据"
       ],
       "score": 47,
+      "relevant": true
+    },
+    {
+      "title": "武汉市2024年度市直机关公开遴选公务员职位计划表",
+      "url": "https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202410/P020241008651489684198.pdf",
+      "summary": "武汉市公安局网络安全保卫支队警务技术职位，从事网络违法犯罪侦查，专业范围含计算机类、网络空间安全、软件工程等；该来源属于面向在职公务员的公开遴选。",
+      "year": 2024,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "www.wuhan.gov.cn",
+      "official": true,
+      "regions": [
+        "武汉"
+      ],
+      "provincialRegions": [],
+      "roleCategory": "网络安全/网信",
+      "treatment": [],
+      "isChuanYu": false,
+      "isHubei": true,
+      "regionalPriority": 5,
+      "priorityRegionLabel": "湖北标注",
+      "weightedScore": 36,
+      "administrativeLevel": "市级",
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员"
+      ],
+      "csHits": [
+        "计算机类",
+        "计算机",
+        "软件工程",
+        "网络安全",
+        "网络空间安全"
+      ],
+      "score": 31,
+      "relevant": true
+    },
+    {
+      "title": "四川省2026年度省级机关及其直属机构公开考试录用公务员",
+      "url": "https://www.scpta.com.cn/front/Special/Info/85887d50aadf43f491088f4a9106c647",
+      "summary": "四川省及成都等地区2026年度公务员招录专题，具体计算机类、信息化、网络安全和数据岗位以各机关职位表为准。",
+      "year": 2026,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "www.scpta.com.cn",
+      "official": false,
+      "regions": [
+        "四川",
+        "成都"
+      ],
+      "provincialRegions": [
+        "四川"
+      ],
+      "roleCategory": "信息化/电子政务",
+      "treatment": [],
+      "isChuanYu": true,
+      "isHubei": false,
+      "regionalPriority": 5,
+      "priorityRegionLabel": "四川标注",
+      "weightedScore": 35,
+      "administrativeLevel": "省级",
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员",
+        "考试录用",
+        "招录",
+        "职位表"
+      ],
+      "csHits": [
+        "计算机类",
+        "计算机",
+        "网络安全",
+        "信息化"
+      ],
+      "score": 30,
+      "relevant": true
+    },
+    {
+      "title": "重庆市2025年度公开考试录用公务员公告及职位表",
+      "url": "https://cq.gov.cn/ywdt/tzgg/202502/t20250211_14293058.html",
+      "summary": "重庆市2025年度公务员招考公告，附件含职位情况一览表和专业参考目录，计算机类考生可按专业、学历和地区筛选职位。",
+      "year": 2025,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "cq.gov.cn",
+      "official": true,
+      "regions": [
+        "重庆"
+      ],
+      "provincialRegions": [
+        "重庆"
+      ],
+      "roleCategory": "其他计算机相关岗位",
+      "treatment": [],
+      "isChuanYu": true,
+      "isHubei": false,
+      "regionalPriority": 5,
+      "priorityRegionLabel": "重庆标注",
+      "weightedScore": 35,
+      "administrativeLevel": "层级待职位表确认",
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员",
+        "考试录用",
+        "职位表"
+      ],
+      "csHits": [
+        "计算机类",
+        "计算机"
+      ],
+      "score": 30,
+      "relevant": true
+    },
+    {
+      "title": "湖北省公安机关2025年网络安全技术特殊职位公务员招录",
+      "url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zytz/202509/t20250930_5783872.shtml",
+      "summary": "湖北省公安机关网络安全技术人民警察职位，专业技能测试地点设在武汉，面向具备信息安全、网络安全和计算机编程能力的报考人员。",
+      "year": 2025,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "rst.hubei.gov.cn",
+      "official": true,
+      "regions": [
+        "湖北",
+        "武汉"
+      ],
+      "provincialRegions": [
+        "湖北"
+      ],
+      "roleCategory": "网络安全/网信",
+      "treatment": [],
+      "isChuanYu": false,
+      "isHubei": true,
+      "regionalPriority": 5,
+      "priorityRegionLabel": "湖北标注",
+      "weightedScore": 34,
+      "administrativeLevel": "层级待职位表确认",
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员",
+        "招录"
+      ],
+      "csHits": [
+        "计算机",
+        "信息安全",
+        "网络安全"
+      ],
+      "score": 29,
+      "relevant": true
+    },
+    {
+      "title": "湖北省2025年度省市县乡考试录用公务员公告",
+      "url": "https://zrzyt.hubei.gov.cn/fbjd/xxgkml/zkly/202510/t20251030_5801217.shtml",
+      "summary": "湖北省省市县乡公务员招录公告，职位资格条件和工作地点以湖北省人事考试网职位表为准。",
+      "year": 2025,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "zrzyt.hubei.gov.cn",
+      "official": true,
+      "regions": [
+        "湖北"
+      ],
+      "provincialRegions": [
+        "湖北"
+      ],
+      "roleCategory": "其他计算机相关岗位",
+      "treatment": [],
+      "isChuanYu": false,
+      "isHubei": true,
+      "regionalPriority": 5,
+      "priorityRegionLabel": "湖北标注",
+      "weightedScore": 33,
+      "administrativeLevel": "层级待职位表确认",
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员",
+        "考试录用",
+        "招录",
+        "职位表"
+      ],
+      "csHits": [],
+      "score": 28,
       "relevant": true
     },
     {
@@ -1058,6 +985,77 @@
         "计算机"
       ],
       "score": 27,
+      "relevant": true
+    },
+    {
+      "title": "重庆市2025年度公务员信息技术管理职位录用结果",
+      "url": "https://cgj.cq.gov.cn/zwgk_173/fdzdgknr/zzrs/202509/t20250905_14979015.html",
+      "summary": "重庆市城市供节水事务中心信息技术管理职位，录用成绩公示显示报考专业包含计算机技术，是川渝地区计算机专业公务员岗位实例。",
+      "year": 2025,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "cgj.cq.gov.cn",
+      "official": true,
+      "regions": [
+        "重庆"
+      ],
+      "provincialRegions": [
+        "重庆"
+      ],
+      "roleCategory": "信息化/电子政务",
+      "treatment": [],
+      "isChuanYu": true,
+      "isHubei": false,
+      "regionalPriority": 5,
+      "priorityRegionLabel": "重庆标注",
+      "weightedScore": 27,
+      "administrativeLevel": "层级待职位表确认",
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员"
+      ],
+      "csHits": [
+        "计算机",
+        "信息技术"
+      ],
+      "score": 22,
+      "relevant": true
+    },
+    {
+      "title": "武汉市2025年度公务员信息技术岗拟录用公示",
+      "url": "https://www.wuhan.gov.cn/zwgk/tzgg/202505/P020250524563596165268.pdf",
+      "summary": "武汉市2025年度公务员拟录用名单包含信息技术岗、数据审计岗等计算机专业相关职位，是湖北地区实际录用岗位实例。",
+      "year": 2025,
+      "forceInclude": true,
+      "query": "内置官方基准来源",
+      "domain": "www.wuhan.gov.cn",
+      "official": true,
+      "regions": [
+        "湖北",
+        "武汉"
+      ],
+      "provincialRegions": [
+        "湖北"
+      ],
+      "roleCategory": "信息化/电子政务",
+      "treatment": [],
+      "isChuanYu": false,
+      "isHubei": true,
+      "regionalPriority": 5,
+      "priorityRegionLabel": "湖北标注",
+      "weightedScore": 27,
+      "administrativeLevel": "层级待职位表确认",
+      "isNationalExam": false,
+      "excludedAreaReason": "",
+      "civilHits": [
+        "公务员"
+      ],
+      "csHits": [
+        "计算机",
+        "信息技术"
+      ],
+      "score": 22,
       "relevant": true
     },
     {
