@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-15T01:01:50.571Z",
+  "updatedAt": "2026-10-15T09:16:53.747Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -1020,6 +1020,36 @@
       "tier": "长期备选",
       "firstSeenAt": "2026-10-15T01:01:50.571Z",
       "notifiedAt": "2026-10-15T01:01:50.571Z",
+      "channel": "smtp"
+    },
+    "id:9b4b082c204ee10e": {
+      "company": "苏州极智律动科技有限公司",
+      "title": "规控算法实习生（四足机器人/规划控制）",
+      "city": "苏州·虎丘·通安",
+      "url": "https://www.zhaopin.com/jobdetail/CCL1527002080J40894522710.htm",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-15T09:16:53.747Z",
+      "notifiedAt": "2026-10-15T09:16:53.747Z",
+      "channel": "smtp"
+    },
+    "url:8378f47d24643a98": {
+      "company": "苏州极智律动科技有限公司",
+      "title": "规控算法实习生（四足机器人/规划控制）",
+      "city": "苏州·虎丘·通安",
+      "url": "https://www.zhaopin.com/jobdetail/CCL1527002080J40894522710.htm",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-15T09:16:53.747Z",
+      "notifiedAt": "2026-10-15T09:16:53.747Z",
+      "channel": "smtp"
+    },
+    "ct:苏州极智律动科技有限公司|规控算法实习生（四足机器人/规划控制）": {
+      "company": "苏州极智律动科技有限公司",
+      "title": "规控算法实习生（四足机器人/规划控制）",
+      "city": "苏州·虎丘·通安",
+      "url": "https://www.zhaopin.com/jobdetail/CCL1527002080J40894522710.htm",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-15T09:16:53.747Z",
+      "notifiedAt": "2026-10-15T09:16:53.747Z",
       "channel": "smtp"
     }
   }
