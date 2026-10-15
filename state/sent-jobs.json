@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-14T05:03:22.430Z",
+  "updatedAt": "2026-10-15T01:01:50.571Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -990,6 +990,36 @@
       "tier": "长期备选",
       "firstSeenAt": "2026-10-14T05:03:22.430Z",
       "notifiedAt": "2026-10-14T05:03:22.430Z",
+      "channel": "smtp"
+    },
+    "id:b9c1001ab5e7b8f7": {
+      "company": "芯睿视科技",
+      "title": "嵌入式 Linux C/C++工程师 -设备软件方向",
+      "city": "武汉·武汉-江夏区·武汉-江夏区光谷金融港-B5栋6楼",
+      "url": "https://www.liepin.com/job/1941322475.shtml",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-15T01:01:50.571Z",
+      "notifiedAt": "2026-10-15T01:01:50.571Z",
+      "channel": "smtp"
+    },
+    "url:8f91869fda53d5d0": {
+      "company": "芯睿视科技",
+      "title": "嵌入式 Linux C/C++工程师 -设备软件方向",
+      "city": "武汉·武汉-江夏区·武汉-江夏区光谷金融港-B5栋6楼",
+      "url": "https://www.liepin.com/job/1941322475.shtml",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-15T01:01:50.571Z",
+      "notifiedAt": "2026-10-15T01:01:50.571Z",
+      "channel": "smtp"
+    },
+    "ct:芯睿视科技|嵌入式linuxc/c++工程师-设备软件方向": {
+      "company": "芯睿视科技",
+      "title": "嵌入式 Linux C/C++工程师 -设备软件方向",
+      "city": "武汉·武汉-江夏区·武汉-江夏区光谷金融港-B5栋6楼",
+      "url": "https://www.liepin.com/job/1941322475.shtml",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-15T01:01:50.571Z",
+      "notifiedAt": "2026-10-15T01:01:50.571Z",
       "channel": "smtp"
     }
   }
