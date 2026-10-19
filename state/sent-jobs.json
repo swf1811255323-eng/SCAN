@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-17T01:02:59.839Z",
+  "updatedAt": "2026-10-19T05:09:34.474Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -1080,6 +1080,36 @@
       "tier": "长期备选",
       "firstSeenAt": "2026-10-17T01:02:59.839Z",
       "notifiedAt": "2026-10-17T01:02:59.839Z",
+      "channel": "smtp"
+    },
+    "id:6c24006b31afb71a": {
+      "company": "妙客莱音",
+      "title": "C++开发（可转正）",
+      "city": "广州",
+      "url": "https://www.shixiseng.com/intern/inn_1fhc80uxcfoq",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-19T05:09:34.473Z",
+      "notifiedAt": "2026-10-19T05:09:34.473Z",
+      "channel": "smtp"
+    },
+    "url:0df5be010ac48765": {
+      "company": "妙客莱音",
+      "title": "C++开发（可转正）",
+      "city": "广州",
+      "url": "https://www.shixiseng.com/intern/inn_1fhc80uxcfoq",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-19T05:09:34.473Z",
+      "notifiedAt": "2026-10-19T05:09:34.473Z",
+      "channel": "smtp"
+    },
+    "ct:妙客莱音|c++开发（可转正）": {
+      "company": "妙客莱音",
+      "title": "C++开发（可转正）",
+      "city": "广州",
+      "url": "https://www.shixiseng.com/intern/inn_1fhc80uxcfoq",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-19T05:09:34.473Z",
+      "notifiedAt": "2026-10-19T05:09:34.473Z",
       "channel": "smtp"
     }
   }
