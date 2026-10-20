@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-19T05:09:34.474Z",
+  "updatedAt": "2026-10-20T01:06:19.195Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -1110,6 +1110,66 @@
       "tier": "长期备选",
       "firstSeenAt": "2026-10-19T05:09:34.473Z",
       "notifiedAt": "2026-10-19T05:09:34.473Z",
+      "channel": "smtp"
+    },
+    "id:c4a986f1b9ca29e9": {
+      "company": "墨泊可士",
+      "title": "C++开发（可转正）",
+      "city": "杭州",
+      "url": "https://www.shixiseng.com/intern/inn_io7sd4bln8r3",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-20T01:06:19.195Z",
+      "notifiedAt": "2026-10-20T01:06:19.195Z",
+      "channel": "smtp"
+    },
+    "url:1f9c16dda5c6cf18": {
+      "company": "墨泊可士",
+      "title": "C++开发（可转正）",
+      "city": "杭州",
+      "url": "https://www.shixiseng.com/intern/inn_io7sd4bln8r3",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-20T01:06:19.195Z",
+      "notifiedAt": "2026-10-20T01:06:19.195Z",
+      "channel": "smtp"
+    },
+    "ct:墨泊可士|c++开发（可转正）": {
+      "company": "墨泊可士",
+      "title": "C++开发（可转正）",
+      "city": "杭州",
+      "url": "https://www.shixiseng.com/intern/inn_io7sd4bln8r3",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-20T01:06:19.195Z",
+      "notifiedAt": "2026-10-20T01:06:19.195Z",
+      "channel": "smtp"
+    },
+    "id:c730027854a6a5c0": {
+      "company": "蜀俊博凌",
+      "title": "C++开发（可转正）",
+      "city": "深圳",
+      "url": "https://www.shixiseng.com/intern/inn_kyvuf9iyr5n2",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-20T01:06:19.195Z",
+      "notifiedAt": "2026-10-20T01:06:19.195Z",
+      "channel": "smtp"
+    },
+    "url:49eb1dc182b3dc6f": {
+      "company": "蜀俊博凌",
+      "title": "C++开发（可转正）",
+      "city": "深圳",
+      "url": "https://www.shixiseng.com/intern/inn_kyvuf9iyr5n2",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-20T01:06:19.195Z",
+      "notifiedAt": "2026-10-20T01:06:19.195Z",
+      "channel": "smtp"
+    },
+    "ct:蜀俊博凌|c++开发（可转正）": {
+      "company": "蜀俊博凌",
+      "title": "C++开发（可转正）",
+      "city": "深圳",
+      "url": "https://www.shixiseng.com/intern/inn_kyvuf9iyr5n2",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-20T01:06:19.195Z",
+      "notifiedAt": "2026-10-20T01:06:19.195Z",
       "channel": "smtp"
     }
   }
