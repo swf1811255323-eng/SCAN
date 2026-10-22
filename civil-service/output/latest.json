@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T05:56:09.740Z",
+  "generatedAt": "2026-10-22T10:15:47.816Z",
   "years": [
     2026,
     2025,
@@ -116,7 +116,7 @@
     },
     "excludedAreaCount": 0,
     "queryCount": 237,
-    "searchResultCount": 1738,
+    "searchResultCount": 2133,
     "seedSourceCount": 16,
     "searchConcurrency": 6,
     "errorCount": 0
