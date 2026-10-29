@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-26T11:16:45.599Z",
+  "updatedAt": "2026-10-29T05:19:06.880Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -1230,6 +1230,36 @@
       "tier": "长期备选",
       "firstSeenAt": "2026-10-26T11:16:45.598Z",
       "notifiedAt": "2026-10-26T11:16:45.598Z",
+      "channel": "smtp"
+    },
+    "id:9f255505a04d28a2": {
+      "company": "广东乐诺运营管理有限公司",
+      "title": "全栈大模型评测、数据标注或 Prompt 调优）",
+      "city": "广州·黄埔·联和",
+      "url": "https://www.zhaopin.com/jobdetail/CCL1523197810J40917200613.htm",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-29T05:19:06.880Z",
+      "notifiedAt": "2026-10-29T05:19:06.880Z",
+      "channel": "smtp"
+    },
+    "url:bbaef804c29a1805": {
+      "company": "广东乐诺运营管理有限公司",
+      "title": "全栈大模型评测、数据标注或 Prompt 调优）",
+      "city": "广州·黄埔·联和",
+      "url": "https://www.zhaopin.com/jobdetail/CCL1523197810J40917200613.htm",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-29T05:19:06.880Z",
+      "notifiedAt": "2026-10-29T05:19:06.880Z",
+      "channel": "smtp"
+    },
+    "ct:广东乐诺运营管理有限公司|全栈大模型评测、数据标注或prompt调优）": {
+      "company": "广东乐诺运营管理有限公司",
+      "title": "全栈大模型评测、数据标注或 Prompt 调优）",
+      "city": "广州·黄埔·联和",
+      "url": "https://www.zhaopin.com/jobdetail/CCL1523197810J40917200613.htm",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-29T05:19:06.880Z",
+      "notifiedAt": "2026-10-29T05:19:06.880Z",
       "channel": "smtp"
     }
   }
