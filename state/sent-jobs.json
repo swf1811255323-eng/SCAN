@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-29T05:19:06.880Z",
+  "updatedAt": "2026-10-31T09:25:04.192Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -1260,6 +1260,36 @@
       "tier": "长期备选",
       "firstSeenAt": "2026-10-29T05:19:06.880Z",
       "notifiedAt": "2026-10-29T05:19:06.880Z",
+      "channel": "smtp"
+    },
+    "id:b833d6a9052d0897": {
+      "company": "成都智疆创新科技有限公司",
+      "title": "系统软件实习生(web端/安卓端方向)",
+      "city": "成都·双流·兴隆",
+      "url": "https://www.zhaopin.com/jobdetail/CCL1514742930J40808329806.htm",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-31T09:25:04.192Z",
+      "notifiedAt": "2026-10-31T09:25:04.192Z",
+      "channel": "smtp"
+    },
+    "url:a423a24612aa999a": {
+      "company": "成都智疆创新科技有限公司",
+      "title": "系统软件实习生(web端/安卓端方向)",
+      "city": "成都·双流·兴隆",
+      "url": "https://www.zhaopin.com/jobdetail/CCL1514742930J40808329806.htm",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-31T09:25:04.192Z",
+      "notifiedAt": "2026-10-31T09:25:04.192Z",
+      "channel": "smtp"
+    },
+    "ct:成都智疆创新科技有限公司|系统软件实习生(web端/安卓端方向)": {
+      "company": "成都智疆创新科技有限公司",
+      "title": "系统软件实习生(web端/安卓端方向)",
+      "city": "成都·双流·兴隆",
+      "url": "https://www.zhaopin.com/jobdetail/CCL1514742930J40808329806.htm",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-10-31T09:25:04.192Z",
+      "notifiedAt": "2026-10-31T09:25:04.192Z",
       "channel": "smtp"
     }
   }
