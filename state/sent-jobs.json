@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-01T01:30:53.654Z",
+  "updatedAt": "2026-11-02T03:14:32.034Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -1320,6 +1320,36 @@
       "tier": "长期备选",
       "firstSeenAt": "2026-11-01T01:30:53.653Z",
       "notifiedAt": "2026-11-01T01:30:53.653Z",
+      "channel": "smtp"
+    },
+    "id:c758c7a47e8c3e35": {
+      "company": "广州市杰师人力资源服务有限公司",
+      "title": "后端开发实习生/双休",
+      "city": "广州·天河·天河南",
+      "url": "https://www.zhaopin.com/jobdetail/CCL1295933320J40917903113.htm",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-02T03:14:32.034Z",
+      "notifiedAt": "2026-11-02T03:14:32.034Z",
+      "channel": "smtp"
+    },
+    "url:70ea45b5c1dc90ff": {
+      "company": "广州市杰师人力资源服务有限公司",
+      "title": "后端开发实习生/双休",
+      "city": "广州·天河·天河南",
+      "url": "https://www.zhaopin.com/jobdetail/CCL1295933320J40917903113.htm",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-02T03:14:32.034Z",
+      "notifiedAt": "2026-11-02T03:14:32.034Z",
+      "channel": "smtp"
+    },
+    "ct:广州市杰师人力资源服务有限公司|后端开发实习生/双休": {
+      "company": "广州市杰师人力资源服务有限公司",
+      "title": "后端开发实习生/双休",
+      "city": "广州·天河·天河南",
+      "url": "https://www.zhaopin.com/jobdetail/CCL1295933320J40917903113.htm",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-02T03:14:32.034Z",
+      "notifiedAt": "2026-11-02T03:14:32.034Z",
       "channel": "smtp"
     }
   }
