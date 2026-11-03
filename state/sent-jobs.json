@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T03:14:32.034Z",
+  "updatedAt": "2026-11-03T01:28:17.440Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -1350,6 +1350,36 @@
       "tier": "长期备选",
       "firstSeenAt": "2026-11-02T03:14:32.034Z",
       "notifiedAt": "2026-11-02T03:14:32.034Z",
+      "channel": "smtp"
+    },
+    "id:89b11c4884eb30e5": {
+      "company": "沐曦集成电路",
+      "title": "AI基础软件研发工程师实习生",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_5bmei5x74nv5",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-03T01:28:17.440Z",
+      "notifiedAt": "2026-11-03T01:28:17.440Z",
+      "channel": "smtp"
+    },
+    "url:0d074865c3b72bd3": {
+      "company": "沐曦集成电路",
+      "title": "AI基础软件研发工程师实习生",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_5bmei5x74nv5",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-03T01:28:17.440Z",
+      "notifiedAt": "2026-11-03T01:28:17.440Z",
+      "channel": "smtp"
+    },
+    "ct:沐曦集成电路|ai基础软件研发工程师实习生": {
+      "company": "沐曦集成电路",
+      "title": "AI基础软件研发工程师实习生",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_5bmei5x74nv5",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-03T01:28:17.440Z",
+      "notifiedAt": "2026-11-03T01:28:17.440Z",
       "channel": "smtp"
     }
   }
