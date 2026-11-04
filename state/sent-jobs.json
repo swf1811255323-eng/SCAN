@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T01:28:17.440Z",
+  "updatedAt": "2026-11-04T11:34:14.090Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -1380,6 +1380,36 @@
       "tier": "长期备选",
       "firstSeenAt": "2026-11-03T01:28:17.440Z",
       "notifiedAt": "2026-11-03T01:28:17.440Z",
+      "channel": "smtp"
+    },
+    "id:1371d9d8603b809b": {
+      "company": "����������Ѷͨ�Ƽ����޹�˾�人",
+      "title": "C/C++ ��������ʦ",
+      "city": "�人�������",
+      "url": "https://jobs.51job.com/wuhan-wcq/174124574.html",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-04T11:34:14.090Z",
+      "notifiedAt": "2026-11-04T11:34:14.090Z",
+      "channel": "smtp"
+    },
+    "url:7aeed410e9e234bf": {
+      "company": "����������Ѷͨ�Ƽ����޹�˾�人",
+      "title": "C/C++ ��������ʦ",
+      "city": "�人�������",
+      "url": "https://jobs.51job.com/wuhan-wcq/174124574.html",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-04T11:34:14.090Z",
+      "notifiedAt": "2026-11-04T11:34:14.090Z",
+      "channel": "smtp"
+    },
+    "ct:����������ѷͨ�ƽ����޹�˾�人|c/c++��������ʦ": {
+      "company": "����������Ѷͨ�Ƽ����޹�˾�人",
+      "title": "C/C++ ��������ʦ",
+      "city": "�人�������",
+      "url": "https://jobs.51job.com/wuhan-wcq/174124574.html",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-04T11:34:14.090Z",
+      "notifiedAt": "2026-11-04T11:34:14.090Z",
       "channel": "smtp"
     }
   }
