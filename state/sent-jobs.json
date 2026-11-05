@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-04T11:34:14.090Z",
+  "updatedAt": "2026-11-05T01:31:07.826Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -1410,6 +1410,66 @@
       "tier": "长期备选",
       "firstSeenAt": "2026-11-04T11:34:14.090Z",
       "notifiedAt": "2026-11-04T11:34:14.090Z",
+      "channel": "smtp"
+    },
+    "id:616685404eea266b": {
+      "company": "新浪微博",
+      "title": "Agent 架构工程师实习生",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_kh3hpcowvbld",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-05T01:31:07.825Z",
+      "notifiedAt": "2026-11-05T01:31:07.825Z",
+      "channel": "smtp"
+    },
+    "url:f373abf6b3630893": {
+      "company": "新浪微博",
+      "title": "Agent 架构工程师实习生",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_kh3hpcowvbld",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-05T01:31:07.825Z",
+      "notifiedAt": "2026-11-05T01:31:07.825Z",
+      "channel": "smtp"
+    },
+    "ct:新浪微博|agent架构工程师实习生": {
+      "company": "新浪微博",
+      "title": "Agent 架构工程师实习生",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_kh3hpcowvbld",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-05T01:31:07.825Z",
+      "notifiedAt": "2026-11-05T01:31:07.825Z",
+      "channel": "smtp"
+    },
+    "id:6c0950122ba9ac7f": {
+      "company": "创世云科技",
+      "title": "算子开发与优化实习生",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_ypxr5pf2wcjf",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-05T01:31:07.826Z",
+      "notifiedAt": "2026-11-05T01:31:07.826Z",
+      "channel": "smtp"
+    },
+    "url:b216f42608c0e8cf": {
+      "company": "创世云科技",
+      "title": "算子开发与优化实习生",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_ypxr5pf2wcjf",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-05T01:31:07.826Z",
+      "notifiedAt": "2026-11-05T01:31:07.826Z",
+      "channel": "smtp"
+    },
+    "ct:创世云科技|算子开发与优化实习生": {
+      "company": "创世云科技",
+      "title": "算子开发与优化实习生",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_ypxr5pf2wcjf",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-05T01:31:07.826Z",
+      "notifiedAt": "2026-11-05T01:31:07.826Z",
       "channel": "smtp"
     }
   }
