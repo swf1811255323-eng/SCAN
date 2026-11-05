@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-05T01:31:07.826Z",
+  "updatedAt": "2026-11-05T09:42:28.856Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -1470,6 +1470,36 @@
       "tier": "长期备选",
       "firstSeenAt": "2026-11-05T01:31:07.826Z",
       "notifiedAt": "2026-11-05T01:31:07.826Z",
+      "channel": "smtp"
+    },
+    "id:e3281ff75601fb1a": {
+      "company": "博世中国",
+      "title": "自动驾驶软件架构实习生-XC",
+      "city": "苏州",
+      "url": "https://www.shixiseng.com/intern/inn_y1qses1gmv1p",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-05T09:42:28.856Z",
+      "notifiedAt": "2026-11-05T09:42:28.856Z",
+      "channel": "smtp"
+    },
+    "url:a9824659b88b85bc": {
+      "company": "博世中国",
+      "title": "自动驾驶软件架构实习生-XC",
+      "city": "苏州",
+      "url": "https://www.shixiseng.com/intern/inn_y1qses1gmv1p",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-05T09:42:28.856Z",
+      "notifiedAt": "2026-11-05T09:42:28.856Z",
+      "channel": "smtp"
+    },
+    "ct:博世中国|自动驾驶软件架构实习生-xc": {
+      "company": "博世中国",
+      "title": "自动驾驶软件架构实习生-XC",
+      "city": "苏州",
+      "url": "https://www.shixiseng.com/intern/inn_y1qses1gmv1p",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-05T09:42:28.856Z",
+      "notifiedAt": "2026-11-05T09:42:28.856Z",
       "channel": "smtp"
     }
   }
