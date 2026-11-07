@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-07T03:11:06.698Z",
+  "updatedAt": "2026-11-07T14:30:10.520Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -1530,6 +1530,36 @@
       "tier": "长期备选",
       "firstSeenAt": "2026-11-07T03:11:06.697Z",
       "notifiedAt": "2026-11-07T03:11:06.697Z",
+      "channel": "smtp"
+    },
+    "id:a01b5f48437f48ee": {
+      "company": "BOSS直聘公开职位",
+      "title": "请稍候",
+      "city": "武汉",
+      "url": "https://www.zhipin.com/web/passport/zp/security.html?seed=kOAkeMeuMer1ZlVhHADQ9xCSfiAAvaCNuC089LK6go8%3D&name=c9456a0e&ts=1794061794020&callbackUrl=%2Fjob_detail%2F4f6428b992ab67491H1809i1F1BV.html&srcReferer",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-07T14:30:10.519Z",
+      "notifiedAt": "2026-11-07T14:30:10.519Z",
+      "channel": "smtp"
+    },
+    "url:0d5d4e5c6b050603": {
+      "company": "BOSS直聘公开职位",
+      "title": "请稍候",
+      "city": "武汉",
+      "url": "https://www.zhipin.com/web/passport/zp/security.html?seed=kOAkeMeuMer1ZlVhHADQ9xCSfiAAvaCNuC089LK6go8%3D&name=c9456a0e&ts=1794061794020&callbackUrl=%2Fjob_detail%2F4f6428b992ab67491H1809i1F1BV.html&srcReferer",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-07T14:30:10.519Z",
+      "notifiedAt": "2026-11-07T14:30:10.519Z",
+      "channel": "smtp"
+    },
+    "ct:boss直聘公开职位|请稍候": {
+      "company": "BOSS直聘公开职位",
+      "title": "请稍候",
+      "city": "武汉",
+      "url": "https://www.zhipin.com/web/passport/zp/security.html?seed=kOAkeMeuMer1ZlVhHADQ9xCSfiAAvaCNuC089LK6go8%3D&name=c9456a0e&ts=1794061794020&callbackUrl=%2Fjob_detail%2F4f6428b992ab67491H1809i1F1BV.html&srcReferer",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-07T14:30:10.519Z",
+      "notifiedAt": "2026-11-07T14:30:10.519Z",
       "channel": "smtp"
     }
   }
