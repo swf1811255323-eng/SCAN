@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-05T09:42:28.856Z",
+  "updatedAt": "2026-11-07T03:11:06.698Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -1500,6 +1500,36 @@
       "tier": "长期备选",
       "firstSeenAt": "2026-11-05T09:42:28.856Z",
       "notifiedAt": "2026-11-05T09:42:28.856Z",
+      "channel": "smtp"
+    },
+    "id:2526236a17a3f0d0": {
+      "company": "百度",
+      "title": "图像C++开发实习生",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_qijsgbbnvkr2",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-07T03:11:06.697Z",
+      "notifiedAt": "2026-11-07T03:11:06.697Z",
+      "channel": "smtp"
+    },
+    "url:b4a7b3596903e401": {
+      "company": "百度",
+      "title": "图像C++开发实习生",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_qijsgbbnvkr2",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-07T03:11:06.697Z",
+      "notifiedAt": "2026-11-07T03:11:06.697Z",
+      "channel": "smtp"
+    },
+    "ct:百度|图像c++开发实习生": {
+      "company": "百度",
+      "title": "图像C++开发实习生",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_qijsgbbnvkr2",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-07T03:11:06.697Z",
+      "notifiedAt": "2026-11-07T03:11:06.697Z",
       "channel": "smtp"
     }
   }
