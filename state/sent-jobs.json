@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-08T14:28:54.753Z",
+  "updatedAt": "2026-11-10T16:38:41.201Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -1590,6 +1590,36 @@
       "tier": "长期备选",
       "firstSeenAt": "2026-11-08T14:28:54.753Z",
       "notifiedAt": "2026-11-08T14:28:54.753Z",
+      "channel": "smtp"
+    },
+    "id:9ed9e37328fbd91c": {
+      "company": "蜀俊博凌",
+      "title": "C++开发",
+      "city": "成都",
+      "url": "https://www.shixiseng.com/intern/inn_dxpe6iozwnoh",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-10T16:38:41.200Z",
+      "notifiedAt": "2026-11-10T16:38:41.200Z",
+      "channel": "smtp"
+    },
+    "url:107eb7b93802fe47": {
+      "company": "蜀俊博凌",
+      "title": "C++开发",
+      "city": "成都",
+      "url": "https://www.shixiseng.com/intern/inn_dxpe6iozwnoh",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-10T16:38:41.200Z",
+      "notifiedAt": "2026-11-10T16:38:41.200Z",
+      "channel": "smtp"
+    },
+    "ct:蜀俊博凌|c++开发": {
+      "company": "蜀俊博凌",
+      "title": "C++开发",
+      "city": "成都",
+      "url": "https://www.shixiseng.com/intern/inn_dxpe6iozwnoh",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-10T16:38:41.200Z",
+      "notifiedAt": "2026-11-10T16:38:41.200Z",
       "channel": "smtp"
     }
   }
