@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T07:25:12.901Z",
+  "updatedAt": "2026-11-13T12:33:45.755Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -1650,6 +1650,66 @@
       "tier": "长期备选",
       "firstSeenAt": "2026-11-12T07:25:12.901Z",
       "notifiedAt": "2026-11-12T07:25:12.901Z",
+      "channel": "smtp"
+    },
+    "id:30f91dab62090ab3": {
+      "company": "BOSS直聘公开职位",
+      "title": "linux C++应用开发是做什么的_光庭2026年linux C++应用开发岗位职责...",
+      "city": "武汉",
+      "url": "https://www.zhipin.com/job_detail/4f6428b992ab67491H1809i1F1BV.html",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-13T12:33:45.755Z",
+      "notifiedAt": "2026-11-13T12:33:45.755Z",
+      "channel": "smtp"
+    },
+    "url:f72873424fad5a64": {
+      "company": "BOSS直聘公开职位",
+      "title": "linux C++应用开发是做什么的_光庭2026年linux C++应用开发岗位职责...",
+      "city": "武汉",
+      "url": "https://www.zhipin.com/job_detail/4f6428b992ab67491H1809i1F1BV.html",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-13T12:33:45.755Z",
+      "notifiedAt": "2026-11-13T12:33:45.755Z",
+      "channel": "smtp"
+    },
+    "ct:boss直聘公开职位|linuxc++应用开发是做什么的_光庭2026年linuxc++应用开发岗位职责...": {
+      "company": "BOSS直聘公开职位",
+      "title": "linux C++应用开发是做什么的_光庭2026年linux C++应用开发岗位职责...",
+      "city": "武汉",
+      "url": "https://www.zhipin.com/job_detail/4f6428b992ab67491H1809i1F1BV.html",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-13T12:33:45.755Z",
+      "notifiedAt": "2026-11-13T12:33:45.755Z",
+      "channel": "smtp"
+    },
+    "id:8fdc6458c73c4e47": {
+      "company": "BOSS直聘公开职位",
+      "title": "c++招聘_船海科技招聘",
+      "city": "武汉",
+      "url": "https://www.zhipin.com/job_detail/063e4a14bce84e151XJ-2N29F1tX.html",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-13T12:33:45.755Z",
+      "notifiedAt": "2026-11-13T12:33:45.755Z",
+      "channel": "smtp"
+    },
+    "url:0aa2eab7908af2b7": {
+      "company": "BOSS直聘公开职位",
+      "title": "c++招聘_船海科技招聘",
+      "city": "武汉",
+      "url": "https://www.zhipin.com/job_detail/063e4a14bce84e151XJ-2N29F1tX.html",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-13T12:33:45.755Z",
+      "notifiedAt": "2026-11-13T12:33:45.755Z",
+      "channel": "smtp"
+    },
+    "ct:boss直聘公开职位|c++招聘_船海科技招聘": {
+      "company": "BOSS直聘公开职位",
+      "title": "c++招聘_船海科技招聘",
+      "city": "武汉",
+      "url": "https://www.zhipin.com/job_detail/063e4a14bce84e151XJ-2N29F1tX.html",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-13T12:33:45.755Z",
+      "notifiedAt": "2026-11-13T12:33:45.755Z",
       "channel": "smtp"
     }
   }
