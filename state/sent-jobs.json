@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T12:33:45.755Z",
+  "updatedAt": "2026-11-15T12:13:35.457Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -1710,6 +1710,36 @@
       "tier": "长期备选",
       "firstSeenAt": "2026-11-13T12:33:45.755Z",
       "notifiedAt": "2026-11-13T12:33:45.755Z",
+      "channel": "smtp"
+    },
+    "id:4a1b4afc51a470f2": {
+      "company": "艾思克瑞",
+      "title": "C++开发",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_yijnelzm74uj",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-15T12:13:35.456Z",
+      "notifiedAt": "2026-11-15T12:13:35.456Z",
+      "channel": "smtp"
+    },
+    "url:92c23090f92a5b71": {
+      "company": "艾思克瑞",
+      "title": "C++开发",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_yijnelzm74uj",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-15T12:13:35.456Z",
+      "notifiedAt": "2026-11-15T12:13:35.456Z",
+      "channel": "smtp"
+    },
+    "ct:艾思克瑞|c++开发": {
+      "company": "艾思克瑞",
+      "title": "C++开发",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_yijnelzm74uj",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-15T12:13:35.456Z",
+      "notifiedAt": "2026-11-15T12:13:35.456Z",
       "channel": "smtp"
     }
   }
