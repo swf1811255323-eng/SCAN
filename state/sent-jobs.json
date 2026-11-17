@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T06:46:48.068Z",
+  "updatedAt": "2026-11-17T10:53:45.350Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -1770,6 +1770,36 @@
       "tier": "优先投",
       "firstSeenAt": "2026-11-16T06:46:48.068Z",
       "notifiedAt": "2026-11-16T06:46:48.068Z",
+      "channel": "smtp"
+    },
+    "id:35478f6ecda84d2e": {
+      "company": "百度",
+      "title": "搜索架构部实习生",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_u8qbazyfwud0",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-17T10:53:45.350Z",
+      "notifiedAt": "2026-11-17T10:53:45.349Z",
+      "channel": "smtp"
+    },
+    "url:ae0a733b7fac4d32": {
+      "company": "百度",
+      "title": "搜索架构部实习生",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_u8qbazyfwud0",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-17T10:53:45.350Z",
+      "notifiedAt": "2026-11-17T10:53:45.349Z",
+      "channel": "smtp"
+    },
+    "ct:百度|搜索架构部实习生": {
+      "company": "百度",
+      "title": "搜索架构部实习生",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_u8qbazyfwud0",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-17T10:53:45.350Z",
+      "notifiedAt": "2026-11-17T10:53:45.349Z",
       "channel": "smtp"
     }
   }
