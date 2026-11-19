@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-18T07:42:38.023Z",
+  "updatedAt": "2026-11-19T07:38:51.592Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -1830,6 +1830,36 @@
       "tier": "长期备选",
       "firstSeenAt": "2026-11-18T07:42:38.022Z",
       "notifiedAt": "2026-11-18T07:42:38.022Z",
+      "channel": "smtp"
+    },
+    "id:963b1b513329dc92": {
+      "company": "摩恩科技",
+      "title": "C++储备教师",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_fclanb8zb57d",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-19T07:38:51.591Z",
+      "notifiedAt": "2026-11-19T07:38:51.591Z",
+      "channel": "smtp"
+    },
+    "url:2c6bceac3e5cceef": {
+      "company": "摩恩科技",
+      "title": "C++储备教师",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_fclanb8zb57d",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-19T07:38:51.591Z",
+      "notifiedAt": "2026-11-19T07:38:51.591Z",
+      "channel": "smtp"
+    },
+    "ct:摩恩科技|c++储备教师": {
+      "company": "摩恩科技",
+      "title": "C++储备教师",
+      "city": "北京",
+      "url": "https://www.shixiseng.com/intern/inn_fclanb8zb57d",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-19T07:38:51.591Z",
+      "notifiedAt": "2026-11-19T07:38:51.591Z",
       "channel": "smtp"
     }
   }
