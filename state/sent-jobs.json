@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-19T07:38:51.592Z",
+  "updatedAt": "2026-11-20T07:29:46.911Z",
   "entries": {
     "id:2f818e595441e547": {
       "company": "武汉格蓝若智能技术股份有限公司",
@@ -1860,6 +1860,36 @@
       "tier": "长期备选",
       "firstSeenAt": "2026-11-19T07:38:51.591Z",
       "notifiedAt": "2026-11-19T07:38:51.591Z",
+      "channel": "smtp"
+    },
+    "id:eda9587e25c7183b": {
+      "company": "山西证券",
+      "title": "量化开发实习生（C++）",
+      "city": "深圳",
+      "url": "https://www.shixiseng.com/intern/inn_ci3euq2bk1pe",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-20T07:29:46.911Z",
+      "notifiedAt": "2026-11-20T07:29:46.910Z",
+      "channel": "smtp"
+    },
+    "url:5f77ea4f1c9d0381": {
+      "company": "山西证券",
+      "title": "量化开发实习生（C++）",
+      "city": "深圳",
+      "url": "https://www.shixiseng.com/intern/inn_ci3euq2bk1pe",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-20T07:29:46.911Z",
+      "notifiedAt": "2026-11-20T07:29:46.910Z",
+      "channel": "smtp"
+    },
+    "ct:山西证券|量化开发实习生（c++）": {
+      "company": "山西证券",
+      "title": "量化开发实习生（C++）",
+      "city": "深圳",
+      "url": "https://www.shixiseng.com/intern/inn_ci3euq2bk1pe",
+      "tier": "长期备选",
+      "firstSeenAt": "2026-11-20T07:29:46.911Z",
+      "notifiedAt": "2026-11-20T07:29:46.910Z",
       "channel": "smtp"
     }
   }
